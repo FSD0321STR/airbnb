@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import logo from './logo.svg'
 import './App.css'
+import { ChakraProvider } from "@chakra-ui/react"
 
-function App() {
-  
-
+function App({ Component }) {
+  // 2. Use at the root of your app
   return (
-    <div className="App">
-      <input className="button" type="text" placeholder="name" />
-    </div>
+    <ChakraProvider>
+      <Component />
+    </ChakraProvider>
   )
 }
 
