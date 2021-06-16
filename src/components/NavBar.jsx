@@ -4,7 +4,7 @@ import { Flex, Box, Spacer, Menu,
   MenuButton,
   MenuList,
   MenuItem,
-  Button, Image } from "@chakra-ui/react"
+  Button, Text } from "@chakra-ui/react"
   import { ChevronDownIcon } from '@chakra-ui/icons'
 
 function NavBar() {
@@ -16,12 +16,14 @@ function NavBar() {
       </Box>
       <Spacer />
       <Box p={2}>
+      <Link to="/"><Button mr={2} colorScheme="blue">Home</Button></Link>
         <Menu>
+        
         <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
-            Actions
+            Usuario
           </MenuButton>
           <MenuList>
-            <MenuItem>Register</MenuItem>
+            <Link to="/user-register"><MenuItem>Register</MenuItem></Link>
             <MenuItem>Editar mis datos</MenuItem>
             <MenuItem>Editar mis alojamientis</MenuItem>
             <MenuItem>Logout</MenuItem>
