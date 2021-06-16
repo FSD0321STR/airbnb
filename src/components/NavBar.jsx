@@ -24,7 +24,7 @@ function NavBar() {
           </MenuButton>
           <MenuList>
             <Link to="/user-register"><MenuItem>Register</MenuItem></Link>
-            <MenuItem>Editar mis datos</MenuItem>
+            <Link to="/edit-user"><MenuItem>Editar mis datos</MenuItem></Link>
             <MenuItem>Editar mis alojamientis</MenuItem>
             <MenuItem>Logout</MenuItem>
           </MenuList>
