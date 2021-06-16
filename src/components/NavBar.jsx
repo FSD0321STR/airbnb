@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Flex, Box, Spacer, Menu,
   MenuButton,
   MenuList,
@@ -20,6 +21,7 @@ function NavBar() {
             Actions
           </MenuButton>
           <MenuList>
+            <MenuItem>Register</MenuItem>
             <MenuItem>Editar mis datos</MenuItem>
             <MenuItem>Editar mis alojamientis</MenuItem>
             <MenuItem>Logout</MenuItem>
