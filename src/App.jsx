@@ -1,15 +1,21 @@
-import React, { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
-import { ChakraProvider } from "@chakra-ui/react"
-import NavBar from "./components/NavBar"
+import React, { useState } from 'react';
+import './App.css';
+import { ChakraProvider} from "@chakra-ui/react";
+import NavBar from "./components/NavBar";
+
+import RegisterPage from './pages/register-page';
+
 
 function App({ Component }) {
-  // 2. Use at the root of your app
+
   return (
-    <ChakraProvider>
-      <NavBar />
-    </ChakraProvider>
+    
+      
+        <ChakraProvider>
+          <NavBar />
+          
+        </ChakraProvider>
+          
   )
 }
 
