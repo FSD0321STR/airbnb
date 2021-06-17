@@ -11,27 +11,27 @@ import { Flex, Box, Spacer, Menu, MenuButton, MenuList, MenuItem,
   Button, Image } from "@chakra-ui/react"
   import { ChevronDownIcon } from '@chakra-ui/icons'
   import FormSignIn from "./Form-Sign-In"
-  import TitleInput from "./Title-Input"
-  import Email from "./Email"
-  import Password from "./Passwsord";
-  import Submit from "./Submit"
+  import TitleInputLogIn from "./Title-Input"
+  import EmailLogIn from "./Email"
+  import PasswordLogIn from "./Passwsord";
+  import SubmitLogIn from "./Submit"
 
-  function SignIn () {
+  function LogIn () {
       return (
       <Flex>
         <FormSignIn >
           <Grid templateColumns="repeat(1, 1fr)" gap={10} marginTop="10rem" marginLeft= "37rem">
            <Center w="500px" textAlign='center'>
-            <TitleInput />
+            <TitleInputLogIn />
            </Center>
            <Center w="500px">
-            <Email />
+            <EmailLogIn />
            </Center>
            <Center w="500px" textAlign='center'>
-            <Password />
+            <PasswordLogIn />
            </Center>
            <Center w="500px" textAlign='center'>
-            <Submit />
+            <SubmitLogIn />
            </Center>
           </Grid>
          </FormSignIn>
@@ -39,6 +39,6 @@ import { Flex, Box, Spacer, Menu, MenuButton, MenuList, MenuItem,
       );
   }
 
-  export default SignIn;
+  export default LogIn;
 
   

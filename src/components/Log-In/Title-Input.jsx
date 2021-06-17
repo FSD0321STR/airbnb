@@ -8,7 +8,7 @@ import { Flex, Box, Spacer, Menu, MenuButton, MenuList, MenuItem,
   Button, Image } from "@chakra-ui/react"
   import { ChevronDownIcon } from '@chakra-ui/icons'
 
-function TitleInput () {
+function TitleInputLogIn () {
     return (
         <Box bg="grey" w="100%" p={4} color="black">
         Iniciar Sesión
@@ -16,4 +16,4 @@ function TitleInput () {
     );
 }
 
-export default TitleInput;
+export default TitleInputLogIn;

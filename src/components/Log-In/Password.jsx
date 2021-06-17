@@ -8,14 +8,13 @@ import { Flex, Box, Spacer, Menu, MenuButton, MenuList, MenuItem,
   Button, Image } from "@chakra-ui/react"
   import { ChevronDownIcon } from '@chakra-ui/icons'
 
-function Email () {
+function PasswordLogIn () {
     return (
-        <FormControl id="email" isRequired>
-          <FormLabel>Email address</FormLabel>
-          <Input type="email" />
-          <FormHelperText>We'll never share your email.</FormHelperText>
+        <FormControl id="password">
+          <FormLabel>Password</FormLabel>
+          <Input type="password" />
         </FormControl>
     );
 }
 
-export default Email;
+export default PasswordLogIn;
