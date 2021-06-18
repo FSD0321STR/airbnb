@@ -11,13 +11,17 @@ function RegisterPage() {
       }
 
     return (
+<<<<<<< HEAD
         <ChakraProvider>
           <NavBarLogout />
+=======
+      <div>
+>>>>>>> a2f0d4586867e02b608a1b19b1f2e759682dec50
           <h2>Página de registro</h2>
         <RegisterForm onSubmit={registerUser}>
             
           </RegisterForm>
-          </ChakraProvider>
+      </div>
     )
 }
 
