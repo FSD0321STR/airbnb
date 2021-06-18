@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Flex, Box, Spacer, Menu,
   MenuButton,
   MenuList,
   MenuItem,
   Button, Text } from "@chakra-ui/react"
-  import { ChevronDownIcon } from '@chakra-ui/icons'
+import { ChevronDownIcon } from '@chakra-ui/icons'
 
 function NavBar() {
     
@@ -25,7 +25,7 @@ function NavBar() {
           <MenuList>
             <Link to="/user-register"><MenuItem>Register</MenuItem></Link>
             <Link to="/edit-user"><MenuItem>Editar mis datos</MenuItem></Link>
-            <MenuItem>Editar mis alojamientis</MenuItem>
+            <Link to="/alojamientos-user"><MenuItem>Editar mis alojamientis</MenuItem></Link>
             <MenuItem>Logout</MenuItem>
           </MenuList>
         </Menu>
