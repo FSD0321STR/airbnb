@@ -8,12 +8,19 @@ import EditUserPage from './pages/edit-user-page';
 import AlojamientosPage from './pages/alojamientos-user-page';
 import AlojamientosPublicPage from './pages/alojamientos-public-page';
 
+import useLocalStorageString from './components/hooks/useLocalStorageString';
+import { AuthContext } from './utils/auth-provider';
 
 function App({ Component }) {
+  const [userMail,setUserMail] = useLocalStorageString("email","")
 
+  function getUserMail(email) {
+    setUserMail(email);
+  }
 
   return (
     <BrowserRouter>
+      <AuthContext.Provider value={userMail}>
         <div>
         <ChakraProvider>
           <NavBarRegisterLogin />
@@ -21,7 +28,7 @@ function App({ Component }) {
           <hr />
           <Switch>
             <Route path="/user-register">
-              <RegisterPage />
+              <RegisterPage value={getUserMail} />
             </Route>
             <Route path="/edit-user">
               <EditUserPage />
@@ -34,6 +41,7 @@ function App({ Component }) {
             </Route>
           </Switch>
         </div>
+      </AuthContext.Provider>
     </BrowserRouter>
   )
 }
