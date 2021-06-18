@@ -5,7 +5,7 @@ async function registerUserApi() {
 }
 
 async function loginUserApi() {
-    await alert('edit')
+    await alert('login')
 }
 async function editUserApi() {
     await alert('edit')

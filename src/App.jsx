@@ -3,12 +3,12 @@ import './App.css';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { ChakraProvider} from "@chakra-ui/react";
 import NavBarRegisterLogin from "./components/NavBar/NavBarRegisterLogin";
-import NavBarLogout from "./components/NavBar/NavBarLogout";
+//import NavBarLogout from "./components/NavBar/NavBarLogout";
 
 import RegisterPage from './pages/register-page';
 import EditUserPage from './pages/edit-user-page';
-import { registerUserApi } from './utils/apiTest';
-import { loginUserApi } from './utils/apiTest';
+//import registerUserApi  from './utils/apiTest';
+//import loginUserApi  from './utils/apiTest';
 
 function App({ Component }) {
 
@@ -17,7 +17,6 @@ function App({ Component }) {
       
         <div>
         <ChakraProvider>
-         //* if ({ registerUserApi ===true } || { loginUserApi ===true }) {<NavBarLogout />} *//
           <NavBarRegisterLogin />
         </ChakraProvider>
           <hr />

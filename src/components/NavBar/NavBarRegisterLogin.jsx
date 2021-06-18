@@ -1,18 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Flex, Box, Spacer, Menu,
+import { Flex, Box, Spacer, Menu, Image,
   MenuButton,
   MenuList,
   MenuItem,
   Button, Text } from "@chakra-ui/react"
   import { ChevronDownIcon } from '@chakra-ui/icons'
 
-function NavBar() {
+function NavBarRegisterLogin() {
     
   return (
     <Flex>
       <Box p={2}>
-      <h2>Logo</h2>
+         <Image  w={8} h={8} src="./images/logo_negro-airbnb.png" />
       </Box>
       <Spacer />
       <Box p={2}>
@@ -34,5 +34,5 @@ function NavBar() {
     );
   }
   
-  export default NavBar;
+  export default NavBarRegisterLogin;
   
