@@ -13,14 +13,14 @@ import { Flex, Box, Spacer, Menu, MenuButton, MenuList, MenuItem,
   import FormSignIn from "./Form-Sign-In"
   import TitleInputLogIn from "./Title-Input"
   import EmailLogIn from "./Email"
-  import PasswordLogIn from "./Passwsord";
+  import PasswordLogIn from "./Password";
   import SubmitLogIn from "./Submit"
 
   function LogIn () {
       return (
       <Flex>
         <FormSignIn >
-          <Grid templateColumns="repeat(1, 1fr)" gap={10} marginTop="10rem" marginLeft= "37rem">
+          <Grid templateColumns="repeat(1, 1fr)" gap={10} marginTop="10rem" marginLeft= "41rem">
            <Center w="500px" textAlign='center'>
             <TitleInputLogIn />
            </Center>

@@ -7,7 +7,7 @@ import register from "../utils/apiRegister";
 function RegisterPage() {
 
     function registerUser(userRegister) {
-        register(userRegister);
+        register(userRegister)
       }
 
     return (
