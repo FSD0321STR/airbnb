@@ -7,7 +7,8 @@ import RegisterPage from './pages/register-page';
 import EditUserPage from './pages/edit-user-page';
 import AlojamientosPage from './pages/alojamientos-user-page';
 import AlojamientosPublicPage from './pages/alojamientos-public-page';
-
+import LogIn from './components/Log-In/LogIn';
+import LogInPage from './pages/LogIn-page';
 import useLocalStorageString from './components/hooks/useLocalStorageString';
 import { AuthContext } from './utils/auth-provider';
 
@@ -24,7 +25,7 @@ function App({ Component }) {
         <div>
         <ChakraProvider>
           <NavBarRegisterLogin />
-        </ChakraProvider>
+          <LogIn />
           <hr />
           <Switch>
             <Route path="/user-register">
@@ -39,11 +40,17 @@ function App({ Component }) {
             <Route path="/">
               <AlojamientosPublicPage />
             </Route>
+            <Route path="/log-in">
+              <LogInPage />
+            </Route>
           </Switch>
+          </ChakraProvider>
         </div>
       </AuthContext.Provider>
     </BrowserRouter>
   )
 }
+
+
 
 export default App

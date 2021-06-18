@@ -11,12 +11,12 @@ function RegisterPage() {
       }
 
     return (
-        <ChakraProvider>
+      <div>
           <h2>Página de registro</h2>
         <RegisterForm onSubmit={registerUser}>
             
           </RegisterForm>
-          </ChakraProvider>
+      </div>
     )
 }
 
