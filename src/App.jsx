@@ -2,12 +2,12 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { ChakraProvider} from "@chakra-ui/react";
-import NavBar from "./components/NavBar";
-
+import NavBarRegisterLogin from "./components/NavBar/NavBarRegisterLogin";
 import RegisterPage from './pages/register-page';
 import EditUserPage from './pages/edit-user-page';
 import AlojamientosPage from './pages/alojamientos-user-page';
 import AlojamientosPublicPage from './pages/alojamientos-public-page';
+
 
 function App({ Component }) {
 
@@ -16,7 +16,7 @@ function App({ Component }) {
     <BrowserRouter>
         <div>
         <ChakraProvider>
-          <NavBar />
+          <NavBarRegisterLogin />
         </ChakraProvider>
           <hr />
           <Switch>
