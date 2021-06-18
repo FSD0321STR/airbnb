@@ -7,6 +7,7 @@ import NavBar from "./components/NavBar";
 import RegisterPage from './pages/register-page';
 import EditUserPage from './pages/edit-user-page';
 import AlojamientosPage from './pages/alojamientos-user-page';
+import AlojamientosPublicPage from './pages/alojamientos-public-page';
 
 function App({ Component }) {
 
@@ -29,7 +30,7 @@ function App({ Component }) {
               <AlojamientosPage />
             </Route>
             <Route path="/">
-              <h1>Hola</h1>
+              <AlojamientosPublicPage />
             </Route>
           </Switch>
         </div>
