@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { Grid } from "@chakra-ui/react";
 
 import NameInput from "./NameInput";
@@ -11,7 +11,7 @@ import RegisterUserButton from "./RegisterUserButton";
 
 import { emailValidation, passwordValidation, phoneValidation, textValidation } from "../../utils/formValidation";
 
-function RegisterForm({onSubmit}) {
+function EditUserForm({onSubmit}) {
 
     const [name,setName] = useState("");
     const [lastName,setLastName] = useState("");
@@ -63,7 +63,7 @@ function RegisterForm({onSubmit}) {
     }
 
 
-    function registerUser(event) {
+    function editUser(event) {
         event.preventDefault();
 
         const nameValidate = textValidation(name);
@@ -111,7 +111,7 @@ function RegisterForm({onSubmit}) {
 
 
     return (
-    <form onSubmit={registerUser}>
+    <form onSubmit={editUser}>
         <Grid templateColumns="repeat(2, 1fr)" gap={1}>
           <NameInput value={name} validation={nameErrorMessage} onChange={getName}></NameInput>
           <LastNameInput value={lastName} validation={lastNameErrorMessage} onChange={getLastName}></LastNameInput>
@@ -125,4 +125,4 @@ function RegisterForm({onSubmit}) {
     )
 }
 
-export default RegisterForm;
+export default EditUserForm;
