@@ -16,23 +16,30 @@ function App({ Component }) {
     <BrowserRouter>
         <div>
         <ChakraProvider>
-          <NavBarRegisterLogin />
-        </ChakraProvider>
+         
+        
           <hr />
           <Switch>
             <Route path="/user-register">
               <RegisterPage />
             </Route>
+            <Route path="/user-login">
+              <RegisterPage />
+            </Route>
             <Route path="/edit-user">
               <EditUserPage />
             </Route>
-            <Route path="/alojamientos-user">
+            <Route path="/alojamientos-anfitrion">
+              <AlojamientosPage />
+            </Route>
+            <Route path="/seleccion-alojamiento-vacaciones">
               <AlojamientosPage />
             </Route>
             <Route path="/">
               <AlojamientosPublicPage />
             </Route>
           </Switch>
+          </ChakraProvider>
         </div>
     </BrowserRouter>
   )

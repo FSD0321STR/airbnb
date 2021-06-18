@@ -26,16 +26,14 @@ function NavBarRegisterLogin() {
       </InputGroup>
       </Box>
       <Box p={2}>
-      <Link to="/"><Button mr={2} colorScheme="blue">Hazte anfitrión</Button></Link>
+      <Link to="/user-register"><Button mr={2} colorScheme="blue">Hazte anfitrión</Button></Link>
         <Menu>
           <MenuButton as={Button} leftIcon={<HamburgerIcon />} rightIcon = {<ChevronDownIcon />}  borderRadius="md"> </MenuButton>
           <MenuList>
               <Link to="/user-register"><MenuItem>Regístrate</MenuItem></Link>
-              <Link to="#"><MenuItem>Inicia Sesión</MenuItem></Link>
-              <Link to="/edit-user"><MenuItem>Editar tus datos</MenuItem></Link>
-              <Link to="/alojamientos-user"><MenuItem>Ofrece tu alojamiento</MenuItem></Link>
-              <Link to="/user-register"><MenuItem>Ofrece una experiencia</MenuItem></Link>
-              <Link to="/user-register"><MenuItem>Ayuda</MenuItem></Link>
+              <Link to="/user-login"><MenuItem>Iniciar Sesión</MenuItem></Link>
+              <Link to="/"><MenuItem>Buscar Alojamientos</MenuItem></Link>
+              <Link to="/"><MenuItem>Contacta con nosotros</MenuItem></Link>
           </MenuList>
         </Menu>
       </Box>

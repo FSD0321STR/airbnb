@@ -5,7 +5,7 @@ import { Flex, Box, Spacer, Menu, Image,
     MenuList,
     MenuItem,
     Button, InputGroup, InputLeftElement, Input } from "@chakra-ui/react"
-    import { ChevronDownIcon, SearchIcon } from '@chakra-ui/icons'
+    import { ChevronDownIcon, SearchIcon, HamburgerIcon } from '@chakra-ui/icons'
   
   function NavBarLogout() {
       
@@ -25,14 +25,15 @@ import { Flex, Box, Spacer, Menu, Image,
             </InputGroup>
             </Box>
             <Box p={2}>
-                <Link to="/"><Button mr={2} colorScheme="blue">Hazte anfitrión</Button></Link>
+                <Link to="/"><Button mr={2} colorScheme="blue">Home</Button></Link>
                 <Menu>
                     <MenuButton as={Button} leftIcon={<HamburgerIcon />} rightIcon = {<ChevronDownIcon />}  borderRadius="md"> </MenuButton>
                         <MenuList>
                             <Link to="/edit-user"><MenuItem>Editar perfil</MenuItem></Link>
-                            <Link to="/edit-user"><MenuItem>Editar alojamientos</MenuItem></Link>
-                            <Link to="/edit-user"><MenuItem>Cerrar Sesión</MenuItem></Link>
-                            <Link to="/edit-user"><MenuItem>Ayuda</MenuItem></Link>
+                            <Link to="/seleccion-alojamiento-vacaciones"><MenuItem>Listado Alojamientos Favoritos</MenuItem></Link>
+                            <Link to="/alojamientos-anfitrion"><MenuItem>Editar alojamientos como anfitrión</MenuItem></Link>
+                            <Link to="/"><MenuItem>Cerrar Sesión</MenuItem></Link>
+                            <Link to="/"><MenuItem>Contacta con nosotros</MenuItem></Link>
                         </MenuList>
                 </Menu>
             </Box>

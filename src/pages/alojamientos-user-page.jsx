@@ -1,9 +1,12 @@
 import React from "react";
 import { ChakraProvider, Grid, Box, Image, Flex, Badge, Text, Button } from "@chakra-ui/react";
+import NavBarLogout from "../components/NavBar/NavBarLogout";
 
 function AlojamientosPage() {
     return (
         <ChakraProvider>
+            <NavBarLogout />
+            <Text>REGISTRO ALOJAMIENTOS ANFITRIóN - PROPIETARIO</Text>
             <Grid templateColumns="repeat(3, 1fr)" gap={1}>
                 <Box p="5" maxW="320px" borderWidth="1px">
                 <Image borderRadius="md" src="https://bit.ly/2k1H1t6" />
