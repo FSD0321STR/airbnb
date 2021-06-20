@@ -14,7 +14,6 @@ function EditUserPage() {
     return (
         <ChakraProvider>
           <NavBarLogout />
-            <h2>Editar datos usuario</h2>
           <EditUserForm onSubmit={editUser}>
           </EditUserForm>
         </ChakraProvider>

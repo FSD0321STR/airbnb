@@ -13,7 +13,6 @@ function LogInPage() {
     return (
         <ChakraProvider>
           <NavBarRegisterLogin />
-          <h2>Inicio Sesión</h2>
           <LogIn onSubmit={LogInUser}/>
         </ChakraProvider>
     )

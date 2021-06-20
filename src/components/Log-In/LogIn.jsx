@@ -10,7 +10,7 @@ import SubmitLogIn from "./Submit"
       return (
       <Flex>
         <FormSignIn >
-          <Grid templateColumns="repeat(1, 1fr)" gap={10} marginTop="10rem" marginLeft= "41rem">
+          <Grid templateColumns="repeat(1, 1fr)" gap={10} marginTop="5rem" marginLeft= "41rem">
             <Center w="500px" textAlign='center'>
               <TitleInputLogIn />
             </Center>

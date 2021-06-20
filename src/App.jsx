@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { ChakraProvider} from "@chakra-ui/react";
+import { ChakraProvider, Center } from "@chakra-ui/react";
 import RegisterPage from './pages/register-page';
 import EditUserPage from './pages/edit-user-page';
 import AlojamientosAnfitrionPage from './pages/alojamientos-anfitrion-page';

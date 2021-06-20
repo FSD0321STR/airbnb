@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Grid } from "@chakra-ui/react";
+import { Grid, Center } from "@chakra-ui/react";
 
 import NameInput from "./NameInput";
 import LastNameInput from "./LastNameInput";
@@ -7,7 +7,9 @@ import EmailInput from "./EmailInput";
 import PhoneInput from "./PhoneInput";
 import PasswordInput from "./Password";
 import RepeatPasswordInput from "./RepeatPassword";
-import RegisterUserButton from "./RegisterUserButton";
+import TitleInputRegister from "./TitleInputRegister";
+import RegisterUserButton from "./RegisterUserButton"
+
 
 import { emailValidation, passwordValidation, phoneValidation, textValidation } from "../../utils/formValidation";
 
@@ -112,15 +114,24 @@ function RegisterForm({onSubmit}) {
 
     return (
     <form onSubmit={registerUser}>
-        <Grid templateColumns="repeat(2, 1fr)" gap={1}>
-          <NameInput value={name} validation={nameErrorMessage} onChange={getName}></NameInput>
-          <LastNameInput value={lastName} validation={lastNameErrorMessage} onChange={getLastName}></LastNameInput>
-          <EmailInput value={email} validation={emailErrorMessage} onChange={getEmail}></EmailInput>
-          <PhoneInput value={phone} validation={phoneErrorMessage} onChange={getPhone}></PhoneInput>
-          <PasswordInput value={password} validation={passwordErrorMessage} onChange={getPassword}></PasswordInput>
-          <RepeatPasswordInput value={repitePassword} validation={repitePasswordErrorMessage} onChange={getRepitePassword}></RepeatPasswordInput>
+        <Grid templateColumns="repeat(1, 1fr)" gap={10} marginTop="5rem" marginLeft= "41rem">
+            <Center w="50%" textAlign='center'>
+                <TitleInputRegister/>
+            </Center>
         </Grid>
-        <RegisterUserButton></RegisterUserButton>
+        <Grid templateColumns="repeat(2, 1fr)" gap={4} marginTop="5rem" marginLeft= "5rem" marginRight="5rem">
+            <NameInput pos="right" value={name} validation={nameErrorMessage} onChange={getName}></NameInput>
+            <LastNameInput pos="left" value={lastName} validation={lastNameErrorMessage} onChange={getLastName}></LastNameInput>
+            <EmailInput value={email} validation={emailErrorMessage} onChange={getEmail}></EmailInput>
+            <PhoneInput value={phone} validation={phoneErrorMessage} onChange={getPhone}></PhoneInput>
+            <PasswordInput value={password} validation={passwordErrorMessage} onChange={getPassword}></PasswordInput>
+            <RepeatPasswordInput value={repitePassword} validation={repitePasswordErrorMessage} onChange={getRepitePassword}></RepeatPasswordInput>
+        </Grid>
+        <Grid templateColumns="repeat(1, 1fr)" gap={5} marginTop="5rem" marginLeft= "45rem">
+            <Center w="500px" textAlign='center'>
+                <RegisterUserButton></RegisterUserButton>
+            </Center>
+        </Grid>
     </form>
     )
 }

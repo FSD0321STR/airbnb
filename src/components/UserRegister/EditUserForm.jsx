@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Grid } from "@chakra-ui/react";
+import TitleInputEditUser from "./TitleInputEditUser"
 
 import NameInput from "./NameInput";
 import LastNameInput from "./LastNameInput";
@@ -112,6 +113,11 @@ function EditUserForm({onSubmit}) {
 
     return (
     <form onSubmit={editUser}>
+        <Grid templateColumns="repeat(1, 1fr)" gap={10} marginTop="5rem" marginLeft= "41rem">
+            <Center w="50%" textAlign='center'>
+                <TitleInputEditUser/>
+            </Center>
+        </Grid>
         <Grid templateColumns="repeat(2, 1fr)" gap={1}>
           <NameInput value={name} validation={nameErrorMessage} onChange={getName}></NameInput>
           <LastNameInput value={lastName} validation={lastNameErrorMessage} onChange={getLastName}></LastNameInput>
@@ -120,7 +126,12 @@ function EditUserForm({onSubmit}) {
           <PasswordInput value={password} validation={passwordErrorMessage} onChange={getPassword}></PasswordInput>
           <RepeatPasswordInput value={repitePassword} validation={repitePasswordErrorMessage} onChange={getRepitePassword}></RepeatPasswordInput>
         </Grid>
-        <RegisterUserButton></RegisterUserButton>
+        <Grid templateColumns="repeat(1, 1fr)" gap={5} marginTop="5rem" marginLeft= "45rem">
+            <Center w="500px" textAlign='center'>
+                <RegisterUserButton></RegisterUserButton>
+            </Center>
+        </Grid>
+        
     </form>
     )
 }
