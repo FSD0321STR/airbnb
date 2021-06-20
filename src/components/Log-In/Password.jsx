@@ -1,6 +1,5 @@
 import React from "react";
 import { FormControl, Input, FormLabel, FormHelperText } from "@chakra-ui/react"
-  import { ChevronDownIcon } from '@chakra-ui/icons'
 
 function PasswordLogIn ({value,onChange,validation}) {
     return (

@@ -1,12 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Flex, Box, Spacer, Menu, Image,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  Button, InputGroup, InputLeftElement, Input } from "@chakra-ui/react"
+import { Flex, Box, Spacer, Menu, Image, MenuButton, MenuList, MenuItem, Button, InputGroup, InputLeftElement, Input } from "@chakra-ui/react"
 import { ChevronDownIcon, HamburgerIcon, SearchIcon } from '@chakra-ui/icons'
-
 
 function NavBarRegisterLogin() {
     

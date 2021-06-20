@@ -1,11 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Flex, Box, Spacer, Menu, Image,
-    MenuButton,
-    MenuList,
-    MenuItem,
-    Button, InputGroup, InputLeftElement, Input } from "@chakra-ui/react"
-    import { ChevronDownIcon, SearchIcon, HamburgerIcon } from '@chakra-ui/icons'
+import { Flex, Box, Spacer, Menu, Image, MenuButton, MenuList, MenuItem, Button, InputGroup, InputLeftElement, Input } from "@chakra-ui/react"
+import { ChevronDownIcon, SearchIcon, HamburgerIcon } from '@chakra-ui/icons'
   
   function NavBarLogout() {
       

@@ -1,6 +1,5 @@
 import React from "react";
-import { FormControl, Input, FormLabel, FormHelperText } from "@chakra-ui/react"
-  import { ChevronDownIcon } from '@chakra-ui/icons'
+import { FormControl, FormLabel } from "@chakra-ui/react"
 
 function RecuperarPassword () {
     return (
