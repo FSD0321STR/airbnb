@@ -8,7 +8,7 @@ function AlojamientosPublicPage() {
             <Grid position="fixed">
                 <NavBarRegisterLogin />
             </Grid>
-            <Box p="500" bgImage="url('./images/imagen_home.jpg')"/> 
+            <Box p="400" bgImage="url('./images/imagen-home.jpg')"/> 
             <Grid templateColumns="repeat(4, 1fr)" gap={4} marginTop="5%" marginLeft="10%" marginRight="8%" marginBlockEnd="5%">        
                 <Box p="5" maxW="320px" borderWidth="1px">
                 <Image borderRadius="md" src="https://bit.ly/2k1H1t6" />

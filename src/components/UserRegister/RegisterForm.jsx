@@ -114,12 +114,12 @@ function RegisterForm({onSubmit}) {
 
     return (
     <form onSubmit={registerUser}>
-        <Grid templateColumns="repeat(1, 1fr)" gap={10} marginTop="5rem" marginLeft= "41rem">
+        <Grid templateColumns="repeat(1, 1fr)" gap={10} marginTop="5rem" marginLeft= "38rem" >
             <Center w="50%" textAlign='center'>
                 <TitleInputRegister/>
             </Center>
         </Grid>
-        <Grid templateColumns="repeat(2, 1fr)" gap={4} marginTop="5rem" marginLeft= "5rem" marginRight="5rem">
+        <Grid templateColumns="repeat(2, 1fr)" gap={4} marginTop="5rem" marginLeft= "30rem" marginRight="35rem">
             <NameInput pos="right" value={name} validation={nameErrorMessage} onChange={getName}></NameInput>
             <LastNameInput pos="left" value={lastName} validation={lastNameErrorMessage} onChange={getLastName}></LastNameInput>
             <EmailInput value={email} validation={emailErrorMessage} onChange={getEmail}></EmailInput>
@@ -127,8 +127,8 @@ function RegisterForm({onSubmit}) {
             <PasswordInput value={password} validation={passwordErrorMessage} onChange={getPassword}></PasswordInput>
             <RepeatPasswordInput value={repitePassword} validation={repitePasswordErrorMessage} onChange={getRepitePassword}></RepeatPasswordInput>
         </Grid>
-        <Grid templateColumns="repeat(1, 1fr)" gap={5} marginTop="5rem" marginLeft= "45rem">
-            <Center w="500px" textAlign='center'>
+        <Grid templateColumns="repeat(1, 1fr)" gap={5} marginTop="5rem" marginLeft= "42.5rem">
+            <Center w="500px" textAlign='center' marginBottom="5rem">
                 <RegisterUserButton></RegisterUserButton>
             </Center>
         </Grid>

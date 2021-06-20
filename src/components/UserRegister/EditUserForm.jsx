@@ -113,7 +113,7 @@ function EditUserForm({onSubmit}) {
 
     return (
     <form onSubmit={editUser}>
-        <Grid templateColumns="repeat(1, 1fr)" gap={10} marginTop="5rem" marginLeft= "41rem">
+        <Grid templateColumns="repeat(1, 1fr)" gap={10} marginTop="5rem" marginLeft= "38rem">
             <Center w="50%" textAlign='center'>
                 <TitleInputEditUser/>
             </Center>
@@ -126,7 +126,7 @@ function EditUserForm({onSubmit}) {
           <PasswordInput value={password} validation={passwordErrorMessage} onChange={getPassword}></PasswordInput>
           <RepeatPasswordInput value={repitePassword} validation={repitePasswordErrorMessage} onChange={getRepitePassword}></RepeatPasswordInput>
         </Grid>
-        <Grid templateColumns="repeat(1, 1fr)" gap={5} marginTop="5rem" marginLeft= "45rem">
+        <Grid templateColumns="repeat(1, 1fr)" gap={5} marginTop="5rem" marginLeft= "42.5rem">
             <Center w="500px" textAlign='center'>
                 <RegisterUserButton></RegisterUserButton>
             </Center>

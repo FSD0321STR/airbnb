@@ -4,7 +4,7 @@ import { Box } from "@chakra-ui/react"
 
 function TitleInputEditUser () {
     return (
-        <Box bg="grey" w="100%" p={4} color="black">
+      <Box bg="royalblue" w="100%" p={4} color="white" borderRadius="lg" fontWeight="semibold" letterSpacing="wide" fontSize="lg">
           Modificar Datos Usuario
         </Box>
     );

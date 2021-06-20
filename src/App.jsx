@@ -10,6 +10,7 @@ import AlojamientosPublicPage from './pages/alojamientos-public-page';
 import LogInPage from './pages/LogIn-page';
 import useLocalStorageString from './components/hooks/useLocalStorageString';
 import { AuthContext } from './utils/auth-provider';
+import FooterSimple from './components/Footer/Footer'
 
 function App({ Component }) {
   const [userMail,setUserMail] = useLocalStorageString("email","")
@@ -47,6 +48,7 @@ function App({ Component }) {
               <LogInPage />
             </Route>
           </Switch>
+          <FooterSimple/>
           </ChakraProvider>
         </div>
       </AuthContext.Provider>
