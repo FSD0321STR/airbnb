@@ -2,6 +2,8 @@ import React from "react";
 import { ChakraProvider} from "@chakra-ui/react";
 import LogInForm from '../components/Log-In/Log-InForm';
 import register from "../utils/apiRegister";
+import NavBarRegisterLogin from "../components/NavBar/navBarRegisterLogin";
+import LogIn from '../components/Log-In/LogIn';
 
 function LogInPage() {
 
@@ -11,10 +13,10 @@ function LogInPage() {
 
     return (
         <ChakraProvider>
-        <LogInForm 
-        onSubmit={LogInUser}>
-        </LogInForm>
-          </ChakraProvider>
+          <NavBarRegisterLogin />
+          <h2>Inicio Sesión</h2>
+          <LogIn onSubmit={LogInUser}/>
+        </ChakraProvider>
     )
 }
 

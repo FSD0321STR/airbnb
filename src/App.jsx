@@ -2,12 +2,11 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { ChakraProvider} from "@chakra-ui/react";
-import NavBarRegisterLogin from "./components/NavBar/NavBarRegisterLogin";
 import RegisterPage from './pages/register-page';
 import EditUserPage from './pages/edit-user-page';
-import AlojamientosPage from './pages/alojamientos-user-page';
+import AlojamientosAnfitrionPage from './pages/alojamientos-anfitrion-page';
+import AlojamientosFavoritosPage  from './pages/alojamientos-favoritos-user';
 import AlojamientosPublicPage from './pages/alojamientos-public-page';
-import LogIn from './components/Log-In/LogIn';
 import LogInPage from './pages/LogIn-page';
 import useLocalStorageString from './components/hooks/useLocalStorageString';
 import { AuthContext } from './utils/auth-provider';
@@ -24,24 +23,22 @@ function App({ Component }) {
       <AuthContext.Provider value={userMail}>
         <div>
         <ChakraProvider>
-          <NavBarRegisterLogin />
-          <LogIn />
           <hr />
           <Switch>
             <Route path="/user-register">
               <RegisterPage value={getUserMail} />
             </Route>
             <Route path="/user-login">
-              <RegisterPage />
+              <LogInPage value={getUserMail} />
             </Route>
             <Route path="/edit-user">
               <EditUserPage />
             </Route>
             <Route path="/alojamientos-anfitrion">
-              <AlojamientosPage />
+              <AlojamientosAnfitrionPage />
             </Route>
-            <Route path="/seleccion-alojamiento-vacaciones">
-              <AlojamientosPage />
+            <Route path="/alojamientos-favoritos">
+              <AlojamientosFavoritosPage />
             </Route>
             <Route path="/">
               <AlojamientosPublicPage />

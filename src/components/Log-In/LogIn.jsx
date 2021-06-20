@@ -1,20 +1,10 @@
 import React from "react";
-import { Flex, Box, Spacer, Menu, MenuButton, MenuList, MenuItem,
-  Center,
-  FormControl,
-  Input,
-  Grid,
-  Square, 
-  Circle,
-  FormLabel,
-  FormHelperText,
-  Button, Image } from "@chakra-ui/react"
-  import { ChevronDownIcon } from '@chakra-ui/icons'
-  import FormSignIn from "./Form-Sign-In"
-  import TitleInputLogIn from "./Title-Input"
-  import EmailLogIn from "./Email"
-  import PasswordLogIn from "./Password";
-  import SubmitLogIn from "./Submit"
+import { Flex, Center, Grid } from "@chakra-ui/react"
+import FormSignIn from "./Form-Sign-In"
+import TitleInputLogIn from "./Title-Input"
+import EmailLogIn from "./Email"
+import PasswordLogIn from "./Password";
+import SubmitLogIn from "./Submit"
 
   function LogIn () {
       return (

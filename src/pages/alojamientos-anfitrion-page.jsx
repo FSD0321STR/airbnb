@@ -2,7 +2,7 @@ import React from "react";
 import { ChakraProvider, Grid, Box, Image, Flex, Badge, Text, Button } from "@chakra-ui/react";
 import NavBarLogout from "../components/NavBar/NavBarLogout";
 
-function AlojamientosPage() {
+function AlojamientosAnfitrionPage() {
     return (
         <ChakraProvider>
             <NavBarLogout />
@@ -91,4 +91,4 @@ function AlojamientosPage() {
       );
 }
 
-export default AlojamientosPage;
+export default AlojamientosAnfitrionPage;

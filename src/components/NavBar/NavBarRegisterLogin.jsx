@@ -33,7 +33,6 @@ function NavBarRegisterLogin() {
               <Link to="/user-register"><MenuItem>Regístrate</MenuItem></Link>
               <Link to="/user-login"><MenuItem>Iniciar Sesión</MenuItem></Link>
               <Link to="/"><MenuItem>Buscar Alojamientos</MenuItem></Link>
-              <Link to="/"><MenuItem>Contacta con nosotros</MenuItem></Link>
           </MenuList>
         </Menu>
       </Box>
