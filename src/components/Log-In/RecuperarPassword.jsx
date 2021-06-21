@@ -5,7 +5,7 @@ function RecuperarPassword () {
     return (
     <Text>{""}
       <Link color="teal.500" href="/recuperar-contraseña">
-      ¿Has olviado la contraseña?
+      ¿Has olvidado la contraseña?
       </Link>
     </Text>
     );

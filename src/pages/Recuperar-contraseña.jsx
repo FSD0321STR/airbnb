@@ -12,6 +12,7 @@ function RecuperarContraseña() {
 
     return (
         <ChakraProvider>
+        <NavBarRegisterLogin />
           <Grid marginTop="3%" position="center" bgRepeat="no-repeat" bgSize="200%" bgImage="url('./images/imagen-home.jpg')">
             <PasswordRecover  onSubmit={PasswordRecovering} />
           </Grid>
