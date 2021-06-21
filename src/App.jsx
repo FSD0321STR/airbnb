@@ -11,6 +11,7 @@ import LogInPage from './pages/LogIn-page';
 import useLocalStorageString from './components/hooks/useLocalStorageString';
 import { AuthContext } from './utils/auth-provider';
 import FooterSimple from './components/Footer/Footer'
+import RecuperarContraseña from './pages/Recuperar-contraseña'
 
 function App({ Component }) {
   const [userMail,setUserMail] = useLocalStorageString("email","")
@@ -46,6 +47,9 @@ function App({ Component }) {
             </Route>
             <Route path="/log-in">
               <LogInPage />
+            </Route>
+            <Route path="/recuperar-contraseña">
+              <RecuperarContraseña value={getUserMail} />
             </Route>
           </Switch>
           <FooterSimple/>

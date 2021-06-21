@@ -1,11 +1,13 @@
 import React from "react";
-import { FormControl, FormLabel } from "@chakra-ui/react"
+import { FormControl, FormLabel, Link, Text } from "@chakra-ui/react"
 
 function RecuperarPassword () {
     return (
-        <FormControl id="Recuperar-password">
-          <FormLabel>¿Has olvidado la contraseña?</FormLabel>
-        </FormControl>
+    <Text>{""}
+      <Link color="teal.500" href="/recuperar-contraseña">
+      ¿Has olviado la contraseña?
+      </Link>
+    </Text>
     );
 }
 
