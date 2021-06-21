@@ -3,7 +3,7 @@ import { Flex, Center, Grid} from "@chakra-ui/react"
 import EmailPasswordRecover from "./Email-recover";
 import SubmitPasswordRecover from "./Submit-recover";
 import TitleInputPasswordRecover from "./Title-Input-recover";
-import FormSignIn from "./Form-Sign-in";
+import FormSignIn from "../Log-In/Form-Sign-In";
 
   function PasswordRecover () {
       return (
