@@ -6,7 +6,7 @@ function AlojamientosFavoritosPage() {
     return (
         <ChakraProvider>
             <NavBarLogout />
-            <Text>RALOJAMIENTOS FAVORITOS DEL USUARIO</Text>
+            <Text>LITADO DE ALOJAMIENTOS FAVORITOS DEL USUARIO</Text>
             <Grid templateColumns="repeat(3, 1fr)" gap={1}>
                 <Box p="5" maxW="320px" borderWidth="1px">
                 <Image borderRadius="md" src="https://bit.ly/2k1H1t6" />
