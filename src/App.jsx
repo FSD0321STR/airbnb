@@ -13,6 +13,7 @@ import { AuthContext } from './utils/auth-provider';
 import FooterSimple from './components/Footer/Footer'
 import RecuperarContraseña from './pages/Recuperar-contraseña'
 
+
 function App({ Component }) {
   const [userMail,setUserMail] = useLocalStorageString("email","")
 
@@ -42,15 +43,13 @@ function App({ Component }) {
             <Route path="/alojamientos-favoritos">
               <AlojamientosFavoritosPage />
             </Route>
+            <Route path="/recuperar-contrasena">
+              <RecuperarContraseña value={getUserMail} />
+            </Route>
             <Route path="/">
               <AlojamientosPublicPage />
             </Route>
-            <Route path="/log-in">
-              <LogInPage />
-            </Route>
-            <Route path="/recuperar-contraseña">
-              <RecuperarContraseña value={getUserMail} />
-            </Route>
+            
           </Switch>
           <FooterSimple/>
           </ChakraProvider>
