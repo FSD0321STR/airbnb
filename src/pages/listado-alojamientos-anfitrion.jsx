@@ -6,7 +6,7 @@ function AlojamientosAnfitrionPage() {
     return (
         <ChakraProvider>
             <NavBarLogout />
-            <Text>REGISTRO ALOJAMIENTOS ANFITRIóN - PROPIETARIO</Text>
+            <Text>LISTADO DE ALOJAMIENTOS ANFITRIóN - PROPIETARIO</Text>
             <Grid templateColumns="repeat(3, 1fr)" gap={1}>
                 <Box p="5" maxW="320px" borderWidth="1px">
                 <Image borderRadius="md" src="https://bit.ly/2k1H1t6" />
