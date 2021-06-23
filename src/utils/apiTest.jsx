@@ -14,8 +14,16 @@ async function registerUserApi(email, password) {
     .catch(error => console.log('Error:', error));
 }
 
-async function loginUserApi() {
-    await alert('login user')
+async function loginUserApi(email, password) {
+    return await fetch(`${API_URL}/login`, {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({email, password}),
+    }).then(res => res = res.json())
+    .catch(error => console.log('Error:', error));
 }
 async function editUserApi() {
     await alert('edit user')
