@@ -5,6 +5,7 @@ import TitleInputLogIn from "./Title-Input"
 import EmailLogIn from "./Email"
 import PasswordLogIn from "./Password";
 import SubmitLogIn from "./Submit"
+import RecuperarPassword from "./RecuperarPassword";
 
   function LogIn () {
       return (
@@ -19,6 +20,9 @@ import SubmitLogIn from "./Submit"
             </Center>
             <Center w="500px" textAlign='center'>
               <PasswordLogIn />
+            </Center>
+            <Center w="500px" textAlign='center'>
+              <RecuperarPassword />
             </Center>
             <Center w="500px" textAlign='center'>
               <SubmitLogIn />

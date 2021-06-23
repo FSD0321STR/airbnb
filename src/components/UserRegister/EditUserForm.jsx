@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Grid } from "@chakra-ui/react";
+import { Grid, Center } from "@chakra-ui/react";
 import TitleInputEditUser from "./TitleInputEditUser"
 
 import NameInput from "./NameInput";
@@ -64,7 +64,7 @@ function EditUserForm({onSubmit}) {
     }
 
 
-    function editUser(event) {
+    function editProfile(event) {
         event.preventDefault();
 
         const nameValidate = textValidation(name);
@@ -112,7 +112,7 @@ function EditUserForm({onSubmit}) {
 
 
     return (
-    <form onSubmit={editUser}>
+    <form onSubmit={editProfile}>
         <Grid templateColumns="repeat(1, 1fr)" gap={10} marginTop="5rem" marginLeft= "38rem">
             <Center w="50%" textAlign='center'>
                 <TitleInputEditUser/>
