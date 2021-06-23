@@ -1,5 +1,7 @@
 import React from "react"
 
+const API_URL = 'http://localhost:8000';
+
 async function registerUserApi() {
     await alert('register user')
 }
