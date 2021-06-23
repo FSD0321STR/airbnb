@@ -6,7 +6,7 @@ function GaleryAlojamientoImages({value,onChange}) {
         <FormControl id="galery" p={2}>
             <FormLabel fontSize="sm" m={1}>Guarda imagenes del alojamiento</FormLabel>
             <Input name="galery" value={value} onChange={onChange} type="text" placeholder="Galeria-imagenes" size="sm" colorScheme="blue"/>
-            { <FormHelperText fontSize="xs" color="red" mx={1}>Incorpore imágenes del alojamiento</FormHelperText> }
+            { !value ? <FormHelperText fontSize="xs" color="red" mx={1}>Incorpore imágenes del alojamiento</FormHelperText> : ""}
         </FormControl>
     )
 }

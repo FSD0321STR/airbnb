@@ -6,7 +6,7 @@ function NumberGuestsAlojamientoInput({value,onChange}) {
         <FormControl id="numberGuests" p={2}>
             <FormLabel fontSize="sm" m={1}>Número de Huéspedes</FormLabel>
             <Input name="numberGuests" value={value} onChange={onChange} type="number" placeholder="Numero-huespedes" size="sm" colorScheme="blue"/>
-            { <FormHelperText fontSize="xs" color="red" mx={1}>Escriba el número de huéspedes</FormHelperText> }
+            { !value ? <FormHelperText fontSize="xs" color="red" mx={1}>Escriba el número de huéspedes</FormHelperText> : "" }
         </FormControl>
     )
 }

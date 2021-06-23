@@ -6,7 +6,7 @@ function TypeAlojamientoChecklist({value,onChange}) {
         <FormControl id="type" p={2}>
             <FormLabel fontSize="sm" m={1}>Tipo de Alojamiento</FormLabel>
             <Input name="type" value={value} onChange={onChange} type="text" placeholder="Tipo alojamiento" size="sm" colorScheme="blue"/>
-            { <FormHelperText fontSize="xs" color="red" mx={1}>Escriba el tipo de alojamiento</FormHelperText> }
+            { !value ? <FormHelperText fontSize="xs" color="red" mx={1}>Escriba el tipo de alojamiento</FormHelperText> : "" }
         </FormControl>
     )
 }
