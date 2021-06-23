@@ -13,7 +13,7 @@ import RegisterUserButton from "./RegisterUserButton"
 
 import { emailValidation, passwordValidation, phoneValidation, textValidation } from "../../utils/formValidation";
 
-function RegisterForm({onSubmit}) {
+function RegisterForm({onSubmit, error}) {
 
     const [name,setName] = useState("");
     const [lastName,setLastName] = useState("");
@@ -119,6 +119,7 @@ function RegisterForm({onSubmit}) {
                 <TitleInputRegister/>
             </Center>
         </Grid>
+        <p>{error}</p>
         <Grid templateColumns="repeat(2, 1fr)" gap={4} marginTop="5rem" marginLeft= "30rem" marginRight="35rem">
             <NameInput pos="right" value={name} validation={nameErrorMessage} onChange={getName}></NameInput>
             <LastNameInput pos="left" value={lastName} validation={lastNameErrorMessage} onChange={getLastName}></LastNameInput>
