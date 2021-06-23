@@ -1,4 +1,5 @@
-import React, {useState, useHistory} from "react";
+import React, {useState} from "react";
+import { useHistory } from "react-router-dom";
 import { ChakraProvider, Grid, Box} from "@chakra-ui/react";
 import register from "../utils/apiRegister";
 import NavBarRegisterLogin from "../components/NavBar/navBarRegisterLogin";
@@ -6,23 +7,22 @@ import LogInForm from "../components/Log-In/Log-InForm";
 import { loginUserApi } from "../utils/apiTest";
 
 function LogInPage({ email, password }) {
-  //const history = useHistory();
+  const history = useHistory();
   const [loginError,setLoginError] = useState("");
 
   async function LogInUser({ email, password }) {
-    loginUserApi();
-    // await registerUserApi( email, password ) 
-    // .then(response => {
-    //   if(response.message) {
-    //     setLoginError(response.message);
-    //   } else {
-    //     localStorage.setItem('token', JSON.stringify(response));
-    //     history.push("/");
-    //   }
-    // })
-    // .catch((error) => {
-    //  Promise.reject(error);
-    // })
+    await loginUserApi( email, password ) 
+    .then(response => {
+      if(response.message) {
+        setLoginError(response.message);
+      } else {
+        localStorage.setItem('token', JSON.stringify(response));
+        history.push("/");
+      }
+    })
+    .catch((error) => {
+     Promise.reject(error);
+    })
   }
 
 
