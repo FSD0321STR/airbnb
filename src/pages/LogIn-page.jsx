@@ -1,5 +1,5 @@
 import React from "react";
-import { ChakraProvider, Grid, Box} from "@chakra-ui/react";
+import { ChakraProvider, Grid} from "@chakra-ui/react";
 import register from "../utils/apiRegister";
 import NavBarRegisterLogin from "../components/NavBar/navBarRegisterLogin";
 import LogIn from '../components/Log-In/LogIn';

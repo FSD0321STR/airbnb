@@ -4,6 +4,8 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { ChakraProvider, Center } from "@chakra-ui/react";
 import RegisterPage from './pages/register-page';
 import EditUserPage from './pages/edit-user-page';
+import RegisterAlojamientoPage from './pages/registar-alojamiento';
+import EditAlojamientoPage from './pages/editar-alojamiento';
 import AlojamientosAnfitrionPage from './pages/listado-alojamientos-anfitrion';
 import AlojamientosFavoritosPage  from './pages/listado-alojamientos-user';
 import AlojamientosPublicPage from './pages/alojamientos-public-page';
@@ -36,6 +38,12 @@ function App({ Component }) {
             </Route>
             <Route path="/edit-user">
               <EditUserPage />
+            </Route>
+            <Route path="/alojamiento-register">
+              <RegisterAlojamientoPage />
+            </Route>
+            <Route path="/alojamiento-edit">
+              <EditAlojamientoPage />
             </Route>
             <Route path="/alojamientos-anfitrion">
               <AlojamientosAnfitrionPage />

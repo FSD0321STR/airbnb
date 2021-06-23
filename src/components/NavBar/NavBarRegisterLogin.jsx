@@ -29,7 +29,9 @@ function NavBarRegisterLogin() {
               <Link to="/user-login"><MenuItem>Iniciar Sesión</MenuItem></Link>
               <Link to="/edit-user"><MenuItem>Editar usuario</MenuItem></Link>
               <Link to="/recuperar-contrasena"><MenuItem>Recuperar contraseña</MenuItem></Link>
-              <Link to="/alojamientos-anfitrion"><MenuItem>Registro alojamientos Anfitrion</MenuItem></Link>
+              <Link to="/alojamiento-register"><MenuItem>Registro alojamientos Anfitrion</MenuItem></Link>
+              <Link to="/alojamiento-edit"><MenuItem>Modificar alojamientos Anfitrion</MenuItem></Link>
+              <Link to="/alojamientos-anfitrion"><MenuItem>Listado alojamientos Anfitrion</MenuItem></Link>
               <Link to="/alojamientos-favoritos"><MenuItem>Alojamientos Favoritos Usuario</MenuItem></Link>
               <Link to="/recuperar-contrasena"><MenuItem>Recuperar contraseña</MenuItem></Link>
               <Link to="/"><MenuItem>Buscar Alojamientos</MenuItem></Link>

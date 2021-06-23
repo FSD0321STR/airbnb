@@ -6,7 +6,7 @@ function CountryAlojamientoInput({value,onChange}) {
         <FormControl id="country" p={2}>
             <FormLabel fontSize="sm" m={1}>País</FormLabel>
             <Input name="country" value={value} onChange={onChange} type="text" placeholder="Pais" size="sm" colorScheme="blue"/>
-            { <FormHelperText fontSize="xs" color="red" mx={1}>Escriba el Pas</FormHelperText> }
+            { !value ? <FormHelperText fontSize="xs" color="red" mx={1}>Escriba el Pas</FormHelperText> : ""}
         </FormControl>
     )
 }
