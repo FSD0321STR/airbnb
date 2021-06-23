@@ -6,7 +6,7 @@ import { ChevronDownIcon, SearchIcon, HamburgerIcon } from '@chakra-ui/icons'
   function NavBarLogout() {
       
     return (
-        <Flex paddingTop="1%" paddingLeft="1%" paddingRight="1%" paddingFoot="1%">
+        <Flex paddingTop="1%" paddingLeft="1%" paddingRight="1%" paddingBottom="1%">
             <Box p={2}>
                 <Image w={40} h={12} src="./images/airbnb-logo.png"/> 
             </Box>
@@ -25,9 +25,11 @@ import { ChevronDownIcon, SearchIcon, HamburgerIcon } from '@chakra-ui/icons'
                 <Menu>
                     <MenuButton as={Button} leftIcon={<HamburgerIcon />} rightIcon = {<ChevronDownIcon />}  borderRadius="md"> </MenuButton>
                         <MenuList>
-                            <Link to="/edit-user"><MenuItem>Home</MenuItem></Link>
-                            <Link to="/alojamientos-favoritos"><MenuItem>Listado Alojamientos Favoritos</MenuItem></Link>
-                            <Link to="/alojamientos-anfitrion"><MenuItem>Editar alojamientos como anfitrión</MenuItem></Link>
+                            <Link to="/edit-user"><MenuItem>Editar usuario</MenuItem></Link>
+                            <Link to="/alojamientos-favoritos"><MenuItem>Alojamientos Favoritos Usuario</MenuItem></Link>
+                            <Link to="/alojamiento-register"><MenuItem>Registro alojamientos Anfitrion</MenuItem></Link>
+                            <Link to="/alojamiento-edit"><MenuItem>Modificar alojamientos Anfitrion</MenuItem></Link>
+                            <Link to="/alojamientos-anfitrion"><MenuItem>Listado alojamientos Anfitrion</MenuItem></Link>
                             <Link to="/"><MenuItem>Buscar alojamientos</MenuItem></Link>
                             <Link to="/"><MenuItem>Cerrar Sesión</MenuItem></Link>
                         </MenuList>

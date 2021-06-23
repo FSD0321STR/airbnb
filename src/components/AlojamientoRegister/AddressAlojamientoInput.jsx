@@ -6,7 +6,7 @@ function AddressAlojamientoInput({value,onChange}) {
         <FormControl id="address" p={2}>
             <FormLabel fontSize="sm" m={1}>Dirección</FormLabel>
             <Input name="address" value={value} onChange={onChange} type="text" placeholder="direccion" size="sm" colorScheme="blue"/>
-            { <FormHelperText fontSize="xs" color="red" mx={1}>Escriba la dirección </FormHelperText> }
+            { !value ? <FormHelperText fontSize="xs" color="red" mx={1}>Escriba la dirección </FormHelperText> : "" }
         </FormControl>
     )
 }
