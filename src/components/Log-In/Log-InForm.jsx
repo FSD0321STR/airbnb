@@ -6,7 +6,7 @@ import SubmitLogIn from "./Submit";
 
 import { emailValidation, passwordValidation } from "../../utils/formValidation";
 
-function LogInForm({onSubmit}) {
+function LogInForm({onSubmit,error}) {
 
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
