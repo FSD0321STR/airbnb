@@ -9,8 +9,9 @@ function RegisterPage() {
   const history = useHistory();
   const [registerError,setRegisterError] = useState("");
 
-  async function registerUser({ email, password }) {
-    await registerUserApi( email, password ) 
+  async function registerUser(image ) {
+    //console.log(image);
+    await registerUserApi( image ) 
     .then(response => {
       if(response.message) {
         setRegisterError(response.message);
