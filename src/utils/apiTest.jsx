@@ -2,14 +2,15 @@ import React from "react"
 
 const API_URL = 'http://localhost:8000';
 
-async function registerUserApi(email, password) {
+async function registerUserApi(image) {
+    //console.log(image);
     return await fetch(`${API_URL}/register`, {
         method: 'POST',
         mode: 'cors',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({email, password}),
+        // headers: {
+        //     'Content-Type': 'application/json',
+        // },
+        body: image,
     }).then(res => res = res.json())
     .catch(error => console.log('Error:', error));
 }

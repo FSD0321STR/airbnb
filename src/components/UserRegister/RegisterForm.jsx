@@ -68,6 +68,10 @@ function RegisterForm({onSubmit, error}) {
     function registerUser(event) {
         event.preventDefault();
 
+        
+
+        //console.log(data.get("image"));
+
         const nameValidate = textValidation(name);
         const lastNameValidate = textValidation(lastName);
         const emailValidate = emailValidation(email);
@@ -99,13 +103,16 @@ function RegisterForm({onSubmit, error}) {
             setPhoneErrorMessage(false)
             setPasswordErrorMessage(false)
             setRepitePasswordErrorMessage(false)
-            onSubmit({
-                name: name,
-                lastName: lastName,
-                email: email,
-                phone: phone,
-                password: password,
-            }
+
+            const input = document.getElementById('image');
+            const image = input.files[0];
+            //console.log(image.file);
+            const data = new FormData();
+            data.append("image", image);
+            data.append("email",email);
+            data.append("password", password);
+
+            onSubmit( data
         );
         
         }
@@ -113,7 +120,7 @@ function RegisterForm({onSubmit, error}) {
 
 
     return (
-    <form onSubmit={registerUser}>
+    <form onSubmit={registerUser} method="POST" encType="multipart/form-data">
         <Grid templateColumns="repeat(1, 1fr)" gap={10} marginTop="5rem" marginLeft= "38rem" >
             <Center w="50%" textAlign='center'>
                 <TitleInputRegister/>
@@ -127,6 +134,7 @@ function RegisterForm({onSubmit, error}) {
             <PhoneInput value={phone} validation={phoneErrorMessage} onChange={getPhone}></PhoneInput>
             <PasswordInput value={password} validation={passwordErrorMessage} onChange={getPassword}></PasswordInput>
             <RepeatPasswordInput value={repitePassword} validation={repitePasswordErrorMessage} onChange={getRepitePassword}></RepeatPasswordInput>
+            <input type="file" name="image" id="image" />
         </Grid>
         <Grid templateColumns="repeat(1, 1fr)" gap={5} marginTop="5rem" marginLeft= "42.5rem">
             <Center w="500px" textAlign='center' marginBottom="5rem">

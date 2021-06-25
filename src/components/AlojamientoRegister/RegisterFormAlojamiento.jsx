@@ -1,5 +1,5 @@
 import React, { useState} from "react";
-import { Grid, Center } from "@chakra-ui/react";
+import { ChakraProvider, Grid, Center } from "@chakra-ui/react";
 
 import TitleRegisterAlojamiento from "./TitleRegisterAlojamiento"
 import NameAlojamientoInput from "./NameAlojamientoInput";
@@ -113,12 +113,13 @@ function RegisterFormAlojamiento({onSubmit}) {
 
     return (
     <form onSubmit={registerAlojamientoUser}>
+        
         <Grid templateColumns="repeat(1, 1fr)" gap={10} marginTop="5rem" marginLeft= "38rem" >
             <Center w="50%" textAlign='center'>
                 <TitleRegisterAlojamiento />
             </Center>
         </Grid>
-        <Grid templateColumns="repeat(2, 1fr)" gap={4} marginTop="5rem" marginLeft= "30rem" marginRight="35rem">
+        <Grid templateColumns="repeat(2, 1fr)" gap={4} marginTop="5rem" marginLeft= "3rem" marginRight="3rem">
             <NameAlojamientoInput pos="right" value={name}  onChange={getName}></NameAlojamientoInput>
             <EmailAlojamientoInput value={email}  onChange={getEmail}></EmailAlojamientoInput>
             <PhoneAlojamientoInput value={phone}  onChange={getPhone}></PhoneAlojamientoInput>
@@ -138,6 +139,7 @@ function RegisterFormAlojamiento({onSubmit}) {
                 <RegisterAlojamientoButton></RegisterAlojamientoButton>
             </Center>
         </Grid>
+       
     </form>
     )
 }
