@@ -107,12 +107,15 @@ function RegisterForm({onSubmit, error}) {
             const input = document.getElementById('image');
             const image = input.files[0];
             //console.log(image.file);
-            const data = new FormData();
-            data.append("image", image);
-            data.append("email",email);
-            data.append("password", password);
+            const dataUser = new FormData();
+            dataUser.append("image", image);
+            dataUser.append("name",name);
+            dataUser.append("lastName",lastName);
+            dataUser.append("phone",phone);
+            dataUser.append("email",email);
+            dataUser.append("password", password);
 
-            onSubmit( data
+            onSubmit( dataUser
         );
         
         }
@@ -121,13 +124,13 @@ function RegisterForm({onSubmit, error}) {
 
     return (
     <form onSubmit={registerUser} method="POST" encType="multipart/form-data">
-        <Grid templateColumns="repeat(1, 1fr)" gap={10} marginTop="5rem" marginLeft= "38rem" >
+        <Grid templateColumns="repeat(1, 1fr)" gap={10} marginTop="5rem" marginLeft= "3rem" >
             <Center w="50%" textAlign='center'>
                 <TitleInputRegister/>
             </Center>
         </Grid>
         <p>{error}</p>
-        <Grid templateColumns="repeat(2, 1fr)" gap={4} marginTop="5rem" marginLeft= "30rem" marginRight="35rem">
+        <Grid templateColumns="repeat(2, 1fr)" gap={4} marginTop="5rem" marginLeft= "3rem" marginRight="3rem">
             <NameInput pos="right" value={name} validation={nameErrorMessage} onChange={getName}></NameInput>
             <LastNameInput pos="left" value={lastName} validation={lastNameErrorMessage} onChange={getLastName}></LastNameInput>
             <EmailInput value={email} validation={emailErrorMessage} onChange={getEmail}></EmailInput>
