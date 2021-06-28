@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter, HashRouter, Switch, Route } from "react-router-dom";
+import { HashRouter, Switch, Route } from "react-router-dom";
 import { ChakraProvider, Center } from "@chakra-ui/react";
 import RegisterPage from './pages/register-page';
 import EditUserPage from './pages/edit-user-page';
