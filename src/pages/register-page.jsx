@@ -9,14 +9,10 @@ function RegisterPage() {
   const history = useHistory();
   const [registerError,setRegisterError] = useState("");
 
-<<<<<<< HEAD
-  async function registerUser(data ) {
-    await registerUserApi( data ) 
-=======
   async function registerUser( dataUser ) {
     //console.log(image);
     await registerUserApi( dataUser ) 
->>>>>>> 80c4fc4d4c4550f85d084e5f112f05b2ff89ba42
+
     .then(response => {
       if(response.message) {
         setRegisterError(response.message);
