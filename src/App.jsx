@@ -30,31 +30,31 @@ function App({ Component }) {
         <ChakraProvider>
           <hr />
           <Switch>
-            <Route path="/user-register">
+            <Route exact path="/user-register">
               <RegisterPage value={getUserMail} />
             </Route>
-            <Route path="/user-login">
+            <Route exact path="/user-login">
               <LogInPage value={getUserMail} />
             </Route>
-            <Route path="/edit-user">
+            <Route exact path="/edit-user">
               <EditUserPage />
             </Route>
-            <Route path="/alojamiento-register">
+            <Route exact path="/alojamiento-register">
               <RegisterAlojamientoPage />
             </Route>
-            <Route path="/alojamiento-edit">
+            <Route exact path="/alojamiento-edit">
               <EditAlojamientoPage />
             </Route>
-            <Route path="/alojamientos-anfitrion">
+            <Route exact path="/alojamientos-anfitrion">
               <AlojamientosAnfitrionPage />
             </Route>
-            <Route path="/alojamientos-favoritos">
+            <Route exact path="/alojamientos-favoritos">
               <AlojamientosFavoritosPage />
             </Route>
-            <Route path="/recuperar-contrasena">
+            <Route exact path="/recuperar-contrasena">
               <RecuperarContraseña value={getUserMail} />
             </Route>
-            <Route path="/">
+            <Route exact path="/">
               <AlojamientosPublicPage />
             </Route>
             
