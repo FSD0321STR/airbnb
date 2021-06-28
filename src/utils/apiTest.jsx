@@ -29,9 +29,18 @@ async function loginUserApi(email, password) {
 async function editUserApi() {
     await alert('edit user')
 }
-async function registerAlojamientoApi() {
-    await alert('register alojamiento')
+async function registerAlojamientoApi(dataAlojamiento) {
+    return await fetch(`${API_URL}/register-alojamiento`, {
+        method: 'POST',
+        mode: 'cors',
+        // headers: {
+        //     'Content-Type': 'application/json',
+        // },
+        body: dataAlojamiento,
+    }).then(res => res = res.json())
+    .catch(error => console.log('Error:', error));
 }
+
 async function editAlojamientoApi() {
     await alert('edit alojamiento')
 }

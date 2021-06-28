@@ -92,20 +92,35 @@ function RegisterFormAlojamiento({onSubmit}) {
 
     function registerAlojamientoUser(event) {
         event.preventDefault();
-            onSubmit({
-                name: name,
-                email: email,
-                phone: phone,
-                address: address,
-                location: location,
-                state: state,
-                country: country,
-                type: type,
-                numberGuests: numberGuests,
-                services: services,
-                description: description,
-                galery: galery,
-            }
+            const name = name;
+            const email =  email;
+            const phone = phone;
+            const address = address;
+            const location = location;
+            const state = state;
+            const country =  country;
+            const type = type;
+            const numberGuests = numberGuests;
+            const services = services;
+            const description = description;
+            const input = document.getElementById('image');
+            const image = input.files[0];
+      
+            const dataAlojamiento = new FormData();
+            dataAlojamiento.append("image",image);
+            dataAlojamiento.append("name",name);
+            dataAlojamiento.append("email",email);
+            dataAlojamiento.append("phone",phone);
+            dataAlojamiento.append("address",address);
+            dataAlojamiento.append("location",location);
+            dataAlojamiento.append("state", state);
+            dataAlojamiento.append("country",country);
+            dataAlojamiento.append("type",type);
+            dataAlojamiento.append("numberGuests",numberGuests);
+            dataAlojamiento.append("services",services);
+            dataAlojamiento.append("description",description);
+
+            onSubmit( dataAlojamiento
         );
         
     }
