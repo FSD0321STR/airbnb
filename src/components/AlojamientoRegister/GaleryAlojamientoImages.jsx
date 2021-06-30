@@ -1,14 +1,14 @@
 import React from "react";
 import ReactDOM from 'react-dom'
-import { FilePond, registerPlugin } from "react-filepond";
 import "filepond/dist/filepond.min.css";
 import { FormControl, FormLabel, Input, FormHelperText } from "@chakra-ui/react"
+import FilesImages from "../hooks/fieldPondPluginImage"
 
 // Register the plugins
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
 
 
-class FileImages extends Component {
+class UPImage extends Component {
   constructor(props) {
     super(props);
 
@@ -59,7 +59,7 @@ function GaleryAlojamientoImages({value,onChange}) {
         <FormControl id="galery" p={2}>
             <FormLabel fontSize="sm" m={1}>Guarda imagenes del alojamiento</FormLabel>
             <Input name="galery" value={value} onChange={onChange} type="file" placeholder="Galeria-imagenes" size="sm" colorScheme="blue"/>
-            <FileImages></FileImages> 
+            <FilesImages></FilesImages> 
         </FormControl>
     )
 }

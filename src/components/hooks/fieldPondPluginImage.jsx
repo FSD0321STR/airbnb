@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
+import { ChakraProvider, Box, Center } from "@chakra-ui/react";
 
 // Import React FilePond
 import { FilePond, File, registerPlugin } from 'react-filepond'
@@ -21,17 +22,19 @@ registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview)
 function FilesImages() {
   const [files, setFiles] = useState([])
   return (
-    <div className="FilesImages">
-      <FilePond
-        files={files}
-        onupdatefiles={setFiles}
-        allowMultiple={true}
-        maxFiles={3}
-        server="/"
-        name="files"
-        labelIdle='Drag and Drop your files or <span class="filepond--label-action">Browse</span>'
-      />
-    </div>
+    <ChakraProvider>
+      <Box Box className="FilesImages">
+        <FilePond
+          files={files}
+          onupdatefiles={setFiles}
+          allowMultiple={true}
+          maxFiles={3}
+          server="/"
+          name="files"
+          labelIdle='Drag and Drop your files or <span class="filepond--label-action">Browse</span>'
+        />
+      </Box>
+    </ChakraProvider>
   )
 }
 

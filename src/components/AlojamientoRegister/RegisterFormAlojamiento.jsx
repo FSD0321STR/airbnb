@@ -13,8 +13,9 @@ import TypeAlojamientoChecklist from "./TypeAlojamientoChecklist";
 import NumberGuestsAlojamientoInput from "./NumberGuestsAlojamientoInput";
 import ServisesAlojamientoChecklist from "./ServisesAlojamientoChecklist";
 import DescriptionAlojamientoInput from "./DescriptionAlojamientoInput";
-import GaleryAlojamientoImages from "./GaleryAlojamientoImages";
+
 import RegisterAlojamientoButton from "./RegisterAlojamientoButton"
+import UploadGaleryImage from "./UploadImages";
 
 
 function RegisterFormAlojamiento({onSubmit}) {
@@ -146,7 +147,7 @@ function RegisterFormAlojamiento({onSubmit}) {
             <NumberGuestsAlojamientoInput value={numberGuests}  onChange={getNumberGuests}></NumberGuestsAlojamientoInput>
             <ServisesAlojamientoChecklist pos="left" value={services} onChange={getServises}></ServisesAlojamientoChecklist>
             <DescriptionAlojamientoInput value={description} onChange={getDescription}></DescriptionAlojamientoInput>
-            <GaleryAlojamientoImages value={galery} onChange={getGalery}></GaleryAlojamientoImages>
+            <UploadGaleryImage/>
 
         </Grid>
         <Grid templateColumns="repeat(1, 1fr)" gap={5} marginTop="5rem" marginLeft= "42.5rem">
