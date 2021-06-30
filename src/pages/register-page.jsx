@@ -18,7 +18,8 @@ function RegisterPage() {
       if(response.message) {
         setRegisterError(response.message);
       } else {
-        localStorage.setItem('token', JSON.stringify(response));
+        localStorage.setItem('token', JSON.stringify(response.token));
+        localStorage.setItem('userId', JSON.stringify(response.userId));
         history.push("/");
       }
     })
