@@ -1,20 +1,35 @@
-import React from "react";
+import React, {useState} from "react";
+import { useHistory } from "react-router-dom";
 import { ChakraProvider,Grid} from "@chakra-ui/react";
 import EditUserForm from '../components/UserRegister/EditUserForm';
-import NavBarLogout from "../components/NavBar/NavBarLogout";
-import editUser from "../utils/apiEditUser";
+import NavBar from "../components/NavBar/NavBar";
+import {editUserApi} from "../utils/apiTest";
 
 function EditUserPage() {
+  const history = useHistory();
+  const [registerError,setRegisterError] = useState("");
 
-    async function EditUser(UserEdit) {
-        await editUser(UserEdit);
+    async function editUser(dataEditUser, userId) {
+      //console.log(dataEditUser);
+        await editUserApi(dataEditUser, userId)
+        .then(response => {
+          if(response.message) {
+            setRegisterError(response.messageError);
+          } else {
+            //localStorage.setItem('token', JSON.stringify(response));
+            history.push("/");
+          }
+        })
+        .catch((error) => {
+         Promise.reject(error);
+        })
       }
 
     return (
         <ChakraProvider>
-          <NavBarLogout />
+          <NavBar />
           <Grid marginTop="3%" position="center" bgRepeat="no-repeat" bgSize="200%" bgImage="url('./images/imagen-home.jpg')">
-             <EditUserForm onSubmit={EditUser}></EditUserForm>
+             <EditUserForm error={registerError} onSubmit={editUser}></EditUserForm>
           </Grid>
         </ChakraProvider>
     )

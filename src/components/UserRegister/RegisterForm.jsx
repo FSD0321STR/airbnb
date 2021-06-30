@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Grid, Center } from "@chakra-ui/react";
+import { Grid, Center, Box } from "@chakra-ui/react";
 
 import NameInput from "./NameInput";
 import LastNameInput from "./LastNameInput";
@@ -124,26 +124,24 @@ function RegisterForm({onSubmit, error}) {
 
     return (
     <form onSubmit={registerUser} method="POST" encType="multipart/form-data">
-        <Grid templateColumns="repeat(1, 1fr)" gap={10} marginTop="5rem" marginLeft= "3rem" >
-            <Center w="50%" textAlign='center'>
-                <TitleInputRegister/>
-            </Center>
-        </Grid>
+        
         <p>{error}</p>
-        <Grid templateColumns="repeat(2, 1fr)" gap={4} marginTop="5rem" marginLeft= "3rem" marginRight="3rem">
+        <Grid m={1} templateColumns="repeat(2, 1fr)" gap={2}>
             <NameInput pos="right" value={name} validation={nameErrorMessage} onChange={getName}></NameInput>
             <LastNameInput pos="left" value={lastName} validation={lastNameErrorMessage} onChange={getLastName}></LastNameInput>
             <EmailInput value={email} validation={emailErrorMessage} onChange={getEmail}></EmailInput>
             <PhoneInput value={phone} validation={phoneErrorMessage} onChange={getPhone}></PhoneInput>
             <PasswordInput value={password} validation={passwordErrorMessage} onChange={getPassword}></PasswordInput>
             <RepeatPasswordInput value={repitePassword} validation={repitePasswordErrorMessage} onChange={getRepitePassword}></RepeatPasswordInput>
+            <Box m={2} marginTop="1rem">
             <input type="file" name="image" id="image" />
+            </Box>
         </Grid>
-        <Grid templateColumns="repeat(1, 1fr)" gap={5} marginTop="5rem" marginLeft= "42.5rem">
-            <Center w="500px" textAlign='center' marginBottom="5rem">
+        <Box m={3} gap={5} marginTop="5rem">
+            
                 <RegisterUserButton></RegisterUserButton>
-            </Center>
-        </Grid>
+            
+        </Box>
     </form>
     )
 }
