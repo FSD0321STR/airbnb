@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { ChakraProvider, Grid} from "@chakra-ui/react";
+import { ChakraProvider, Grid, Box } from "@chakra-ui/react";
 import RegisterForm from '../components/UserRegister/RegisterForm';
-import NavBarRegisterLogin from "../components/NavBar/navBarRegisterLogin";
+import NavBar from "../components/NavBar/navBar";
 import {registerUserApi} from "../utils/apiTest";
+import useLocalStorageString from "../components/hooks/useLocalStorageString";
 
 function RegisterPage() {
   const history = useHistory();
@@ -28,8 +29,12 @@ function RegisterPage() {
     return (
       <div>
         <ChakraProvider>
-          <NavBarRegisterLogin />
-            <Grid marginTop="3%" position="center" bgRepeat="no-repeat" bgSize="200%" bgImage="url('./images/imagen-home.jpg')">
+        <Box position="fixed" width="100%" backgroundColor="#fff">
+                <NavBar />
+            </Box>
+          <hr />
+        <Box p="55" bgImage="url('./images/imagen-home.jpg')"/>
+        <Grid gap={4} marginTop="5%" marginBlockEnd="5%">
               <RegisterForm error={registerError} onSubmit={registerUser}></RegisterForm>
             </Grid>
         </ChakraProvider>

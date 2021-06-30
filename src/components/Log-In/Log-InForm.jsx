@@ -52,7 +52,7 @@ function LogInForm({onSubmit,error}) {
 
     return (
     <form onSubmit={LogInUser}>
-        <Grid m={2} templateColumns="repeat(2, 1fr)" gap={1}>
+        <Grid m={1} templateColumns="repeat(2, 1fr)" gap={2}>
           <EmailLogIn value={email} validation={emailErrorMessage} onChange={getEmail}></EmailLogIn>
           <PasswordLogIn value={password} validation={passwordErrorMessage} onChange={getPassword}></PasswordLogIn>
         </Grid>

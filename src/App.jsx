@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { ChakraProvider, Center } from "@chakra-ui/react";
+import { ChakraProvider, Center, Box } from "@chakra-ui/react";
 import RegisterPage from './pages/register-page';
 import EditUserPage from './pages/edit-user-page';
 import RegisterAlojamientoPage from './pages/registar-alojamiento';
@@ -12,12 +12,14 @@ import AlojamientosPublicPage from './pages/alojamientos-public-page';
 import LogInPage from './pages/LogIn-page';
 import useLocalStorageString from './components/hooks/useLocalStorageString';
 import { AuthContext } from './utils/auth-provider';
-import FooterSimple from './components/Footer/Footer'
-import RecuperarContraseña from './pages/Recuperar-contraseña'
+import FooterSimple from './components/Footer/Footer';
+import RecuperarContraseña from './pages/Recuperar-contraseña';
 
 
 function App({ Component }) {
   const [userMail,setUserMail] = useLocalStorageString("email","")
+
+
 
   function getUserMail(email) {
     setUserMail(email);
@@ -28,7 +30,7 @@ function App({ Component }) {
       <AuthContext.Provider value={userMail}>
         <div>
         <ChakraProvider>
-          <hr />
+        
           <Switch>
             <Route path="/user-register">
               <RegisterPage value={getUserMail} />
