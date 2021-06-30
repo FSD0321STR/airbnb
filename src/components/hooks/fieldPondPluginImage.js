@@ -34,3 +34,5 @@ function FilesImages() {
     </div>
   )
 }
+
+export default FilesImages;
