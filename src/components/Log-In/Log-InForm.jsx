@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { Grid } from "@chakra-ui/react";
+import { Grid, Center } from "@chakra-ui/react";
 import EmailLogIn from "./Email";
 import PasswordLogIn from "./Password";
 import SubmitLogIn from "./Submit";
 
 import { emailValidation, passwordValidation } from "../../utils/formValidation";
+import RecuperarPassword from "./RecuperarPassword";
+import TitleInputLogIn from "./Title-Input";
 
 function LogInForm({onSubmit,error}) {
 
@@ -52,11 +54,23 @@ function LogInForm({onSubmit,error}) {
 
     return (
     <form onSubmit={LogInUser}>
-        <Grid m={2} templateColumns="repeat(2, 1fr)" gap={1}>
-          <EmailLogIn value={email} validation={emailErrorMessage} onChange={getEmail}></EmailLogIn>
-          <PasswordLogIn value={password} validation={passwordErrorMessage} onChange={getPassword}></PasswordLogIn>
+        <Grid m={4} templateColumns="repeat(1, 1fr)" gap={10} marginTop="5rem" marginLeft= "41rem" marginBottom="15rem">
+            <Center w="500px" textAlign='center'>
+              <TitleInputLogIn />
+            </Center>
+            <Center w="500px" textAlign='center'>
+              <EmailLogIn value={email} validation={emailErrorMessage} onChange={getEmail}></EmailLogIn>
+            </Center>
+            <Center w="500px" textAlign='center'>
+              <PasswordLogIn value={password} validation={passwordErrorMessage} onChange={getPassword}></PasswordLogIn>
+            </Center>
+            <Center w="500px" textAlign='center'>
+              <RecuperarPassword />
+            </Center>
+            <Center w="500px" textAlign='center'>
+              <SubmitLogIn />
+            </Center>
         </Grid>
-        <SubmitLogIn></SubmitLogIn>
     </form>
     )
 }
