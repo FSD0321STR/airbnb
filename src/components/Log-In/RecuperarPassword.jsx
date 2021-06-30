@@ -4,8 +4,8 @@ import { Link, Text } from "@chakra-ui/react"
 function RecuperarPassword () {
     return (
     <Text>{""}
-      <Link color="teal.500" href="/recuperar-contrasena">
-      ¿Has olviado la contraseña?
+      <Link color="teal.500" href="/recuperar-contraseña">
+      ¿Has olvidado la contraseña?
       </Link>
     </Text>
     );

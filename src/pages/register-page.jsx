@@ -13,6 +13,7 @@ function RegisterPage() {
   async function registerUser( dataUser ) {
     //console.log(image);
     await registerUserApi( dataUser ) 
+
     .then(response => {
       if(response.message) {
         setRegisterError(response.message);

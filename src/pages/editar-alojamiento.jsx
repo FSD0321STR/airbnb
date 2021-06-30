@@ -2,7 +2,7 @@ import React from "react";
 import { ChakraProvider, Grid} from "@chakra-ui/react";
 import RegisterFormAlojamiento from '../components/AlojamientoRegister/RegisterFormAlojamiento';
 import NavBarLogout from "../components/NavBar/NavBarLogout";
-import {registerAlojamientoApi as editAlojamientoApi} from "../utils/apiTest";
+import {editAlojamientoApi} from "../utils/apiTest";
 
 function EditAlojamientoPage() {
 
