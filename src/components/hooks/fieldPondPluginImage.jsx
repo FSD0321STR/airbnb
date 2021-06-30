@@ -1,24 +1,14 @@
 import React, { useState } from 'react'
-import ReactDOM from 'react-dom'
-import { ChakraProvider, Box, Center } from "@chakra-ui/react";
-
-// Import React FilePond
-import { FilePond, File, registerPlugin } from 'react-filepond'
-
-// Import FilePond styles
+import { ChakraProvider, Box } from "@chakra-ui/react";
+import { FilePond, registerPlugin } from 'react-filepond'
 import 'filepond/dist/filepond.min.css'
+// Import the plugin code
+import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
+// Import the plugin styles
+import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css';
+// Register the plugin
+registerPlugin(FilePondPluginImagePreview);
 
-// Import the Image EXIF Orientation and Image Preview plugins
-// Note: These need to be installed separately
-// `npm i filepond-plugin-image-preview filepond-plugin-image-exif-orientation --save`
-import FilePondPluginImageExifOrientation from 'filepond-plugin-image-exif-orientation'
-import FilePondPluginImagePreview from 'filepond-plugin-image-preview'
-import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css'
-
-// Register the plugins
-registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview)
-
-// Our app
 function FilesImages() {
   const [files, setFiles] = useState([])
   return (
@@ -28,10 +18,9 @@ function FilesImages() {
           files={files}
           onupdatefiles={setFiles}
           allowMultiple={true}
-          maxFiles={3}
-          server="/"
+          maxFiles={6}
           name="files"
-          labelIdle='Drag and Drop your files or <span class="filepond--label-action">Browse</span>'
+          labelIdle='Arrastra aquí las imágenes del alojamiento   <span class="filepond--label-action">(Máximo 6 imágenes)</span>'
         />
       </Box>
     </ChakraProvider>

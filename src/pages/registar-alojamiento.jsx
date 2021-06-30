@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { ChakraProvider, Grid} from "@chakra-ui/react";
 import RegisterFormAlojamiento from '../components/AlojamientoRegister/RegisterFormAlojamiento';
 import NavBarLogout from "../components/NavBar/NavBarLogout";

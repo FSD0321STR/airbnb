@@ -3,16 +3,16 @@ import ImageUploading from 'react-images-uploading';
  
 function UploadGaleryImages() {
   const [images, setImages] = React.useState([]);
-  const maxNumber = 69;
+  const maxNumber = 6;
  
   const onChange = (imageList, addUpdateIndex) => {
-    // data for submit
+    
     console.log(imageList, addUpdateIndex);
     setImages(imageList);
   };
  
   return (
-    <div className="App">
+    <div className="Image">
       <ImageUploading
         multiple
         value={images}
@@ -29,7 +29,7 @@ function UploadGaleryImages() {
           isDragging,
           dragProps,
         }) => (
-          // write your building UI
+          
           <div className="upload__image-wrapper">
             <button
               style={isDragging ? { color: 'red' } : undefined}

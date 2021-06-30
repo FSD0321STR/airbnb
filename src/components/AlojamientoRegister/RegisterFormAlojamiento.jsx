@@ -1,5 +1,5 @@
 import React, { useState} from "react";
-import { ChakraProvider, Grid, Center } from "@chakra-ui/react";
+import { Grid, Center } from "@chakra-ui/react";
 
 import TitleRegisterAlojamiento from "./TitleRegisterAlojamiento"
 import NameAlojamientoInput from "./NameAlojamientoInput";
@@ -13,9 +13,8 @@ import TypeAlojamientoChecklist from "./TypeAlojamientoChecklist";
 import NumberGuestsAlojamientoInput from "./NumberGuestsAlojamientoInput";
 import ServisesAlojamientoChecklist from "./ServisesAlojamientoChecklist";
 import DescriptionAlojamientoInput from "./DescriptionAlojamientoInput";
-
-import RegisterAlojamientoButton from "./RegisterAlojamientoButton"
-import UploadGaleryImage from "./UploadImages";
+import RegisterAlojamientoButton from "./RegisterAlojamientoButton";
+import GaleryAlojamientoImages from "./GaleryAlojamientoImages";
 
 
 function RegisterFormAlojamiento({onSubmit}) {
@@ -147,7 +146,7 @@ function RegisterFormAlojamiento({onSubmit}) {
             <NumberGuestsAlojamientoInput value={numberGuests}  onChange={getNumberGuests}></NumberGuestsAlojamientoInput>
             <ServisesAlojamientoChecklist pos="left" value={services} onChange={getServises}></ServisesAlojamientoChecklist>
             <DescriptionAlojamientoInput value={description} onChange={getDescription}></DescriptionAlojamientoInput>
-            <UploadGaleryImage/>
+            <GaleryAlojamientoImages></GaleryAlojamientoImages>
 
         </Grid>
         <Grid templateColumns="repeat(1, 1fr)" gap={5} marginTop="5rem" marginLeft= "42.5rem">
