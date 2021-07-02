@@ -1,5 +1,9 @@
 import React, { useState} from "react";
-import { Grid, Center } from "@chakra-ui/react";
+import { Grid, Center, Box } from "@chakra-ui/react";
+import {FilePond, registerPlugin} from "react-filepond"
+import "filepond/dist/filepond.min.css";
+import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
+import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css';
 
 import TitleRegisterAlojamiento from "./TitleRegisterAlojamiento"
 import NameAlojamientoInput from "./NameAlojamientoInput";
@@ -14,8 +18,8 @@ import NumberGuestsAlojamientoInput from "./NumberGuestsAlojamientoInput";
 import ServisesAlojamientoChecklist from "./ServisesAlojamientoChecklist";
 import DescriptionAlojamientoInput from "./DescriptionAlojamientoInput";
 import RegisterAlojamientoButton from "./RegisterAlojamientoButton";
-import GaleryAlojamientoImages from "./GaleryAlojamientoImages";
 
+registerPlugin(FilePondPluginImagePreview);
 
 function RegisterFormAlojamiento({onSubmit}) {
 
@@ -30,7 +34,7 @@ function RegisterFormAlojamiento({onSubmit}) {
     const [numberGuests,setNumberGuests] = useState("");
     const [services,setServises] = useState("");
     const [description,setDescription] = useState("");
-    const [galery,setGalery] = useState("");
+    const [files, setFiles] = useState([]);
     
     function getName(e) {
         const actualName = e.target.value;
@@ -85,10 +89,11 @@ function RegisterFormAlojamiento({onSubmit}) {
         setDescription(actualDescription);
     }
 
-    function getGalery(e) {
-        const actualGalery = e.target.value;
-        setGalery(actualGalery);
+    function getFiles(e) {
+        const actualFiles = e.target.value;
+        setFiles(actualFiles);
     }
+    
 
     function registerAlojamientoUser(event) {
         event.preventDefault();
@@ -103,11 +108,11 @@ function RegisterFormAlojamiento({onSubmit}) {
             const numberGuests = numberGuests;
             const services = services;
             const description = description;
-            const input = document.getElementById('image');
-            const image = input.files[0];
+            const input = document.getElementById('files');
+            const files = input.files[0];
       
             const dataAlojamiento = new FormData();
-            dataAlojamiento.append("image",image);
+            dataAlojamiento.append("files",files);
             dataAlojamiento.append("name",name);
             dataAlojamiento.append("email",email);
             dataAlojamiento.append("phone",phone);
@@ -146,7 +151,16 @@ function RegisterFormAlojamiento({onSubmit}) {
             <NumberGuestsAlojamientoInput value={numberGuests}  onChange={getNumberGuests}></NumberGuestsAlojamientoInput>
             <ServisesAlojamientoChecklist pos="left" value={services} onChange={getServises}></ServisesAlojamientoChecklist>
             <DescriptionAlojamientoInput value={description} onChange={getDescription}></DescriptionAlojamientoInput>
-            <GaleryAlojamientoImages></GaleryAlojamientoImages>
+            <Box name="files" id="files" value={files} onChange={getFiles}>
+                <FilePond 
+                files={files}
+                onupdatefiles={setFiles}
+                allowMultiple={true}
+                maxFiles={6}
+                name="files"
+                labelIdle='Arrastra aquí las imágenes del alojamiento   <span class="filepond--label-action">(Máximo 6 imágenes)</span>'
+                />
+            </Box>
 
         </Grid>
         <Grid templateColumns="repeat(1, 1fr)" gap={5} marginTop="5rem" marginLeft= "42.5rem">

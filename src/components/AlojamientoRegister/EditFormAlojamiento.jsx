@@ -1,7 +1,7 @@
 import React, { useState} from "react";
-import { Grid, Center } from "@chakra-ui/react";
+import { Grid, Center, Box } from "@chakra-ui/react";
+import * as FilePond from 'filepond';
 import "filepond/dist/filepond.min.css";
-import { FormControl, FormLabel } from "@chakra-ui/react"
 import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
 import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css';
 
@@ -19,7 +19,7 @@ import ServisesAlojamientoChecklist from "./ServisesAlojamientoChecklist";
 import DescriptionAlojamientoInput from "./DescriptionAlojamientoInput";
 import RegisterAlojamientoButton from "./RegisterAlojamientoButton"
 
-registerPlugin(FilePondPluginImagePreview);
+FilePond.registerPlugin(FilePondPluginImagePreview);
 
 function EditFormAlojamiento({onSubmit}) {
 
@@ -96,20 +96,35 @@ function EditFormAlojamiento({onSubmit}) {
 
     function registerAlojamientoUser(event) {
         event.preventDefault();
-            onSubmit({
-                name: name,
-                email: email,
-                phone: phone,
-                address: address,
-                location: location,
-                state: state,
-                country: country,
-                type: type,
-                numberGuests: numberGuests,
-                services: services,
-                description: description,
-                files: setFiles,
-            }
+            const name = name;
+            const email =  email;
+            const phone = phone;
+            const address = address;
+            const location = location;
+            const state = state;
+            const country =  country;
+            const type = type;
+            const numberGuests = numberGuests;
+            const services = services;
+            const description = description;
+            const input = document.getElementById('files');
+            const files = input.files[0];
+      
+            const dataAlojamiento = new FormData();
+            dataAlojamiento.append("files",files);
+            dataAlojamiento.append("name",name);
+            dataAlojamiento.append("email",email);
+            dataAlojamiento.append("phone",phone);
+            dataAlojamiento.append("address",address);
+            dataAlojamiento.append("location",location);
+            dataAlojamiento.append("state", state);
+            dataAlojamiento.append("country",country);
+            dataAlojamiento.append("type",type);
+            dataAlojamiento.append("numberGuests",numberGuests);
+            dataAlojamiento.append("services",services);
+            dataAlojamiento.append("description",description);
+
+            onSubmit( dataAlojamiento
         );
         
     }
@@ -134,7 +149,7 @@ function EditFormAlojamiento({onSubmit}) {
             <NumberGuestsAlojamientoInput value={numberGuests}  onChange={getNumberGuests}></NumberGuestsAlojamientoInput>
             <ServisesAlojamientoChecklist pos="left" value={services} onChange={getServises}></ServisesAlojamientoChecklist>
             <DescriptionAlojamientoInput value={description} onChange={getDescription}></DescriptionAlojamientoInput>
-            <Box id="FilesImages" value={files} onChange={getFiles}>
+            <Box  value={files} onChange={getFiles}>
                 <FilePond
                 files={files}
                 onupdatefiles={setFiles}
@@ -144,7 +159,6 @@ function EditFormAlojamiento({onSubmit}) {
                 labelIdle='Arrastra aquí las imágenes del alojamiento   <span class="filepond--label-action">(Máximo 6 imágenes)</span>'
                 />
             </Box>
-
         </Grid>
         <Grid templateColumns="repeat(1, 1fr)" gap={5} marginTop="5rem" marginLeft= "42.5rem">
             <Center w="500px" textAlign='center' marginBottom="5rem">
