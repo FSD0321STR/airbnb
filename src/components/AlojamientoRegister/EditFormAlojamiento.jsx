@@ -1,5 +1,9 @@
 import React, { useState} from "react";
 import { Grid, Center } from "@chakra-ui/react";
+import "filepond/dist/filepond.min.css";
+import { FormControl, FormLabel } from "@chakra-ui/react"
+import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
+import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css';
 
 import TitleRegisterAlojamiento from "./TitleRegisterAlojamiento"
 import NameAlojamientoInput from "./NameAlojamientoInput";
@@ -13,9 +17,9 @@ import TypeAlojamientoChecklist from "./TypeAlojamientoChecklist";
 import NumberGuestsAlojamientoInput from "./NumberGuestsAlojamientoInput";
 import ServisesAlojamientoChecklist from "./ServisesAlojamientoChecklist";
 import DescriptionAlojamientoInput from "./DescriptionAlojamientoInput";
-import GaleryAlojamientoImages from "./GaleryAlojamientoImages";
 import RegisterAlojamientoButton from "./RegisterAlojamientoButton"
 
+registerPlugin(FilePondPluginImagePreview);
 
 function EditFormAlojamiento({onSubmit}) {
 
@@ -30,7 +34,7 @@ function EditFormAlojamiento({onSubmit}) {
     const [numberGuests,setNumberGuests] = useState("");
     const [services,setServises] = useState("");
     const [description,setDescription] = useState("");
-    const [galery,setGalery] = useState("");
+    const [files, setFiles] = useState([]);
     
     function getName(e) {
         const actualName = e.target.value;
@@ -85,9 +89,9 @@ function EditFormAlojamiento({onSubmit}) {
         setDescription(actualDescription);
     }
 
-    function getGalery(e) {
-        const actualGalery = e.target.value;
-        setGalery(actualGalery);
+    function getFiles(e) {
+        const actualFiles = e.target.value;
+        setFiles(actualFiles);
     }
 
     function registerAlojamientoUser(event) {
@@ -104,7 +108,7 @@ function EditFormAlojamiento({onSubmit}) {
                 numberGuests: numberGuests,
                 services: services,
                 description: description,
-                galery: galery,
+                files: setFiles,
             }
         );
         
@@ -130,7 +134,16 @@ function EditFormAlojamiento({onSubmit}) {
             <NumberGuestsAlojamientoInput value={numberGuests}  onChange={getNumberGuests}></NumberGuestsAlojamientoInput>
             <ServisesAlojamientoChecklist pos="left" value={services} onChange={getServises}></ServisesAlojamientoChecklist>
             <DescriptionAlojamientoInput value={description} onChange={getDescription}></DescriptionAlojamientoInput>
-            <GaleryAlojamientoImages value={galery} onChange={getGalery}></GaleryAlojamientoImages>
+            <Box id="FilesImages" value={files} onChange={getFiles}>
+                <FilePond
+                files={files}
+                onupdatefiles={setFiles}
+                allowMultiple={true}
+                maxFiles={6}
+                name="files"
+                labelIdle='Arrastra aquí las imágenes del alojamiento   <span class="filepond--label-action">(Máximo 6 imágenes)</span>'
+                />
+            </Box>
 
         </Grid>
         <Grid templateColumns="repeat(1, 1fr)" gap={5} marginTop="5rem" marginLeft= "42.5rem">
