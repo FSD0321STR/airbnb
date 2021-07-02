@@ -18,6 +18,7 @@ function LogInPage({ email, password }) {
       } else {
         localStorage.setItem('token', JSON.stringify(response.token));
         localStorage.setItem('userId', JSON.stringify(response.userId));
+        localStorage.setItem('rol', JSON.stringify(response.rol));
         history.push("/");
       }
     })

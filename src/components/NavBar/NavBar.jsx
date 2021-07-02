@@ -7,19 +7,25 @@ import useLocalStorageString from "../hooks/useLocalStorageString";
   function NavBar() {
     const [token,setToken] = useLocalStorageString("token", "");
     const [userId,setUserId] = useLocalStorageString("userId", "");
+    const [rol,setRol] = useLocalStorageString("rol", "");
     const history = useHistory();
     
     function cerrarSession() {
         localStorage.removeItem("token");
         localStorage.removeItem("userId");
+        localStorage.removeItem("rol");
         setToken("");
         setUserId("");
+        setRol("");
         history.push("/");
     }
 
     useEffect(() => {
         const token = localStorage.getItem("token");
+        const rol = localStorage.getItem("rol");
         setToken(token);
+        setRol(rol);
+        console.log(rol);
     }, [token]);
       
     return (
@@ -49,6 +55,7 @@ import useLocalStorageString from "../hooks/useLocalStorageString";
                                     {/* <Link to="/alojamientos-favoritos"><MenuItem>Alojamientos Favoritos Usuario</MenuItem></Link> */}
                                     <Link to="/alojamiento-register"><MenuItem>Registro alojamiento Anfitrion</MenuItem></Link>
                                     <Link to="/alojamiento-edit"><MenuItem>Modificar alojamientos Anfitrion</MenuItem></Link>
+                                    <Link to="/users"><MenuItem>Lista de usuarios</MenuItem></Link>
                                     {/* <Link to="/alojamientos-anfitrion"><MenuItem>Listado alojamientos Anfitrion</MenuItem></Link> */}
                                     {/* <Link to="/"><MenuItem>Buscar alojamientos</MenuItem></Link> */}
                                     {/* <Link to="/"><MenuItem onClick={cerrarSession}>Cerrar Sesión</MenuItem></Link> */}
