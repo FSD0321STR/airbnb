@@ -56,10 +56,10 @@ import useLocalStorageArray from "../hooks/useLocalStorageArray";
                             <MenuButton as={Button} leftIcon={<HamburgerIcon />} rightIcon = {<ChevronDownIcon />}  borderRadius="md"> </MenuButton>
                                 <MenuList>
                                     <Link to="/"><MenuItem>Inicio</MenuItem></Link>
-                                    <Link to="/edit-user"><MenuItem>Editar usuario</MenuItem></Link>
+                                    <Link to="/edit-user"><MenuItem>Editar mis datos</MenuItem></Link>
                                     {/* <Link to="/alojamientos-favoritos"><MenuItem>Alojamientos Favoritos Usuario</MenuItem></Link> */}
-                                    <Link to="/alojamiento-register"><MenuItem>Registro alojamiento Anfitrion</MenuItem></Link>
-                                    <Link to="/alojamiento-edit"><MenuItem>Modificar alojamientos Anfitrion</MenuItem></Link>
+                                    <Link to="/alojamiento-register"><MenuItem>Subir un alojamiento</MenuItem></Link>
+                                    <Link to="/alojamientos-anfitrion"><MenuItem>Modificar mis alojamientos</MenuItem></Link>
                                     {
                                         rol.rol === "admin" ? (
                                             <Link to="/users"><MenuItem>Lista de usuarios</MenuItem></Link>
