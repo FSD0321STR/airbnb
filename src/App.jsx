@@ -3,11 +3,12 @@ import './App.css';
 
 import { ChakraProvider, Center, Box } from "@chakra-ui/react";
 
-import { HashRouter, Switch, Route } from "react-router-dom";
+import { HashRouter, Switch, Route, useParams } from "react-router-dom";
 
 
 import RegisterPage from './pages/register-page';
 import EditUserPage from './pages/edit-user-page';
+import EditUsersPage from './pages/edit-users-page';
 import RegisterAlojamientoPage from './pages/registar-alojamiento';
 import EditAlojamientoPage from './pages/editar-alojamiento';
 import AlojamientosAnfitrionPage from './pages/listado-alojamientos-anfitrion';
@@ -18,6 +19,7 @@ import useLocalStorageString from './components/hooks/useLocalStorageString';
 import { AuthContext } from './utils/auth-provider';
 import FooterSimple from './components/Footer/Footer';
 import RecuperarContraseña from './pages/Recuperar-contraseña';
+import DeleteUserPage from './pages/admin-user-page'
 
 
 function App({ Component }) {
@@ -56,6 +58,12 @@ function App({ Component }) {
             </Route>
             <Route exact path="/alojamientos-favoritos">
               <AlojamientosFavoritosPage />
+            </Route>
+            <Route exact path="/users">
+              <DeleteUserPage />
+            </Route>
+            <Route exact path="/users/:id" component={EditUsersPage}>
+             
             </Route>
             <Route exact path="/recuperar-contrasena">
               <RecuperarContraseña value={getUserMail} />

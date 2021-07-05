@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Buffer } from "buffer";
-import { ChakraProvider, Box, Grid, Center, SkeletonCircle, SkeletonText } from "@chakra-ui/react";
+import { Grid, Center } from "@chakra-ui/react";
 import TitleInputEditUser from "./TitleInputEditUser"
 import {getUserApi} from "../../utils/apiTest";
 
@@ -14,7 +14,7 @@ import EditUserButton from "./EditUserButton";
 
 import { emailValidation, passwordValidation, phoneValidation, textValidation } from "../../utils/formValidation";
 
-function EditUserForm({onSubmit, error}) {
+function EditUsersForm({onSubmit, error, userId}) {
 
     const [loading, setLoading] = useState(true);
     const [user,setUser] = useState({});
@@ -26,8 +26,8 @@ function EditUserForm({onSubmit, error}) {
     const [password,setPassword] = useState("");
     const [repitePassword,setRepitePassword] = useState("");
 
-    let userId = JSON.parse(localStorage.getItem('userId'));
-    userId = userId.id;
+    // let userId = JSON.parse(localStorage.getItem('userId'));
+    // userId = userId.id;
     //console.log(userId);
 
     useEffect( async () => {
@@ -151,13 +151,9 @@ function EditUserForm({onSubmit, error}) {
 
     if(loading) {
         return (
-            <ChakraProvider>
-           
-            <Box padding="6" boxShadow="lg" bg="white">
-              <SkeletonCircle size="10" />
-              <SkeletonText mt="4" noOfLines={4} spacing="4" />
-            </Box>
-          </ChakraProvider>
+          <div>
+            cargando datos...
+          </div>
         )
       }
 
@@ -189,4 +185,4 @@ function EditUserForm({onSubmit, error}) {
     )
 }
 
-export default EditUserForm;
+export default EditUsersForm;

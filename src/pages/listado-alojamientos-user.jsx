@@ -1,11 +1,11 @@
 import React from "react";
 import { ChakraProvider, Grid, Box, Image, Flex, Badge, Text, Button } from "@chakra-ui/react";
-import NavBarLogout from "../components/NavBar/NavBarLogout";
+import NavBar from "../components/NavBar/NavBar";
 
 function AlojamientosFavoritosPage() {
     return (
         <ChakraProvider>
-            <NavBarLogout />
+            <NavBar />
             <Text>LITADO DE ALOJAMIENTOS FAVORITOS DEL USUARIO</Text>
             <Grid templateColumns="repeat(3, 1fr)" gap={1}>
                 <Box p="5" maxW="320px" borderWidth="1px">
