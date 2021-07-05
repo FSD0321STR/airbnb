@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { ChakraProvider, Grid} from "@chakra-ui/react";
 import RegisterFormAlojamiento from '../components/AlojamientoRegister/RegisterFormAlojamiento';
-import NavBarLogout from "../components/NavBar/NavBarLogout";
+import NavBar from "../components/NavBar/NavBar";
 import {registerAlojamientoApi} from "../utils/apiTest";
 
 function RegisterAlojamientoPage() {
@@ -27,7 +27,7 @@ function RegisterAlojamientoPage() {
     return (
       <div>
         <ChakraProvider>
-          <NavBarLogout />
+          <NavBar />
             <Grid marginTop="3%" position="center" bgRepeat="no-repeat" bgSize="200%" bgImage="url('./images/imagen-home.jpg')">
               <RegisterFormAlojamiento error={registerError} onSubmit={registerAlojamientoUser}></RegisterFormAlojamiento>
             </Grid>

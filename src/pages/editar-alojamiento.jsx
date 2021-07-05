@@ -1,7 +1,7 @@
 import React from "react";
 import { ChakraProvider, Grid} from "@chakra-ui/react";
 import RegisterFormAlojamiento from '../components/AlojamientoRegister/RegisterFormAlojamiento';
-import NavBarLogout from "../components/NavBar/NavBarLogout";
+import NavBar from "../components/NavBar/NavBar";
 import {editAlojamientoApi} from "../utils/apiTest";
 
 function EditAlojamientoPage() {
@@ -13,7 +13,7 @@ function EditAlojamientoPage() {
     return (
       <div>
         <ChakraProvider>
-          <NavBarLogout />
+          <NavBar />
             <Grid marginTop="3%" position="center" bgRepeat="no-repeat" bgSize="200%" bgImage="url('./images/imagen-home.jpg')">
               <RegisterFormAlojamiento onSubmit={editAlojamientoUser}></RegisterFormAlojamiento>
             </Grid>

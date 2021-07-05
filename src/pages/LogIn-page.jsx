@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import { useHistory } from "react-router-dom";
 import { ChakraProvider, Grid, Box} from "@chakra-ui/react";
 import register from "../utils/apiRegister";
-import NavBarRegisterLogin from "../components/NavBar/navBarRegisterLogin";
+import NavBar from "../components/NavBar/navBar";
 import LogInForm from "../components/Log-In/Log-InForm";
 import { loginUserApi } from "../utils/apiTest";
 
@@ -16,7 +16,9 @@ function LogInPage({ email, password }) {
       if(response.message) {
         setLoginError(response.message);
       } else {
-        localStorage.setItem('token', JSON.stringify(response));
+        localStorage.setItem('token', JSON.stringify(response.token));
+        localStorage.setItem('userId', JSON.stringify(response.userId));
+        localStorage.setItem('rol', JSON.stringify(response.rol));
         history.push("/");
       }
     })
@@ -28,8 +30,12 @@ function LogInPage({ email, password }) {
 
     return (
         <ChakraProvider>
-          <NavBarRegisterLogin />
-          <Grid marginTop="3%" position="center" bgRepeat="no-repeat" bgSize="200%" bgImage="url('./images/imagen-home.jpg')">
+          <Box position="fixed" width="100%" backgroundColor="#fff">
+                <NavBar />
+            </Box>
+          <hr />
+          <Box p="55" bgImage="url('./images/imagen-home.jpg')"/> 
+            <Grid gap={4} marginTop="5%" marginBlockEnd="5%"> 
             <LogInForm error={loginError} onSubmit={LogInUser} ></LogInForm>
           </Grid>
             

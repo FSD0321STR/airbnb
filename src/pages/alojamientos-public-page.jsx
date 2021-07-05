@@ -1,13 +1,15 @@
 import React from "react";
 import { ChakraProvider, Grid, Box, Image, Flex, Badge, Text } from "@chakra-ui/react";
-import NavBarRegisterLogin from "../components/NavBar/navBarRegisterLogin";
+import NavBar from "../components/NavBar/navBar";
 
 function AlojamientosPublicPage() {
+    
     return (
         <ChakraProvider>
-            <Grid position="fixed">
-                <NavBarRegisterLogin />
-            </Grid>
+            <Box position="fixed" width="100%" backgroundColor="#fff">
+                <NavBar />
+            </Box>
+          <hr />
             <Box p="400" bgImage="url('./images/imagen-home.jpg')"/> 
             <Grid templateColumns="repeat(4, 1fr)" gap={4} marginTop="5%" marginLeft="10%" marginRight="8%" marginBlockEnd="5%">        
                 <Box p="5" maxW="320px" borderWidth="1px">
