@@ -38,8 +38,30 @@ async function editUserApi(dataEditUser,userId) {
     }).then(res => res = res.json())
     .catch(error => console.log('Error:', error));
 }
+async function deleteUserApi(userId) {
+    //console.log(userId);
+    return await fetch(`${API_URL}/user/${userId}`, {
+         method: 'DELETE',
+         mode: 'cors',
+    //     // headers: {
+    //     //     'Content-Type': 'application/json',
+    //     // },
+    //     //body: dataEditUser,
+     }).then(res => res = res.json())
+     .catch(error => console.log('Error:', error));
+}
 async function getUserApi(userId) {
     return await fetch(`${API_URL}/user/${userId}`, {
+        method: 'GET',
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    }).then(res => res = res.json())
+    .catch(error => console.log('Error:', error));
+}
+async function getAllUserApi() {
+    return await fetch(`${API_URL}/users`, {
         method: 'GET',
         mode: 'cors',
         headers: {
@@ -59,7 +81,9 @@ export {
     registerUserApi,
     loginUserApi,
     editUserApi,
+    deleteUserApi,
     getUserApi,
+    getAllUserApi,
     registerAlojamientoApi, 
     editAlojamientoApi,
 } 
