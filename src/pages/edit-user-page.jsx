@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { useHistory } from "react-router-dom";
-import { ChakraProvider,Grid} from "@chakra-ui/react";
+import { ChakraProvider, Grid} from "@chakra-ui/react";
 import EditUserForm from '../components/UserRegister/EditUserForm';
 import NavBar from "../components/NavBar/NavBar";
 import {editUserApi} from "../utils/apiTest";

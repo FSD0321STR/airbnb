@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import { useHistory, Route, Redirect } from "react-router-dom";
-import { ChakraProvider,Grid,Table, Button, Box, SkeletonCircle, SkeletonText,
+import { ChakraProvider,Icon,Table, Button, Box, SkeletonCircle, SkeletonText,
     Thead,
     Tbody,
     Tfoot,
@@ -8,6 +8,7 @@ import { ChakraProvider,Grid,Table, Button, Box, SkeletonCircle, SkeletonText,
     Th,
     Td,
     TableCaption,} from "@chakra-ui/react";
+import { MdDeleteForever, MdModeEdit } from "react-icons/md";
 import EditUserForm from '../components/UserRegister/EditUserForm';
 import NavBar from "../components/NavBar/NavBar";
 import {deleteUserApi, getAllUserApi} from "../utils/apiTest";
@@ -21,7 +22,6 @@ function DeleteUserPage() {
   useEffect( async () => {
     const  users  = await getAllUserApi();
     setUser(users);
-    console.log(users);
     
     //console.log(users);
     //const {image: {img }} = user.user;
@@ -86,16 +86,16 @@ function DeleteUserPage() {
                 <Td>{user.email}</Td>
                 <Td >{user.rol}</Td>
                 <Td >
-                <Button onClick={() => editUsers(user._id)} colorScheme="teal" size="xs">
-                
+                <Button py={4} onClick={() => editUsers(user._id)} colorScheme="teal" size="xs">
+                  <Icon as={MdModeEdit} w={4} h={4} />
                 </Button>
                 </Td>
                 <Td >
                 {/* <Button onClick={() => deleteUser(user._id)} colorScheme="red" size="xs">
                 
                 </Button> */}
-                <Button onClick={() => { if (window.confirm('¿Estás seguro de eliminar el usuario?')) deleteUser(user._id) } } colorScheme="red" size="xs">
-                
+                <Button py={4} onClick={() => { if (window.confirm('¿Estás seguro de eliminar el usuario?')) deleteUser(user._id) } } colorScheme="red" size="xs">
+                  <Icon as={MdDeleteForever} w={4} h={4} />
                 </Button>
                 
                 </Td>

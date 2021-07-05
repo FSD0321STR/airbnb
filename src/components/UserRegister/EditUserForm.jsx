@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Buffer } from "buffer";
-import { Grid, Center } from "@chakra-ui/react";
+import { ChakraProvider, Box, Grid, Center, SkeletonCircle, SkeletonText } from "@chakra-ui/react";
 import TitleInputEditUser from "./TitleInputEditUser"
 import {getUserApi} from "../../utils/apiTest";
 
@@ -151,9 +151,13 @@ function EditUserForm({onSubmit, error}) {
 
     if(loading) {
         return (
-          <div>
-            cargando datos...
-          </div>
+            <ChakraProvider>
+           
+            <Box padding="6" boxShadow="lg" bg="white">
+              <SkeletonCircle size="10" />
+              <SkeletonText mt="4" noOfLines={4} spacing="4" />
+            </Box>
+          </ChakraProvider>
         )
       }
 
