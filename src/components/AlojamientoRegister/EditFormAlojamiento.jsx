@@ -149,7 +149,7 @@ function EditFormAlojamiento({onSubmit}) {
             <NumberGuestsAlojamientoInput value={numberGuests}  onChange={getNumberGuests}></NumberGuestsAlojamientoInput>
             <ServisesAlojamientoChecklist pos="left" value={services} onChange={getServises}></ServisesAlojamientoChecklist>
             <DescriptionAlojamientoInput value={description} onChange={getDescription}></DescriptionAlojamientoInput>
-            <Box  value={files} onChange={getFiles}>
+            <Box  name="files" id="files" value={files} onChange={getFiles}>
                 <FilePond
                 files={files}
                 onupdatefiles={setFiles}

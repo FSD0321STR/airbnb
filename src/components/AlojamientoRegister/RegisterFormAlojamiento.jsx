@@ -132,7 +132,7 @@ function RegisterFormAlojamiento({onSubmit}) {
     
 
     return (
-    <form onSubmit={registerAlojamientoUser}>
+    <form onSubmit={registerAlojamientoUser} method="POST" encType="multipart/form-data">
         
         <Grid templateColumns="repeat(1, 1fr)" gap={10} marginTop="5rem" marginLeft= "38rem" >
             <Center w="50%" textAlign='center'>
