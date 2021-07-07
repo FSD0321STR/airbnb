@@ -20,6 +20,7 @@ import { AuthContext } from './utils/auth-provider';
 import FooterSimple from './components/Footer/Footer';
 import RecuperarContraseña from './pages/Recuperar-contraseña';
 import DeleteUserPage from './pages/admin-user-page'
+import ReservaForm from './components/Reservar-Habitación/Reserva-Form';
 
 
 function App({ Component }) {
@@ -70,6 +71,9 @@ function App({ Component }) {
             </Route>
             <Route exact path="/">
               <AlojamientosPublicPage />
+            </Route>
+            <Route exact path="/Contact-Form">
+              <ReservaForm />
             </Route>
             
           </Switch>
