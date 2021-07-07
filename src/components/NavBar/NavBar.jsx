@@ -62,7 +62,11 @@ import useLocalStorageArray from "../hooks/useLocalStorageArray";
                                     <Link to="/alojamientos-anfitrion"><MenuItem>Modificar mis alojamientos</MenuItem></Link>
                                     {
                                         rol.rol === "admin" ? (
+                                            <>
                                             <Link to="/users"><MenuItem>Lista de usuarios</MenuItem></Link>
+                                            <Link to="/tipo-alojamiento"><MenuItem>Tipo de alojamiento</MenuItem></Link>
+                                            <Link to="/servicios-alojamiento"><MenuItem>Servicios de alojamiento</MenuItem></Link>
+                                            </>
                                         ) : (
                                             ""
                                         )
