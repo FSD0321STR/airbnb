@@ -235,8 +235,40 @@ async function registerAlojamientoApi(dataAlojamiento) {
     .catch(error => console.log('Error:', error));
 }
 
-async function editAlojamientoApi() {
-    await alert('edit alojamiento')
+async function getAlojamientoApi(alojamientoId) {
+    return await fetch(`${API_URL}/alojamiento/${alojamientoId}`, {
+        method: 'GET',
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: dataAlojamiento,
+    }).then(res => res = res.json())
+    .catch(error => console.log('Error:', error));
+}
+async function editAlojamientoApi(alojamientoId) {
+    //console.log(image);
+    return await fetch(`${API_URL}/alojamiento/${alojamientoId}`, {
+        method: 'PATCH',
+        mode: 'cors',
+        // headers: {
+        //     'Content-Type': 'application/json',
+        // },
+        body: dataAlojamiento,
+    }).then(res => res = res.json())
+    .catch(error => console.log('Error:', error));
+}
+async function deleteAlojamientoApi(alojamientoId) {
+    //console.log(userId);
+    return await fetch(`${API_URL}/alojamiento/${alojamientoId}`, {
+         method: 'DELETE',
+         mode: 'cors',
+    //     // headers: {
+    //     //     'Content-Type': 'application/json',
+    //     // },
+     body: dataAlojamiento,
+     }).then(res => res = res.json())
+     .catch(error => console.log('Error:', error));
 }
 
 export {
@@ -260,4 +292,6 @@ export {
     getServicioApi,
     registerAlojamientoApi, 
     editAlojamientoApi,
+    getAlojamientoApi,
+    deleteAlojamientoApi,
 } 

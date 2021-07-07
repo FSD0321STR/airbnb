@@ -4,6 +4,7 @@ import * as FilePond from 'filepond';
 import "filepond/dist/filepond.min.css";
 import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
 import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css';
+import {getUserApi} from "../../utils/apiTest";
 
 import TitleRegisterAlojamiento from "./TitleRegisterAlojamiento"
 import NameAlojamientoInput from "./NameAlojamientoInput";
@@ -35,6 +36,29 @@ function EditFormAlojamiento({onSubmit}) {
     const [services,setServises] = useState("");
     const [description,setDescription] = useState("");
     const [files, setFiles] = useState([]);
+
+    let alojamientoId = JSON.parse(localStorage.getItem('userId'));
+    alojamientoId = alojamientoId.id;
+
+    useEffect( async () => {
+        const alojamiento = await getAlojamientoApi(alojamientoId);
+        const {image: {img }} = alojamiento.user;
+        const bufferImage = Buffer.from(img.data).toString("base64");
+        setUser(alojamiento);
+        setName(alojamiento.alojamiento.name);
+        setLastName(alojamiento.user.lastName);
+        setEmail(alojamiento.alojamientoId.email);
+        setPhone(alojamiento.alojamiento.phone);
+        setAdress(alojamiento.alojamiento.address);
+        setLocation(alojamiento.alojamiento.location);
+        setState(alojamiento.alojamiento.state);
+        setCountry(alojamiento.alojamiento.country);
+        setType(alojamiento.alojamiento.type);
+        setNumberGuests(alojamiento.alojamiento.numberGuests);
+        setServises(alojamiento.alojamiento.services);
+        setDescription(alojamiento.alojamiento.description);
+        setFiles(`data:${img.contentType};base64,` + bufferImage);
+      }, []);
     
     function getName(e) {
         const actualName = e.target.value;
@@ -124,7 +148,7 @@ function EditFormAlojamiento({onSubmit}) {
             dataAlojamiento.append("services",services);
             dataAlojamiento.append("description",description);
 
-            onSubmit( dataAlojamiento
+            onSubmit( dataAlojamiento, alojamientoId
         );
         
     }
@@ -149,7 +173,7 @@ function EditFormAlojamiento({onSubmit}) {
             <NumberGuestsAlojamientoInput value={numberGuests}  onChange={getNumberGuests}></NumberGuestsAlojamientoInput>
             <ServisesAlojamientoChecklist pos="left" value={services} onChange={getServises}></ServisesAlojamientoChecklist>
             <DescriptionAlojamientoInput value={description} onChange={getDescription}></DescriptionAlojamientoInput>
-            <Box  value={files} onChange={getFiles}>
+            <Box  name="files" id="files" value={files} onChange={getFiles}>
                 <FilePond
                 files={files}
                 onupdatefiles={setFiles}
