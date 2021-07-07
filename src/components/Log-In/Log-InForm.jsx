@@ -68,7 +68,7 @@ function LogInForm({onSubmit,error}) {
               <RecuperarPassword />
             </Center>
             <Center w="500px" textAlign='center'>
-              <SubmitLogIn />
+              <SubmitLogIn></SubmitLogIn>
             </Center>
         </Grid>
     </form>
