@@ -13,11 +13,8 @@
     "buffer": "^6.0.3",
     "ejs": "^3.1.6",
     "filepond": "^4.28.2",
-<<<<<<< HEAD
     "filepond-plugin-image-edit": "^1.6.3",
     "filepond-plugin-image-preview": "^4.6.6",
-=======
->>>>>>> 668507bb55c149d98918ec371f8d52d114394c94
     "framer-motion": "^4.1.17",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
