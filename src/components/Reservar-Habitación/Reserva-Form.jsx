@@ -1,6 +1,6 @@
 import React from "react";
-import { Flex, Center, Grid } from "@chakra-ui/react"
-import FormSignIn from "./Form-Sign-In"
+import { Flex, Center, Grid } from "@chakra-ui/react";
+import FormSignIn from "../Log-In/Form-Sign-In";
 import TitleReserva from "./Title-Reserva";
 import EmailReserva from "./Email-Reserva";
 import FullName from "./Name-Reserva";
