@@ -163,11 +163,7 @@ function EditUserForm({onSubmit, error}) {
 
     return (
     <form onSubmit={editProfile}>
-        <Grid templateColumns="repeat(1, 1fr)" gap={10} marginTop="5rem" marginLeft= "3rem" >
-            <Center w="50%" textAlign='center'>
-                <TitleInputEditUser/>
-            </Center>
-        </Grid>
+        
         <p>{error}</p>
         <Grid templateColumns="repeat(2, 1fr)" gap={4} marginTop="5rem" marginLeft= "3rem" marginRight="3rem">
           <NameInput value={name} validation={nameErrorMessage} onChange={getName}></NameInput>
@@ -179,7 +175,7 @@ function EditUserForm({onSubmit, error}) {
           <img src={image} width="200" />
           <input type="file" name="image" id="image" />
         </Grid>
-        <Grid templateColumns="repeat(1, 1fr)" gap={5} marginTop="5rem" marginLeft= "42.5rem">
+        <Grid templateColumns="repeat(1, 1fr)" gap={5} marginTop="3rem" marginLeft= "3rem">
             <Center w="500px" textAlign='center'>
                 <EditUserButton></EditUserButton>
             </Center>

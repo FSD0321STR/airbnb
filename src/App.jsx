@@ -20,6 +20,12 @@ import { AuthContext } from './utils/auth-provider';
 import FooterSimple from './components/Footer/Footer';
 import RecuperarContraseña from './pages/Recuperar-contraseña';
 import DeleteUserPage from './pages/admin-user-page'
+import TipoAlojamientoPage from './pages/tipo-de-alojamiento-page';
+import CrearTipoAlojamiento from './pages/crear-tipo-alojamientos-page';
+import CrearServicioAlojamiento from './pages/crear-servicio-alojamiento-page';
+import EditTipoAlojamientoPage from './pages/edit-tipo-alojamiento-page';
+import ServiciosAlojamientoPage from './pages/servicios-alojamiento-page';
+import EditServicioAlojamientoPage from './pages/edit-servicio-alojamiento-page';
 
 
 function App({ Component }) {
@@ -62,8 +68,23 @@ function App({ Component }) {
             <Route exact path="/users">
               <DeleteUserPage />
             </Route>
+            <Route exact path="/tipo-alojamiento">
+              <TipoAlojamientoPage />
+            </Route>
+            <Route exact path="/servicios-alojamiento">
+              <ServiciosAlojamientoPage />
+            </Route>
+            <Route exact path="/create-tipo-alojamiento">
+              <CrearTipoAlojamiento />
+            </Route>
+            <Route exact path="/create-servicio-alojamiento">
+              <CrearServicioAlojamiento />
+            </Route>
+            <Route exact path="/tipos-alojamientos/:id" component={EditTipoAlojamientoPage}>
+            </Route>
+            <Route exact path="/servicios-alojamientos/:id" component={EditServicioAlojamientoPage}>
+            </Route>
             <Route exact path="/users/:id" component={EditUsersPage}>
-             
             </Route>
             <Route exact path="/recuperar-contrasena">
               <RecuperarContraseña value={getUserMail} />
