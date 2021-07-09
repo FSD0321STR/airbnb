@@ -155,7 +155,7 @@ function EditFormAlojamiento({onSubmit}) {
     
 
     return (
-    <form onSubmit={registerAlojamientoUser}>
+    <form onSubmit={registerAlojamientoUser} method="PATCH" encType="alojamiento/:id">
         <Grid templateColumns="repeat(1, 1fr)" gap={10} marginTop="5rem" marginLeft= "38rem" >
             <Center w="50%" textAlign='center'>
                 <TitleRegisterAlojamiento />
