@@ -224,7 +224,7 @@ async function getServicioApi(tipoId) {
 }
 
 async function registerAlojamientoApi(dataAlojamiento) {
-    return await fetch(`${API_URL}/register-alojamiento`, {
+    return await fetch(`${API_URL}/createalojamiento`, {
         method: 'POST',
         mode: 'cors',
         // headers: {
