@@ -1,11 +1,13 @@
 import React from "react";
 import { ChakraProvider, Grid, Box, Image, Flex, Container, Text, Button, Center, Heading } from "@chakra-ui/react";
 import PopUp from "../components/Reservar-Habitación/Reserva-pagina";
+import NavBar from "../components/NavBar/Navbar"
 
 function ReservaPage () {
     return (
 
 <Box>
+    <NavBar />
     <Grid templateColumns="repeat(5, 1fr)" gap={6} p="5" maxW="300em" borderWidth="1px">
                 <Box>
                 <Image borderRadius="md" src="https://bit.ly/2k1H1t6" />
