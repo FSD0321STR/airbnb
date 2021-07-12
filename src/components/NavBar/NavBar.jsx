@@ -7,7 +7,7 @@ import useLocalStorageArray from "../hooks/useLocalStorageArray";
   
   function NavBar() {
     const [token,setToken] = useLocalStorageString("token", "");
-    const [userId,setUserId] = useLocalStorageString("userId", "");
+    const [userId,setUserId] = useLocalStorageString("userId", "aa");
     const [rol,setRol] = useLocalStorageArray("rol", "");
     const [userIdAlojamientos,setUserIdAlojamientos] = useState("")
     const history = useHistory();
@@ -19,20 +19,25 @@ import useLocalStorageArray from "../hooks/useLocalStorageArray";
         localStorage.removeItem("userId");
         localStorage.removeItem("rol");
         setToken("");
-        setUserId("");
-        setRol("");
+        //setUserId("");
+        //setRol("");
         history.push("/");
     }
+
+    //console.log(token);
 
     useEffect(() => {
         const token = localStorage.getItem("token");
         const rol = JSON.parse(localStorage.getItem("rol"));
         const urlId = localStorage.getItem("userId");
-        setUserId(urlId);
-        if(urlId!=="") {
+        
+        //console.log(urlId);
+        if(urlId===null || urlId==="") {
+            
+        } else {
             setUserIdAlojamientos(JSON.parse(urlId).id);
         }
-        setToken(token);
+        //setToken(token);
 
         //const userRol = JSON.parse(rol);
         //setRol(rol.rol);
