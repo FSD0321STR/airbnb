@@ -11,12 +11,14 @@ function RegisterAlojamientoPage() {
   const [registerError,setRegisterError] = useState("");
 
     async function registerAlojamientoUser(dataAlojamiento) {
+
+      //console.log(dataAlojamiento);
         await registerAlojamientoApi(dataAlojamiento)
         .then(response => {
           if(response.message) {
             setRegisterError(response.message);
           } else {
-            history.push("/alojamiento-register");
+            history.push("/");
           }
         })
         .catch((error) => {

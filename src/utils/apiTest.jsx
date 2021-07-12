@@ -224,7 +224,8 @@ async function getServicioApi(tipoId) {
 }
 
 async function registerAlojamientoApi(dataAlojamiento) {
-    return await fetch(`${API_URL}/register-alojamiento`, {
+    //console.log(dataAlojamiento);
+    return await fetch(`${API_URL}/createalojamiento`, {
         method: 'POST',
         mode: 'cors',
         // headers: {
@@ -246,6 +247,19 @@ async function getAlojamientoApi(alojamientoId) {
     }).then(res => res = res.json())
     .catch(error => console.log('Error:', error));
 }
+
+async function getAlojamientosUserApi(alojamientoId) {
+    return await fetch(`${API_URL}/alojamientos-user/${alojamientoId}`, {
+        method: 'GET',
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        //body: dataAlojamiento,
+    }).then(res => res = res.json())
+    .catch(error => console.log('Error:', error));
+}
+
 async function editAlojamientoApi(alojamientoId) {
     //console.log(image);
     return await fetch(`${API_URL}/alojamiento/${alojamientoId}`, {
@@ -293,5 +307,6 @@ export {
     registerAlojamientoApi, 
     editAlojamientoApi,
     getAlojamientoApi,
+    getAlojamientosUserApi,
     deleteAlojamientoApi,
 } 

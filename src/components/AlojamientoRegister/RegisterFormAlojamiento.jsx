@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import { Grid, Center, Box } from "@chakra-ui/react";
 import {FilePond, registerPlugin} from "react-filepond"
 import "filepond/dist/filepond.min.css";
@@ -18,11 +18,13 @@ import NumberGuestsAlojamientoInput from "./NumberGuestsAlojamientoInput";
 import ServisesAlojamientoChecklist from "./ServisesAlojamientoChecklist";
 import DescriptionAlojamientoInput from "./DescriptionAlojamientoInput";
 import RegisterAlojamientoButton from "./RegisterAlojamientoButton";
+import PrecioAlojamientoInput from "./PrecioAlojamientoInput";
 
 registerPlugin(FilePondPluginImagePreview);
 
 function RegisterFormAlojamiento({onSubmit}) {
 
+    const [userId,setUserId] = useState(JSON.parse(localStorage.getItem('userId')).id);
     const [name,setName] = useState("");
     const [email,setEmail] = useState("");
     const [phone,setPhone] = useState("");
@@ -34,7 +36,9 @@ function RegisterFormAlojamiento({onSubmit}) {
     const [numberGuests,setNumberGuests] = useState("");
     const [services,setServises] = useState("");
     const [description,setDescription] = useState("");
+    const [precio,setPrecio] = useState("");
     const [files, setFiles] = useState([]);
+
     
     function getName(e) {
         const actualName = e.target.value;
@@ -89,6 +93,11 @@ function RegisterFormAlojamiento({onSubmit}) {
         setDescription(actualDescription);
     }
 
+    function getPrecio(e) {
+        const actualPrecio = e.target.value;
+        setPrecio(actualPrecio);
+    }
+
     function getFiles(e) {
         const actualFiles = e.target.value;
         setFiles(actualFiles);
@@ -97,22 +106,15 @@ function RegisterFormAlojamiento({onSubmit}) {
 
     function registerAlojamientoUser(event) {
         event.preventDefault();
-            const name = name;
-            const email =  email;
-            const phone = phone;
-            const address = address;
-            const location = location;
-            const state = state;
-            const country =  country;
-            const type = type;
-            const numberGuests = numberGuests;
-            const services = services;
-            const description = description;
-            const input = document.getElementById('files');
-            const files = input.files[0];
+        
       
             const dataAlojamiento = new FormData();
-            dataAlojamiento.append("files",files);
+            files.forEach(file => {
+                //console.log(file.file);
+                dataAlojamiento.append("files",file.file);
+            });
+            //dataAlojamiento.append("files",files[0].file);
+            //console.log(files);
             dataAlojamiento.append("name",name);
             dataAlojamiento.append("email",email);
             dataAlojamiento.append("phone",phone);
@@ -124,15 +126,18 @@ function RegisterFormAlojamiento({onSubmit}) {
             dataAlojamiento.append("numberGuests",numberGuests);
             dataAlojamiento.append("services",services);
             dataAlojamiento.append("description",description);
+            dataAlojamiento.append("precio",precio);
+            dataAlojamiento.append("userId",userId);
 
-            onSubmit( dataAlojamiento
+            //onSubmit( dataAlojamiento sería para el form data
+            onSubmit(dataAlojamiento
         );
         
     }
     
 
     return (
-    <form onSubmit={registerAlojamientoUser} method="POST" encType="createalojamiento">
+    <form onSubmit={registerAlojamientoUser} method="POST" encType="multipart/form-data">
         
         <Grid templateColumns="repeat(1, 1fr)" gap={10} marginTop="5rem" marginLeft= "38rem" >
             <Center w="50%" textAlign='center'>
@@ -151,6 +156,7 @@ function RegisterFormAlojamiento({onSubmit}) {
             <NumberGuestsAlojamientoInput value={numberGuests}  onChange={getNumberGuests}></NumberGuestsAlojamientoInput>
             <ServisesAlojamientoChecklist pos="left" value={services} onChange={getServises}></ServisesAlojamientoChecklist>
             <DescriptionAlojamientoInput value={description} onChange={getDescription}></DescriptionAlojamientoInput>
+            <PrecioAlojamientoInput value={precio} onChange={getPrecio}></PrecioAlojamientoInput>
             <Box name="files" id="files" value={files} onChange={getFiles}>
                 <FilePond 
                 files={files}

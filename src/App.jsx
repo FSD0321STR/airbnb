@@ -59,8 +59,8 @@ function App({ Component }) {
             <Route exact path="/alojamiento-edit">
               <EditAlojamientoPage />
             </Route>
-            <Route exact path="/alojamientos-anfitrion">
-              <AlojamientosAnfitrionPage />
+            <Route exact path="/alojamientos-anfitrion/:id" component={AlojamientosAnfitrionPage}>
+              
             </Route>
             <Route exact path="/alojamientos-favoritos">
               <AlojamientosFavoritosPage />

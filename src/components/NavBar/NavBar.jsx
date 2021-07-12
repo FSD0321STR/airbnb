@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { Flex, Box, Spacer, Menu, Image, MenuButton, MenuList, MenuItem, Button, InputGroup, InputLeftElement, Input } from "@chakra-ui/react";
 import { ChevronDownIcon, SearchIcon, HamburgerIcon } from '@chakra-ui/icons';
@@ -9,7 +9,10 @@ import useLocalStorageArray from "../hooks/useLocalStorageArray";
     const [token,setToken] = useLocalStorageString("token", "");
     const [userId,setUserId] = useLocalStorageString("userId", "");
     const [rol,setRol] = useLocalStorageArray("rol", "");
+    const [userIdAlojamientos,setUserIdAlojamientos] = useState("")
     const history = useHistory();
+
+   
     
     function cerrarSession() {
         localStorage.removeItem("token");
@@ -24,7 +27,13 @@ import useLocalStorageArray from "../hooks/useLocalStorageArray";
     useEffect(() => {
         const token = localStorage.getItem("token");
         const rol = JSON.parse(localStorage.getItem("rol"));
+        const urlId = localStorage.getItem("userId");
+        setUserId(urlId);
+        if(urlId!=="") {
+            setUserIdAlojamientos(JSON.parse(urlId).id);
+        }
         setToken(token);
+
         //const userRol = JSON.parse(rol);
         //setRol(rol.rol);
         //console.log(rol.rol);
@@ -59,7 +68,7 @@ import useLocalStorageArray from "../hooks/useLocalStorageArray";
                                     <Link to="/edit-user"><MenuItem>Editar mis datos</MenuItem></Link>
                                     {/* <Link to="/alojamientos-favoritos"><MenuItem>Alojamientos Favoritos Usuario</MenuItem></Link> */}
                                     <Link to="/alojamiento-register"><MenuItem>Subir un alojamiento</MenuItem></Link>
-                                    <Link to="/alojamientos-anfitrion"><MenuItem>Modificar mis alojamientos</MenuItem></Link>
+                                    <Link to={`/alojamientos-anfitrion/${userIdAlojamientos}`}><MenuItem>Modificar mis alojamientos</MenuItem></Link>
                                     {
                                         rol.rol === "admin" ? (
                                             <>

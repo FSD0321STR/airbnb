@@ -11,7 +11,7 @@ function RegisterPage() {
   const [registerError,setRegisterError] = useState("");
 
   async function registerUser( dataUser ) {
-    //console.log(image);
+    //console.log(dataUser);
     await registerUserApi( dataUser ) 
 
     .then(response => {

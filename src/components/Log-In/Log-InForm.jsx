@@ -54,7 +54,7 @@ function LogInForm({onSubmit,error}) {
 
     return (
     <form onSubmit={LogInUser}>
-        <Grid m={4} templateColumns="repeat(1, 1fr)" gap={10} marginTop="5rem" marginLeft= "41rem" marginBottom="15rem">
+        <Grid m={4} templateColumns="repeat(1, 1fr)" gap={10} marginTop="5rem" marginLeft= "3rem" marginBottom="15rem">
             <Center w="500px" textAlign='center'>
               <TitleInputLogIn />
             </Center>
