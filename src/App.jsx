@@ -26,7 +26,7 @@ import CrearServicioAlojamiento from './pages/crear-servicio-alojamiento-page';
 import EditTipoAlojamientoPage from './pages/edit-tipo-alojamiento-page';
 import ServiciosAlojamientoPage from './pages/servicios-alojamiento-page';
 import EditServicioAlojamientoPage from './pages/edit-servicio-alojamiento-page';
-import ContactUs from './components/Reservar-Habitación/Reserva-Form';
+import ReservaPage from './pages/reserva-detalles-page';
 
 function App({ Component }) {
   const [userMail,setUserMail] = useLocalStorageString("email","")
@@ -93,7 +93,7 @@ function App({ Component }) {
               <AlojamientosPublicPage />
             </Route>
             <Route exact path="/contact-form">
-              <ContactUs />
+              <ReservaPage />
             </Route>
             
           </Switch>
