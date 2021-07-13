@@ -237,13 +237,14 @@ async function registerAlojamientoApi(dataAlojamiento) {
 }
 
 async function getAlojamientoApi(alojamientoId) {
+    //console.log(alojamientoId);
     return await fetch(`${API_URL}/alojamiento/${alojamientoId}`, {
         method: 'GET',
         mode: 'cors',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: dataAlojamiento,
+        //body: dataAlojamiento,
     }).then(res => res = res.json())
     .catch(error => console.log('Error:', error));
 }
@@ -260,7 +261,7 @@ async function getAlojamientosUserApi(alojamientoId) {
     .catch(error => console.log('Error:', error));
 }
 
-async function editAlojamientoApi(alojamientoId) {
+async function editAlojamientoApi(dataEditAlojamiento, alojamientoId) {
     //console.log(image);
     return await fetch(`${API_URL}/alojamiento/${alojamientoId}`, {
         method: 'PATCH',
@@ -268,7 +269,7 @@ async function editAlojamientoApi(alojamientoId) {
         // headers: {
         //     'Content-Type': 'application/json',
         // },
-        body: dataAlojamiento,
+        body: dataEditAlojamiento,
     }).then(res => res = res.json())
     .catch(error => console.log('Error:', error));
 }
@@ -277,10 +278,10 @@ async function deleteAlojamientoApi(alojamientoId) {
     return await fetch(`${API_URL}/alojamiento/${alojamientoId}`, {
          method: 'DELETE',
          mode: 'cors',
-    //     // headers: {
-    //     //     'Content-Type': 'application/json',
-    //     // },
-     body: dataAlojamiento,
+        // headers: {
+        //     'Content-Type': 'application/json',
+        // },
+     //body: dataAlojamiento,
      }).then(res => res = res.json())
      .catch(error => console.log('Error:', error));
 }

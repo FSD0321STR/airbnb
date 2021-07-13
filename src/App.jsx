@@ -10,7 +10,6 @@ import RegisterPage from './pages/register-page';
 import EditUserPage from './pages/edit-user-page';
 import EditUsersPage from './pages/edit-users-page';
 import RegisterAlojamientoPage from './pages/registar-alojamiento';
-import EditAlojamientoPage from './pages/editar-alojamiento';
 import AlojamientosAnfitrionPage from './pages/listado-alojamientos-anfitrion';
 import AlojamientosFavoritosPage  from './pages/listado-alojamientos-user';
 import AlojamientosPublicPage from './pages/alojamientos-public-page';
@@ -27,6 +26,7 @@ import EditTipoAlojamientoPage from './pages/edit-tipo-alojamiento-page';
 import ServiciosAlojamientoPage from './pages/servicios-alojamiento-page';
 import EditServicioAlojamientoPage from './pages/edit-servicio-alojamiento-page';
 import ReservaPage from './pages/reserva-detalles-page';
+import EditAlojamientoPage from './pages/editar-alojamiento';
 
 function App({ Component }) {
   const [userMail,setUserMail] = useLocalStorageString("email","")
@@ -56,9 +56,6 @@ function App({ Component }) {
             <Route exact path="/alojamiento-register">
               <RegisterAlojamientoPage />
             </Route>
-            <Route exact path="/alojamiento-edit">
-              <EditAlojamientoPage />
-            </Route>
             <Route exact path="/alojamientos-anfitrion/:id" component={AlojamientosAnfitrionPage}>
               
             </Route>
@@ -85,6 +82,8 @@ function App({ Component }) {
             <Route exact path="/servicios-alojamientos/:id" component={EditServicioAlojamientoPage}>
             </Route>
             <Route exact path="/users/:id" component={EditUsersPage}>
+            </Route>
+            <Route exact path="/alojamiento/:id" component={EditAlojamientoPage}>
             </Route>
             <Route exact path="/recuperar-contrasena">
               <RecuperarContraseña value={getUserMail} />
