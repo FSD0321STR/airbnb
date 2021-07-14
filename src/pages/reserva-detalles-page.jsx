@@ -1,7 +1,7 @@
 import React from "react";
 import { ChakraProvider, Grid, Box, Image, Flex, Container, Text, Button, Center, Heading } from "@chakra-ui/react";
 import PopUp from "../components/Reservar-Habitación/Reserva-pagina";
-import NavBar from "../components/NavBar/Navbar"
+import NavBar from "../components/NavBar/NavBar";
 
 function ReservaPage () {
     return (
