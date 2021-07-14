@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { ChakraProvider, Grid, Box } from "@chakra-ui/react";
 import RegisterForm from '../components/UserRegister/RegisterForm';
-import NavBar from "../components/NavBar/navBar.jsx";
+import NavBar from "../components/NavBar/NavBar";
 import {registerUserApi} from "../utils/apiTest";
 import useLocalStorageString from "../components/hooks/useLocalStorageString";
 
