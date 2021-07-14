@@ -285,16 +285,16 @@ async function deleteAlojamientoApi(alojamientoId) {
      .catch(error => console.log('Error:', error));
 }
 
-async function getUserApiPassword(email) {
+async function getUserApiPassword(email, password) {
     return await fetch(`${API_URL}/user/${email}`, {
-        method: 'GET',
+        method: 'PATCH',
         mode: 'cors',
         headers: {
             'Content-Type': 'application/json',
         },
+        body: JSON.stringify(password),
     }).then(res => res = res.json())
-    .catch(error => console.log('Error:', error));
-}
+    .catch(error => console.log('Error:', error));}
 
 export {
     registerUserApi,

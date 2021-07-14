@@ -8,15 +8,17 @@ import EditPasswordButton from "./EditPasswordButton";
 import { passwordValidation } from "../../utils/formValidation";
 import EmailPasswordRecover from "../Recuperar-Contraseña/Email-recover";
 
-function EditPassword({onSubmit, email}) {
+function EditPassword({onSubmit}) {
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
     const [repitePassword,setRepitePassword] = useState("");
+    const [loading,setLoading] = useState(false)
 
-    useEffect( async () => {
-        const user = await getUserApiPassword(email);
-        setUser(user);
-      }, []);
+    // useEffect( async () => {
+    //     const user = await getUserApiPassword(email);
+    //     setUser(user);
+    //     setLoading(false);
+    //   }, []);
     
     const [passwordErrorMessage,setPasswordErrorMessage] = useState(false);
     const [repitePasswordErrorMessage,setRepitePasswordErrorMessage] = useState(false);
@@ -39,35 +41,12 @@ function EditPassword({onSubmit, email}) {
     }
 
 
-    function editPassword(event) {
+    async function editPassword(event) {
         event.preventDefault();
-            const passwordValidate = passwordValidation(password);
-
-        //console.log(password);
-       
-            if(password != "") {
-            if(!passwordValidate) {
-                setPasswordErrorMessage(true)
-            }
-            else if(password!==repitePassword) {
-                setRepitePasswordErrorMessage(true)
-            }
-        }   
-        else {
-            setPasswordErrorMessage(false)
-            setRepitePasswordErrorMessage(false)
-
-            //console.log(image.file);
-            const dataEditPassword = new FormData();
-            dataEditPassword.append("password", password);
-
-            //console.log(dataUser);
-
-            onSubmit( 
-                dataEditPassword
-        );
+        const AAA = JSON.stringify(password);
+        const user = await getUserApiPassword(email, password);
+            //onSubmit( {password: password}
         
-        }
     }
 
     if(loading) {
@@ -85,7 +64,6 @@ function EditPassword({onSubmit, email}) {
     return (
     <form onSubmit={editPassword}>
         
-        <p>{error}</p>
         <Grid templateColumns="repeat(2, 1fr)" gap={4} marginTop="5rem" marginLeft= "3rem" marginRight="3rem">
           <EmailPasswordRecover value={email} onChange={getEmail}></EmailPasswordRecover>
           <PasswordInput value={password} validation={passwordErrorMessage} onChange={getPassword}></PasswordInput>

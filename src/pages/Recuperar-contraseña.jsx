@@ -1,7 +1,7 @@
 import React , {useState}from "react";
 import { useHistory } from "react-router-dom";
 import { ChakraProvider, Grid} from "@chakra-ui/react";
-import EditPassword from '../components/UserRegister/EditUserForm';
+import EditPassword from "../components/UserRegister/EditPassword";
 import NavBar from "../components/NavBar/NavBar";
 import {getUserApiPassword} from "../utils/apiTest";
 
