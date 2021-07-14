@@ -3,6 +3,7 @@ import { ChakraProvider, Grid, Box, Image, Flex, Badge, Text, SkeletonCircle, Sk
 import { Buffer } from "buffer";
 import NavBar from "../components/NavBar/NavBar";
 import { getAllAlojamientos } from "../utils/apiTest";
+import imgHome from "../components/images/imagen-home.jpg";
 
 function AlojamientosPublicPage() {
 
@@ -47,7 +48,7 @@ function AlojamientosPublicPage() {
             
           
 
-            <Box p="400" bgImage="url('./images/imagen-home.jpg')"/> 
+            <Box p="400" bgImage={imgHome}/> 
             <Grid templateColumns="repeat(4, 1fr)" gap={4} marginTop="5%" marginLeft="10%" marginRight="8%" marginBlockEnd="5%">   
 
             {alojamientos.alojamientos.map((alojamiento) => (
