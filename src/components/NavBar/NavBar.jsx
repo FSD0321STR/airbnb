@@ -4,6 +4,7 @@ import { Flex, Box, Spacer, Menu, Image, MenuButton, MenuList, MenuItem, Button,
 import { ChevronDownIcon, SearchIcon, HamburgerIcon } from '@chakra-ui/icons';
 import useLocalStorageString from "../hooks/useLocalStorageString";
 import useLocalStorageArray from "../hooks/useLocalStorageArray";
+import logoApp from "../images/airbnb-logo.png";
   
   function NavBar() {
     const [token,setToken] = useLocalStorageString("token", "");
@@ -47,11 +48,9 @@ import useLocalStorageArray from "../hooks/useLocalStorageArray";
     //console.log(rol);
       
     return (
-        <>
-        <img src="../images/airbnb-logo.png" alt="" />
         <Flex paddingTop="1%" paddingLeft="1%" paddingRight="1%" paddingBottom="1%">
             <Box p={2}>
-                <Image w={40} h={12} src="../images/airbnb-logo.png"/> 
+                <Image w={40} h={12} src={logoApp}/> 
             </Box>
             <Spacer />
             <Box p={2}>
@@ -114,7 +113,6 @@ import useLocalStorageArray from "../hooks/useLocalStorageArray";
                 
             </Box>
         </Flex>
-        </>
         );
       }
     
