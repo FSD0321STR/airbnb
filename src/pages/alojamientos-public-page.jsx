@@ -1,8 +1,42 @@
-import React from "react";
-import { ChakraProvider, Grid, Box, Image, Flex, Badge, Text } from "@chakra-ui/react";
+import React, { useState, useEffect } from "react";
+import { ChakraProvider, Grid, Box, Image, Flex, Badge, Text, SkeletonCircle, SkeletonText } from "@chakra-ui/react";
+import { Buffer } from "buffer";
 import NavBar from "../components/NavBar/navBar";
+import { getAllAlojamientos } from "../utils/apiTest";
 
 function AlojamientosPublicPage() {
+
+    const [alojamientos,setAlojamientos] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect( async () => {
+        const alojamientos = await getAllAlojamientos();
+        //console.log(alojamientos);
+        setAlojamientos(alojamientos);
+        //console.log(alojamientos);
+        setLoading(false);
+      }, []);
+
+      let alojamientoImageObject = "";
+      let alojamientoImageDataBuffer = "";
+      let imageDataConvertBase64 = "";
+
+
+      if(loading) {
+        return (
+            <ChakraProvider>
+                <Box position="fixed" width="100%" backgroundColor="#fff">
+                <NavBar />
+            </Box>
+          <hr />
+            <Box mt="60px" padding="6" boxShadow="lg" bg="white">
+              <SkeletonCircle size="10" />
+              <SkeletonText mt="4" noOfLines={4} spacing="4" />
+            </Box>
+          </ChakraProvider>
+        )
+      }
+
     
     return (
         <ChakraProvider>
@@ -10,32 +44,22 @@ function AlojamientosPublicPage() {
                 <NavBar />
             </Box>
           <hr />
+            
+          
+
             <Box p="400" bgImage="url('./images/imagen-home.jpg')"/> 
-            <Grid templateColumns="repeat(4, 1fr)" gap={4} marginTop="5%" marginLeft="10%" marginRight="8%" marginBlockEnd="5%">        
-                <Box p="5" maxW="320px" borderWidth="1px">
-                <Image borderRadius="md" src="https://bit.ly/2k1H1t6" />
-                <Flex align="baseline" mt={2}>
-                    <Badge colorScheme="pink">Plus</Badge>
-                    <Text
-                    ml={2}
-                    textTransform="uppercase"
-                    fontSize="sm"
-                    fontWeight="bold"
-                    color="pink.800"
-                    >
-                    Verified &bull; Cape Town
-                    </Text>
-                </Flex>
-                <Text mt={2} fontSize="xl" fontWeight="semibold" lineHeight="short">
-                    Modern, Chic Penthouse with Mountain, City & Sea Views
-                </Text>
-                <Text mb={1} mt={2}>€119/night</Text>
-                </Box>
+            <Grid templateColumns="repeat(4, 1fr)" gap={4} marginTop="5%" marginLeft="10%" marginRight="8%" marginBlockEnd="5%">   
+
+            {alojamientos.alojamientos.map((alojamiento) => (
                 
-                <Box p="5" maxW="320px" borderWidth="1px">
-                <Image borderRadius="md" src="https://bit.ly/2k1H1t6" />
+                alojamientoImageObject = alojamiento.files[0].img,
+                alojamientoImageDataBuffer = Buffer.from(alojamientoImageObject.data).toString("base64"),
+                imageDataConvertBase64 = `data:${alojamientoImageObject.contentType};base64,` + alojamientoImageDataBuffer,
+
+                <Box key={alojamiento._id} p="5" maxW="320px" borderWidth="1px">
+                <Image borderRadius="md" src={imageDataConvertBase64} />
                 <Flex align="baseline" mt={2}>
-                    <Badge colorScheme="pink">Plus</Badge>
+                    {/* <Badge colorScheme="pink">Plus</Badge> */}
                     <Text
                     ml={2}
                     textTransform="uppercase"
@@ -43,53 +67,17 @@ function AlojamientosPublicPage() {
                     fontWeight="bold"
                     color="pink.800"
                     >
-                    Verified &bull; Cape Town
+                    {alojamiento.location} &bull; {alojamiento.state}
                     </Text>
                 </Flex>
                 <Text mt={2} fontSize="xl" fontWeight="semibold" lineHeight="short">
-                    Modern, Chic Penthouse with Mountain, City & Sea Views
+                {alojamiento.name}
                 </Text>
-                <Text mb={1} mt={2}>€119/night</Text>
+                <Text mb={1} mt={2}>€{alojamiento.precio} / noche</Text>
                 </Box>
-               
-                <Box p="5" maxW="320px" borderWidth="1px">
-                <Image borderRadius="md" src="https://bit.ly/2k1H1t6" />
-                <Flex align="baseline" mt={2}>
-                    <Badge colorScheme="pink">Plus</Badge>
-                    <Text
-                    ml={2}
-                    textTransform="uppercase"
-                    fontSize="sm"
-                    fontWeight="bold"
-                    color="pink.800"
-                    >
-                    Verified &bull; Cape Town
-                    </Text>
-                </Flex>
-                <Text mt={2} fontSize="xl" fontWeight="semibold" lineHeight="short">
-                    Modern, Chic Penthouse with Mountain, City & Sea Views
-                </Text>
-                <Text mb={1} mt={2}>€119/night</Text>
-                </Box>
-                <Box p="5" maxW="320px" borderWidth="1px">
-                <Image borderRadius="md" src="https://bit.ly/2k1H1t6" />
-                <Flex align="baseline" mt={2}>
-                    <Badge colorScheme="pink">Plus</Badge>
-                    <Text
-                    ml={2}
-                    textTransform="uppercase"
-                    fontSize="sm"
-                    fontWeight="bold"
-                    color="pink.800"
-                    >
-                    Verified &bull; Cape Town
-                    </Text>
-                </Flex>
-                <Text mt={2} fontSize="xl" fontWeight="semibold" lineHeight="short">
-                    Modern, Chic Penthouse with Mountain, City & Sea Views
-                </Text>
-                <Text mb={1} mt={2}>€119/night</Text>
-                </Box>
+                ))
+          }
+                
             </Grid>
             
         </ChakraProvider>

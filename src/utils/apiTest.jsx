@@ -261,6 +261,18 @@ async function getAlojamientosUserApi(alojamientoId) {
     .catch(error => console.log('Error:', error));
 }
 
+async function getAllAlojamientos() {
+    return await fetch(`${API_URL}/alojamientos`, {
+        method: 'GET',
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        //body: dataAlojamiento,
+    }).then(res => res = res.json())
+    .catch(error => console.log('Error:', error));
+}
+
 async function editAlojamientoApi(dataEditAlojamiento, alojamientoId) {
     //console.log(image);
     return await fetch(`${API_URL}/alojamiento/${alojamientoId}`, {
@@ -309,5 +321,6 @@ export {
     editAlojamientoApi,
     getAlojamientoApi,
     getAlojamientosUserApi,
+    getAllAlojamientos,
     deleteAlojamientoApi,
 } 
