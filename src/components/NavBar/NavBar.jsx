@@ -49,7 +49,7 @@ import useLocalStorageArray from "../hooks/useLocalStorageArray";
     return (
         <Flex paddingTop="1%" paddingLeft="1%" paddingRight="1%" paddingBottom="1%">
             <Box p={2}>
-                <Image w={40} h={12} src="../../../images/airbnb-logo.png"/> 
+                <Image w={40} h={12} src="images/airbnb-logo.png"/> 
             </Box>
             <Spacer />
             <Box p={2}>
