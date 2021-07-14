@@ -1,7 +1,7 @@
 import React from "react";
 import { ChakraProvider, Grid } from "@chakra-ui/react";
 import register from "../utils/apiRegister";
-import NavBar from "../components/NavBar/navBar";
+import NavBar from "../components/NavBar/NavBar";
 import PasswordRecover from "../components/Recuperar-Contraseña/Password-Recover";
 
 

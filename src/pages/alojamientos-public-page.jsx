@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { ChakraProvider, Grid, Box, Image, Flex, Badge, Text, SkeletonCircle, SkeletonText } from "@chakra-ui/react";
 import { Buffer } from "buffer";
-import NavBar from "../components/NavBar/navBar";
+import NavBar from "../components/NavBar/NavBar";
 import { getAllAlojamientos } from "../utils/apiTest";
 
 function AlojamientosPublicPage() {

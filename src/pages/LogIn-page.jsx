@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import { useHistory } from "react-router-dom";
 import { ChakraProvider, Grid, Box} from "@chakra-ui/react";
 import register from "../utils/apiRegister";
-import NavBar from "../components/NavBar/navBar";
+import NavBar from "../components/NavBar/NavBar";
 import LogInForm from "../components/Log-In/Log-InForm";
 import { loginUserApi } from "../utils/apiTest";
 

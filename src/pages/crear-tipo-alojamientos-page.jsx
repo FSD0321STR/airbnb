@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { useHistory } from "react-router-dom";
 import { ChakraProvider, Grid, Box} from "@chakra-ui/react";
-import NavBar from "../components/NavBar/navBar";
+import NavBar from "../components/NavBar/NavBar";
 import { createTipoAlojamiento } from "../utils/apiTest";
 import CreateTipoForm from "../components/TiposAlojamiento/CreateTipoForm";
 
