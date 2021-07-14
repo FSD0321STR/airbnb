@@ -1,21 +1,34 @@
-import React from "react";
-import { ChakraProvider, Grid } from "@chakra-ui/react";
-import register from "../utils/apiRegister";
-import NavBar from "../components/NavBar/navBar";
-import PasswordRecover from "../components/Recuperar-Contraseña/Password-Recover";
-
+import React , {useState}from "react";
+import { useHistory } from "react-router-dom";
+import { ChakraProvider, Grid} from "@chakra-ui/react";
+import EditPassword from '../components/UserRegister/EditUserForm';
+import NavBar from "../components/NavBar/NavBar";
+import {getUserApiPassword} from "../utils/apiTest";
 
 function RecuperarContraseña() {
-
-    function PasswordRecovering(UserPasswordRecover) {
-        register(UserPasswordRecover)
+  const history = useHistory();
+  const [registerError,setRegisterError] = useState("");
+    async function editPassword(dataEditPassword, email) {
+      //console.log(dataEditUser);
+        await getUserApiPassword(dataEditPassword, email)
+        .then(response => {
+          if(response.message) {
+            setRegisterError(response.messageError);
+          } else {
+            //localStorage.setItem('token', JSON.stringify(response));
+            history.push("/");
+          }
+        })
+        .catch((error) => {
+         Promise.reject(error);
+        })
       }
 
     return (
         <ChakraProvider>
-        <NavBar />
+          <NavBar />
           <Grid marginTop="3%" position="center" bgRepeat="no-repeat" bgSize="200%" bgImage="url('./images/imagen-home.jpg')">
-            <PasswordRecover  onSubmit={PasswordRecovering} />
+             <EditPassword error={registerError} onSubmit={editPassword}></EditPassword>
           </Grid>
         </ChakraProvider>
     )
