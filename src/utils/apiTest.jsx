@@ -39,6 +39,18 @@ async function editUserApi(dataEditUser,userId) {
     }).then(res => res = res.json())
     .catch(error => console.log('Error:', error));
 }
+async function recoveryUserPassword(email, password) {
+    //console.log(password);
+    return await fetch(`${API_URL}/recovery-password`, {
+        method: 'PATCH',
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body:JSON.stringify({email, password}),
+    }).then(res => res = res.json())
+    .catch(error => console.log('Error:', error));
+}
 async function deleteUserApi(userId) {
     //console.log(userId);
     return await fetch(`${API_URL}/user/${userId}`, {
@@ -324,4 +336,5 @@ export {
     getAlojamientosUserApi,
     getAllAlojamientos,
     deleteAlojamientoApi,
+    recoveryUserPassword,
 } 

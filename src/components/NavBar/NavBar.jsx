@@ -22,7 +22,7 @@ import logoApp from "../images/airbnb-logo.png";
         setToken("");
         //setUserId("");
         //setRol("");
-        history.push("/");
+        history.go(0);
     }
 
     //console.log(token);
