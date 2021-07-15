@@ -20,9 +20,7 @@ import logoApp from "../images/airbnb-logo.png";
         localStorage.removeItem("userId");
         localStorage.removeItem("rol");
         setToken("");
-        //setUserId("");
-        //setRol("");
-        history.go(0);
+        history.push("/")
     }
 
     //console.log(token);
@@ -31,7 +29,7 @@ import logoApp from "../images/airbnb-logo.png";
         const token = localStorage.getItem("token");
         const rol = JSON.parse(localStorage.getItem("rol"));
         const urlId = localStorage.getItem("userId");
-        
+        //aaa();
         //console.log(urlId);
         if(urlId===null || urlId==="") {
             
