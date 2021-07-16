@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Center, Grid, Input, Textarea, Text, Modal, Button,
+import { Modal, Button,
     ModalOverlay,
     useDisclosure,
     ModalContent,
@@ -23,7 +23,7 @@ import ContactUs from './Reserva-Form';
         return (
           <>
             {sizes.map((size) => (
-              <Button bg="#FF385C"
+              <Button bg="#FF385C" 
                 onClick={() => handleSizeClick(size)}
                 key={size}
                 ml={2}
