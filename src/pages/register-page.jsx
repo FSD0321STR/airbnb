@@ -35,7 +35,7 @@ function RegisterPage() {
         <Box position="fixed" width="100%" backgroundColor="#fff">
           <NavBar />
         </Box>
-        <Grid marginTop="1%" position="center" bgRepeat="no-repeat" bgSize="100%" bgImage={imgHome}>
+        <Grid  position="center" bgRepeat="no-repeat" bgSize="100%" bgImage={imgHome}>
 
               <RegisterForm error={registerError} onSubmit={registerUser}></RegisterForm>
             </Grid>

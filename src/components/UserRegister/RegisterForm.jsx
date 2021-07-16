@@ -139,8 +139,10 @@ function RegisterForm({onSubmit, error}) {
     <form onSubmit={registerUser} method="POST" encType="multipart/form-data">
         
         <p>{error}</p>
-        <Box textStyle="h1">Registro de nuevo usuario</Box> 
-        <Grid templateColumns="repeat(3, 1fr)" gap={4}  marginTop="5rem" marginLeft= "3rem" >
+        <Grid marginTop="8rem" marginLeft= "10rem">
+            <TitleInputRegister></TitleInputRegister>
+        </Grid>
+        <Grid templateColumns="repeat(3, 1fr)" gap={4}   marginLeft= "3rem" >
         
         <Grid marginLeft= "15rem" marginRight="4rem"  marginTop="5rem">
             <Box m={2} marginTop="1rem">
@@ -159,7 +161,7 @@ function RegisterForm({onSubmit, error}) {
         </Grid>    
             
         </Grid>
-        <Grid templateColumns="repeat(1, 1fr)" gap={5} marginTop="5rem" marginBottom="5rem"   marginLeft= "18rem">
+        <Grid templateColumns="repeat(1, 1fr)" gap={5} marginTop="5rem" marginBottom="5rem"   marginLeft= "10rem">
             <Box m={3} gap={5} marginTop="5rem">
                 <RegisterUserButton></RegisterUserButton>
             </Box>
