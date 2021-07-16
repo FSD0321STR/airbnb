@@ -3,8 +3,9 @@ import { useHistory } from "react-router-dom";
 import { ChakraProvider, Grid, Box, Image, Flex, Badge, Text, SkeletonCircle, SkeletonText, Button } from "@chakra-ui/react";
 import { Buffer } from "buffer";
 import NavBar from "../components/NavBar/NavBar";
-import { getAllAlojamientos } from "../utils/apiTest";
+import { getAllAlojamientos, getSearchAlojamientos } from "../utils/apiTest";
 import imgHome from "../../images/home/imagen-home-2.jpg";
+
 import useLocalStorageString from "../components/hooks/useLocalStorageString";
 
 function AlojamientosPublicPage() {
@@ -15,6 +16,14 @@ function AlojamientosPublicPage() {
 
     async function detalleAlojamiento(alojamientoId) {
       history.push(`/detalle-alojamiento/${alojamientoId}`);
+  }
+
+  async function aaa(searchText) {
+    //console.log(searchText);
+    setLoading(true);
+    const alojamientos = await getSearchAlojamientos(searchText);
+    setAlojamientos(alojamientos);
+    setLoading(false);
   }
 
     useEffect( async () => {
@@ -50,7 +59,7 @@ function AlojamientosPublicPage() {
     return (
         <ChakraProvider>
             <Box position="fixed" width="100%" backgroundColor="#fff">
-                <NavBar />
+                <NavBar onSubmit={aaa} />
             </Box>
           <hr/>
         

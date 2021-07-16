@@ -274,6 +274,19 @@ async function getAlojamientosUserApi(alojamientoId) {
     .catch(error => console.log('Error:', error));
 }
 
+async function getSearchAlojamientos(searchText) {
+    const search = searchText.text;
+    return await fetch(`${API_URL}/search-alojamientos/${search}`, {
+        method: 'GET',
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        //body: searchText,
+    }).then(res => res = res.json())
+    .catch(error => console.log('Error:', error));
+}
+
 async function getAllAlojamientos() {
     return await fetch(`${API_URL}/alojamientos`, {
         method: 'GET',
@@ -335,6 +348,7 @@ export {
     getAlojamientoApi,
     getAlojamientosUserApi,
     getAllAlojamientos,
+    getSearchAlojamientos,
     deleteAlojamientoApi,
     recoveryUserPassword,
 } 
