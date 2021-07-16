@@ -15,8 +15,4 @@ export default function App() {
       />
       </div>
   );
-<<<<<<< HEAD
 }
-=======
-  }
->>>>>>> develop
