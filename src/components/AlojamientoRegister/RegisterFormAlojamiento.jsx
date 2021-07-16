@@ -232,42 +232,47 @@ function RegisterFormAlojamiento({onSubmit}) {
 
     return (
     <form onSubmit={registerAlojamientoUser} method="POST" encType="multipart/form-data">
-        <Grid marginTop="8rem" marginLeft= "10rem">
+        <Grid marginTop="6rem" marginLeft= "50rem">
             <TitleRegisterAlojamiento></TitleRegisterAlojamiento>
         </Grid>
         <Grid templateColumns="repeat(1, 1fr)" gap={10} marginTop="5rem" marginLeft= "5rem" >
     
         </Grid>
-        <Grid templateColumns="repeat(3, 1fr)" gap={4} marginTop="5rem" marginLeft= "3rem">
-         
-            <NameAlojamientoInput pos="right" value={name} validation={nameErrorMessage}  onChange={getName}></NameAlojamientoInput>
-            <EmailAlojamientoInput value={email} validation={emailErrorMessage} onChange={getEmail}></EmailAlojamientoInput>
-            <PhoneAlojamientoInput value={phone} validation={phoneErrorMessage} onChange={getPhone}></PhoneAlojamientoInput>
-            <AddressAlojamientoInput pos="left" value={address} validation={addressErrorMessage} onChange={getAdress}></AddressAlojamientoInput>
-            <LocationAlojamientoInput value={location} validation={locationErrorMessage} onChange={getLocation}></LocationAlojamientoInput>
-            <StateAlojamientoInput value={state} validation={stateErrorMessage} onChange={getState}></StateAlojamientoInput>
-            <CountryAlojamientoInput pos="right" value={country} validation={countryErrorMessage} onChange={getCountry}></CountryAlojamientoInput>
-            <TypeAlojamientoChecklist value={type} validation={typeErrorMessage} onChange={getType}></TypeAlojamientoChecklist>
-            <NumberGuestsAlojamientoInput value={numberGuests} validation={numberGuestsErrorMessage} onChange={getNumberGuests}></NumberGuestsAlojamientoInput>
-            <ServisesAlojamientoChecklist pos="left" value={services} validation={servicesErrorMessage} onChange={getServises}></ServisesAlojamientoChecklist>
-            <DescriptionAlojamientoInput value={description} validation={descripcionErrorMessage} onChange={getDescription}></DescriptionAlojamientoInput>
-            <PrecioAlojamientoInput value={precio} validation={precioErrorMessage} onChange={getPrecio}></PrecioAlojamientoInput>
-            <Box name="files" id="files" value={files} onChange={getFiles}>
-                <FilePond 
-                files={files}
-                onupdatefiles={setFiles}
-                allowMultiple={true}
-                maxFiles={6}
-                name="files"
-                labelIdle='Arrastra aquí las imágenes del alojamiento   <span class="filepond--label-action">(Máximo 6 imágenes)</span>'
-                />
-            </Box>
+        <Grid templateColumns="repeat(3, 1fr)" gap={4}  marginLeft= "3rem">
+        <Grid  marginLeft= "10rem" marginRight="4rem">
+                <Box name="files" id="files" value={files} onChange={getFiles}>
+                    <FilePond  flex-direction="row" 
+                    files={files}
+                    onupdatefiles={setFiles}
+                    allowMultiple={true}
+                    maxFiles={6}
+                    name="files"
+                    labelIdle='Arrastra aquí las imágenes del alojamiento   <span class="filepond--label-action">(Máximo 6 imágenes)</span>'
+                    />
+                </Box>
+            </Grid>
+            <Grid marginRight="12rem" marginTop="5rem">
+                <NameAlojamientoInput pos="right" value={name} validation={nameErrorMessage}  onChange={getName}></NameAlojamientoInput>
+                <AddressAlojamientoInput pos="left" value={address} validation={addressErrorMessage} onChange={getAdress}></AddressAlojamientoInput>
+                <LocationAlojamientoInput value={location} validation={locationErrorMessage} onChange={getLocation}></LocationAlojamientoInput>
+                <StateAlojamientoInput value={state} validation={stateErrorMessage} onChange={getState}></StateAlojamientoInput>
+                <CountryAlojamientoInput pos="right" value={country} validation={countryErrorMessage} onChange={getCountry}></CountryAlojamientoInput>
+                <EmailAlojamientoInput value={email} validation={emailErrorMessage} onChange={getEmail}></EmailAlojamientoInput>
+            </Grid>
+            <Grid marginLeft= "-8rem"   marginRight="15rem"  marginTop="5rem">
+                <PhoneAlojamientoInput value={phone} validation={phoneErrorMessage} onChange={getPhone}></PhoneAlojamientoInput>
+                <TypeAlojamientoChecklist value={type} validation={typeErrorMessage} onChange={getType}></TypeAlojamientoChecklist>
+                <ServisesAlojamientoChecklist pos="left" value={services} validation={servicesErrorMessage} onChange={getServises}></ServisesAlojamientoChecklist>
+                <DescriptionAlojamientoInput value={description} validation={descripcionErrorMessage} onChange={getDescription}></DescriptionAlojamientoInput>
+                <NumberGuestsAlojamientoInput value={numberGuests} validation={numberGuestsErrorMessage} onChange={getNumberGuests}></NumberGuestsAlojamientoInput>
+                <PrecioAlojamientoInput value={precio} validation={precioErrorMessage} onChange={getPrecio}></PrecioAlojamientoInput>
+            </Grid>
 
         </Grid>
-        <Grid templateColumns="repeat(1, 1fr)" gap={5} marginTop="5rem" marginLeft= "42.5rem">
-            <Center w="500px" textAlign='center' marginBottom="5rem">
+        <Grid templateColumns="repeat(1, 1fr)" gap={5} marginTop="5rem" marginLeft= "52rem">
+        <Box m={3} gap={5} marginTop="5rem">
                 <RegisterAlojamientoButton></RegisterAlojamientoButton>
-            </Center>
+            </Box>
         </Grid>
        
     </form>
