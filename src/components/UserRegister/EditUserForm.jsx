@@ -89,6 +89,7 @@ function EditUserForm({onSubmit, error}) {
         if(repitePasswordErrorMessage===true) {setRepitePasswordErrorMessage(false)}
     }
 
+    console.log(name);
 
     function editProfile(event) {
         event.preventDefault();
@@ -99,6 +100,7 @@ function EditUserForm({onSubmit, error}) {
         const phoneValidate = phoneValidation(phone);
         const passwordValidate = passwordValidation(password);
 
+        console.log(nameValidate);
         //console.log(password);
        
         if(!nameValidate){
