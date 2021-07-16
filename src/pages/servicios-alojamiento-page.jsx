@@ -92,46 +92,49 @@ function ServiciosAlojamientoPage() {
     return (
         <ChakraProvider>
           <NavBar />
-          
-          <Table size="sm">
-            <Thead>
-                <Tr>
-                <Th>Servicio</Th>
-                <Th>Visible</Th>
-                <Th>Editar</Th>
-                <Th>Eliminar</Th>
-                </Tr>
-            </Thead>
-            <Tbody>
+          <Box marginLeft= "8rem" marginRight= "50" marginTop= "5rem" marginBottom= "10">
+            <Table size="sm">
+              <Thead>
+                  <Tr>
+                  <Th>Servicio</Th>
+                  <Th>Visible</Th>
+                  <Th>Editar</Th>
+                  <Th>Eliminar</Th>
+                  </Tr>
+              </Thead>
+              <Tbody>
 
-                
-                {servicioAlojamiento.servicios.map((servicio) => (
-                    <Tr key={servicio._id}>
-              <Td>{`${servicio.title}`}</Td>
-                <Td>{servicio.visible ? <Checkbox onChange={modifyVisibleServicio} id={servicio._id} value={true} defaultIsChecked></Checkbox> : <Checkbox onChange={modifyVisibleServicio} id={servicio._id} value={false}></Checkbox>}</Td>
-                <Td >
-                <Button py={4} onClick={() => editServicio(servicio._id)} colorScheme="teal" size="xs">
-                  <Icon as={MdModeEdit} w={4} h={4} />
-                </Button>
-                </Td>
-                <Td >
-                {/* <Button onClick={() => deleteUser(user._id)} colorScheme="red" size="xs">
-                
-                </Button> */}
-                <Button py={4} onClick={() => { if (window.confirm('¿Estás seguro de eliminar el servicio?')) deleteServicioAlojamiento(servicio._id) } } colorScheme="red" size="xs">
-                  <Icon as={MdDeleteForever} w={4} h={4} />
-                </Button>
-                
-                </Td>
-              </Tr>
-            ))}
-                    
-                
-                
-            </Tbody>
-            
-            </Table>
-            <CreateServicioButton></CreateServicioButton>
+                  
+                  {servicioAlojamiento.servicios.map((servicio) => (
+                      <Tr key={servicio._id}>
+                <Td>{`${servicio.title}`}</Td>
+                  <Td>{servicio.visible ? <Checkbox onChange={modifyVisibleServicio} id={servicio._id} value={true} defaultIsChecked></Checkbox> : <Checkbox onChange={modifyVisibleServicio} id={servicio._id} value={false}></Checkbox>}</Td>
+                  <Td >
+                  <Button py={4} onClick={() => editServicio(servicio._id)} colorScheme="teal" size="xs">
+                    <Icon as={MdModeEdit} w={4} h={4} />
+                  </Button>
+                  </Td>
+                  <Td >
+                  {/* <Button onClick={() => deleteUser(user._id)} colorScheme="red" size="xs">
+                  
+                  </Button> */}
+                  <Button py={4} onClick={() => { if (window.confirm('¿Estás seguro de eliminar el servicio?')) deleteServicioAlojamiento(servicio._id) } } colorScheme="red" size="xs">
+                    <Icon as={MdDeleteForever} w={4} h={4} />
+                  </Button>
+                  
+                  </Td>
+                </Tr>
+              ))}
+                      
+                  
+                  
+              </Tbody>
+              
+              </Table>
+            </Box>
+            <Box marginLeft= "8rem" marginRight= "50" marginTop= "10rem" marginBottom= "50">
+              <CreateServicioButton></CreateServicioButton>
+            </Box>
         </ChakraProvider>
     )
 }

@@ -5,6 +5,7 @@ import PopUp from "../components/Reservar-Habitación/Reserva-pagina";
 import NavBar from "../components/NavBar/NavBar";
 import { getAlojamientoApi } from "../utils/apiTest";
 import { MdAlarmAdd } from "react-icons/md";
+import imgHome from "../../images/home/imagen-home-2.jpg";
 
 function DetalleAlojamiento (urlData) {
 
@@ -34,7 +35,7 @@ function DetalleAlojamiento (urlData) {
             <NavBar />
         </Box>
       <hr />
-        <Box mt="60px" padding="6" boxShadow="lg" bg="white">
+        <Box mt="60px" padding="6" boxShadow="lg" bg="white" bgImage={imgHome}>
           <SkeletonCircle size="10" />
           <SkeletonText mt="4" noOfLines={4} spacing="4" />
         </Box>

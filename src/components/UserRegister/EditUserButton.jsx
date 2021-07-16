@@ -5,7 +5,7 @@ function EditUserButton() {
     return (
        
         <Button type="submit" colorScheme="blue" size="md" mr={1}>
-            Editar Usuario
+            Grabar Nuevos Datos Usuario
         </Button>
     
     )
