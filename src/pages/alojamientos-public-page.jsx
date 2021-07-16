@@ -3,13 +3,9 @@ import { useHistory } from "react-router-dom";
 import { ChakraProvider, Grid, Box, Image, Flex, Badge, Text, SkeletonCircle, SkeletonText, Button } from "@chakra-ui/react";
 import { Buffer } from "buffer";
 import NavBar from "../components/NavBar/NavBar";
-<<<<<<< HEAD
 import { getAllAlojamientos, getSearchAlojamientos } from "../utils/apiTest";
-import imgHome from "../components/images/imagen-home.jpg";
-=======
-import { getAllAlojamientos } from "../utils/apiTest";
 import imgHome from "../../images/home/imagen-home-2.jpg";
->>>>>>> afc1502b2c2d44787b3ae50cc54b8347bb7856ca
+
 import useLocalStorageString from "../components/hooks/useLocalStorageString";
 
 function AlojamientosPublicPage() {
