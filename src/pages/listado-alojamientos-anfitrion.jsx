@@ -10,10 +10,9 @@ function AlojamientosAnfitrionPage(urlData) {
 
     const history = useHistory();
     const userId = urlData.match.params.id;
-    //console.log(userId);
+  
     const [alojamientos,setAlojamientos] = useState([]);
     const [loading, setLoading] = useState(true);
-    //console.log(userId);
 
     async function deleteAlojamiento(alojamientoId) {
         setLoading(true);
@@ -41,7 +40,6 @@ function AlojamientosAnfitrionPage(urlData) {
         const alojamientos = await getAlojamientosUserApi(userId);
 
         setAlojamientos(alojamientos);
-        //console.log(alojamientos);
         setLoading(false);
       }, []);
 
@@ -77,7 +75,6 @@ function AlojamientosAnfitrionPage(urlData) {
                 <Box key={alojamiento._id} p="5" maxW="320px" borderWidth="1px">
                 <Image borderRadius="md" src={imageDataConvertBase64} />
                 <Flex align="baseline" mt={2}>
-                    {/* <Badge colorScheme="pink">Plus</Badge> */}
                     <Text
                     
                     textTransform="uppercase"
