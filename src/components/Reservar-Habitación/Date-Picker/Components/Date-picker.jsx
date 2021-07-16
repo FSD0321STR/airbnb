@@ -1,7 +1,6 @@
 import React from "react";
 import {
   RangeDatePicker,
-  SingleDatePicker
 } from "react-google-flight-datepicker";
 import "react-google-flight-datepicker/dist/main.css";
 
@@ -15,3 +14,5 @@ export default function App() {
         endDate={new Date(2020, 1, 1)}
       />
       </div>
+  );
+}
