@@ -232,13 +232,14 @@ function RegisterFormAlojamiento({onSubmit}) {
 
     return (
     <form onSubmit={registerAlojamientoUser} method="POST" encType="multipart/form-data">
-        
-        <Grid templateColumns="repeat(1, 1fr)" gap={10} marginTop="5rem" marginLeft= "5rem" >
-            <Center w="50%" textAlign='center'>
-                <TitleRegisterAlojamiento />
-            </Center>
+        <Grid marginTop="8rem" marginLeft= "10rem">
+            <TitleRegisterAlojamiento></TitleRegisterAlojamiento>
         </Grid>
-        <Grid templateColumns="repeat(2, 100fr)" gap={10} marginTop="5rem" marginLeft= "25rem" marginRight="25rem">
+        <Grid templateColumns="repeat(1, 1fr)" gap={10} marginTop="5rem" marginLeft= "5rem" >
+    
+        </Grid>
+        <Grid templateColumns="repeat(3, 1fr)" gap={4} marginTop="5rem" marginLeft= "3rem">
+         
             <NameAlojamientoInput pos="right" value={name} validation={nameErrorMessage}  onChange={getName}></NameAlojamientoInput>
             <EmailAlojamientoInput value={email} validation={emailErrorMessage} onChange={getEmail}></EmailAlojamientoInput>
             <PhoneAlojamientoInput value={phone} validation={phoneErrorMessage} onChange={getPhone}></PhoneAlojamientoInput>
