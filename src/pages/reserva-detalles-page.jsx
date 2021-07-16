@@ -10,16 +10,13 @@ import imgHome from "../../images/home/imagen-home-2.jpg";
 function DetalleAlojamiento (urlData) {
 
   const alojamientoId = urlData.match.params.id;
-  //console.log(alojamientoId);
 
   const [alojamiento,setAlojamientos] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect( async () => {
     const alojamiento = await getAlojamientoApi(alojamientoId);
-    //console.log(alojamiento);
     setAlojamientos(alojamiento);
-    //console.log(alojamientos);
     setLoading(false);
   }, []);
 
@@ -51,11 +48,7 @@ function DetalleAlojamiento (urlData) {
 <Box>
     <NavBar />
 
-    
-
-    
-
-    <Grid id="aaa" templateColumns="repeat(5, 1fr)" gap={6} p="5" maxW="300em" borderWidth="1px">
+    <Grid id="aaa" templateColumns="repeat(5, 1fr)" gap={6} p="5" maxW="300em" borderWidth="1px" marginRight="5rem" marginLeft="5rem">
 
     {
       alojamiento.alojamiento.files.map((alojamiento) => (
@@ -85,39 +78,39 @@ function DetalleAlojamiento (urlData) {
    <br />
 
    
-   
-   <Text ml={2} mt={2} fontSize="xl" color="#ff1100" fontWeight="semibold" lineHeight="short">
-                    {alojamiento.alojamiento.name}
-   </Text>
-   <Text ml={2}>
-     <strong>Tipo de alojamieno:</strong> {alojamiento.alojamiento.type}
-   </Text>
-   <Text ml={2}>
-     <strong>Número de huéspedes:</strong> {alojamiento.alojamiento.numberGuests}
-   </Text>
-   <Text ml={2}>
-     <strong>Población:</strong> {alojamiento.alojamiento.location}
-   </Text>
-   <Text ml={2}>
-     <strong>Provincia:</strong> {alojamiento.alojamiento.state}
-   </Text>
-   <Text ml={2}>
-     <strong>Servicios que incluye:</strong> {alojamiento.alojamiento.services}
-   </Text>
-   <Text ml={2}>
-     <strong>Precio por noche:</strong> € {alojamiento.alojamiento.precio}
-   </Text>
-   
-   <Text ml={2}>
-   <strong>Descripción:</strong> {alojamiento.alojamiento.description}
-   </Text>
-   
+   <Grid marginRight="5rem" marginLeft="5rem">
+      <Text ml={2} mt={2} fontSize="xl" color="#ff1100" fontWeight="semibold" lineHeight="short">
+                        {alojamiento.alojamiento.name}
+      </Text>
+      <Text ml={2}>
+        <strong>Tipo de alojamieno:</strong> {alojamiento.alojamiento.type}
+      </Text>
+      <Text ml={2}>
+        <strong>Número de huéspedes:</strong> {alojamiento.alojamiento.numberGuests}
+      </Text>
+      <Text ml={2}>
+        <strong>Población:</strong> {alojamiento.alojamiento.location}
+      </Text>
+      <Text ml={2}>
+        <strong>Provincia:</strong> {alojamiento.alojamiento.state}
+      </Text>
+      <Text ml={2}>
+        <strong>Servicios que incluye:</strong> {alojamiento.alojamiento.services}
+      </Text>
+      <Text ml={2}>
+        <strong>Precio por noche:</strong> € {alojamiento.alojamiento.precio}
+      </Text>
+      
+      <Text ml={2}>
+      <strong>Descripción:</strong> {alojamiento.alojamiento.description}
+      </Text>
+   </Grid>
    
    <Box ml={2}>
    
 </Box>  
    
-   <PopUp />
+   <Box marginLeft="5rem"><PopUp /></Box>
 </Box>
  );
 }

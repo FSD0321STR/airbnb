@@ -133,7 +133,7 @@ function EditUserForm({onSubmit, error}) {
 
             const input = document.getElementById('image');
             const image = input.files[0];
-            //console.log(image.file);
+     
             const dataEditUser = new FormData();
             dataEditUser.append("image", image);
             dataEditUser.append("name",name);
@@ -141,8 +141,6 @@ function EditUserForm({onSubmit, error}) {
             dataEditUser.append("phone",phone);
             dataEditUser.append("email",email);
             dataEditUser.append("password", password);
-
-            //console.log(dataUser);
 
             onSubmit( 
                 dataEditUser, userId,

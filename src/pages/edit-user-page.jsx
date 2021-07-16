@@ -11,13 +11,13 @@ function EditUserPage() {
   const [registerError,setRegisterError] = useState("");
 
     async function editUser(dataEditUser, userId) {
-      //console.log(dataEditUser);
+    
         await editUserApi(dataEditUser, userId)
         .then(response => {
           if(response.message) {
             setRegisterError(response.messageError);
           } else {
-            //localStorage.setItem('token', JSON.stringify(response));
+            
             history.push("/");
           }
         })
