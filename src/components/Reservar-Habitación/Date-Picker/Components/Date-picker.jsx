@@ -14,3 +14,4 @@ export default function App() {
         startDate={new Date(2020, 0, 15)}
         endDate={new Date(2020, 1, 1)}
       />
+      </div>
