@@ -1,7 +1,7 @@
 import React from "react"
 
-const API_URL = 'http://localhost:8000';
-//const API_URL = 'https://nuclio-backend.herokuapp.com';
+//const API_URL = 'http://localhost:8000';
+const API_URL = 'https://nuclio-backend.herokuapp.com';
 
 async function registerUserApi(dataUser) {
     //console.log(image);
@@ -274,6 +274,19 @@ async function getAlojamientosUserApi(alojamientoId) {
     .catch(error => console.log('Error:', error));
 }
 
+async function getSearchAlojamientos(searchText) {
+    const search = searchText.text;
+    return await fetch(`${API_URL}/search-alojamientos/${search}`, {
+        method: 'GET',
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        //body: searchText,
+    }).then(res => res = res.json())
+    .catch(error => console.log('Error:', error));
+}
+
 async function getAllAlojamientos() {
     return await fetch(`${API_URL}/alojamientos`, {
         method: 'GET',
@@ -346,6 +359,7 @@ export {
     getAlojamientoApi,
     getAlojamientosUserApi,
     getAllAlojamientos,
+    getSearchAlojamientos,
     deleteAlojamientoApi,
     getUserApiPassword,
 } 
