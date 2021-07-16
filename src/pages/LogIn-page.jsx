@@ -30,18 +30,19 @@ function LogInPage({ email, password }) {
 
 
     return (
+      
         <ChakraProvider>
           <Box position="fixed" width="100%" backgroundColor="#fff">
                 <NavBar />
             </Box>
           <hr />
-          <Box p="55" bgImage={imgHome}> 
+          <Box p="55" bgImage={imgHome}/> 
             <Grid gap={4} marginTop="5%" marginBlockEnd="5%"> 
             <LogInForm error={loginError} onSubmit={LogInUser} ></LogInForm>
           </Grid>
-            
-            
+              
         </ChakraProvider>
+       
     )
 }
 
