@@ -167,22 +167,32 @@ function EditUserForm({onSubmit, error}) {
     <form onSubmit={editProfile}>
         
         <p>{error}</p>
-        <Grid templateColumns="repeat(2, 1fr)" gap={4} marginTop="5rem" marginLeft= "3rem" marginRight="3rem">
-          <NameInput value={name} validation={nameErrorMessage} onChange={getName}></NameInput>
-          <LastNameInput value={lastName} validation={lastNameErrorMessage} onChange={getLastName}></LastNameInput>
-          <EmailInput value={email} validation={emailErrorMessage} onChange={getEmail}></EmailInput>
-          <PhoneInput value={phone} validation={phoneErrorMessage} onChange={getPhone}></PhoneInput>
-          <PasswordInput value={password} validation={passwordErrorMessage} onChange={getPassword}></PasswordInput>
-          <RepeatPasswordInput value={repitePassword} validation={repitePasswordErrorMessage} onChange={getRepitePassword}></RepeatPasswordInput>
-          <img src={image} width="200" />
-          <input type="file" name="image" id="image" />
+        <Grid marginTop="5rem" marginLeft= "8rem">
+            <TitleInputEditUser></TitleInputEditUser>
         </Grid>
-        <Grid templateColumns="repeat(1, 1fr)" gap={5} marginTop="3rem" marginLeft= "3rem">
-            <Center w="500px" textAlign='center'>
-                <EditUserButton></EditUserButton>
-            </Center>
+        <Grid templateColumns="repeat(3, 1fr)" gap={4}  marginLeft= "3rem" >
+
+            <Grid marginLeft= "10rem" marginRight="4rem"  marginTop="5rem">   
+                <img src={image} width="150" />
+                <input type="file" name="image" id="image" />
+            </Grid>
+            <Grid  marginRight="12rem" marginTop="5rem">
+                <NameInput value={name} validation={nameErrorMessage} onChange={getName}></NameInput>
+                <LastNameInput value={lastName} validation={lastNameErrorMessage} onChange={getLastName}></LastNameInput>
+                <EmailInput value={email} validation={emailErrorMessage} onChange={getEmail}></EmailInput>
+            </Grid>
+            <Grid marginLeft= "-8rem"   marginRight="20rem"  marginTop="5rem">
+                <PhoneInput value={phone} validation={phoneErrorMessage} onChange={getPhone}></PhoneInput>
+                <PasswordInput value={password} validation={passwordErrorMessage} onChange={getPassword}></PasswordInput>
+                <RepeatPasswordInput value={repitePassword} validation={repitePasswordErrorMessage} onChange={getRepitePassword}></RepeatPasswordInput>
+            </Grid> 
+            
+            <Grid templateColumns="repeat(1, 1fr)" gap={5} marginTop="8rem" marginBottom="5rem"   marginLeft= "5rem">
+                <Box m={3} gap={5} marginTop="5rem">
+                    <EditUserButton></EditUserButton>
+                </Box>
+            </Grid>
         </Grid>
-        
     </form>
     )
 }

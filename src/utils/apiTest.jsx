@@ -1,7 +1,7 @@
 import React from "react"
 
-//const API_URL = 'http://localhost:8000';
-const API_URL = 'https://nuclio-backend.herokuapp.com';
+const API_URL = 'http://localhost:8000';
+//const API_URL = 'https://nuclio-backend.herokuapp.com';
 
 async function registerUserApi(dataUser) {
     //console.log(image);
@@ -36,6 +36,18 @@ async function editUserApi(dataEditUser,userId) {
         //     'Content-Type': 'application/json',
         // },
         body: dataEditUser,
+    }).then(res => res = res.json())
+    .catch(error => console.log('Error:', error));
+}
+async function recoveryUserPassword(email, password) {
+    //console.log(password);
+    return await fetch(`${API_URL}/recovery-password`, {
+        method: 'PATCH',
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body:JSON.stringify({email, password}),
     }).then(res => res = res.json())
     .catch(error => console.log('Error:', error));
 }
@@ -324,4 +336,5 @@ export {
     getAlojamientosUserApi,
     getAllAlojamientos,
     deleteAlojamientoApi,
+    recoveryUserPassword,
 } 

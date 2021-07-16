@@ -18,7 +18,7 @@ import ContactUs from './Reserva-Form';
           onOpen()
         }
       
-        const sizes = ["full"]
+        const sizes = ["xl"]
       
         return (
           <>
@@ -26,7 +26,8 @@ import ContactUs from './Reserva-Form';
               <Button bg="#FF385C"
                 onClick={() => handleSizeClick(size)}
                 key={size}
-                m={4}
+                ml={2}
+                mt={4}
               >{`Reservar`}</Button>
             ))}
       

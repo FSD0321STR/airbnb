@@ -1,21 +1,30 @@
 import React, { useState, useEffect } from "react";
-import { ChakraProvider, Grid, Box, Image, Flex, Badge, Text, SkeletonCircle, SkeletonText } from "@chakra-ui/react";
+import { useHistory } from "react-router-dom";
+import { ChakraProvider, Grid, Box, Image, Flex, Badge, Text, SkeletonCircle, SkeletonText, Button } from "@chakra-ui/react";
 import { Buffer } from "buffer";
 import NavBar from "../components/NavBar/NavBar";
 import { getAllAlojamientos } from "../utils/apiTest";
+import imgHome from "../../images/home/imagen-home-2.jpg";
+import useLocalStorageString from "../components/hooks/useLocalStorageString";
 
 function AlojamientosPublicPage() {
-
+    const [token,setToken] = useLocalStorageString("token", "");
     const [alojamientos,setAlojamientos] = useState([]);
     const [loading, setLoading] = useState(true);
+    const history = useHistory();
+
+    async function detalleAlojamiento(alojamientoId) {
+      history.push(`/detalle-alojamiento/${alojamientoId}`);
+  }
 
     useEffect( async () => {
+        const token = localStorage.getItem("token");
         const alojamientos = await getAllAlojamientos();
         //console.log(alojamientos);
         setAlojamientos(alojamientos);
         //console.log(alojamientos);
         setLoading(false);
-      }, []);
+      }, [token]);
 
       let alojamientoImageObject = "";
       let alojamientoImageDataBuffer = "";
@@ -43,11 +52,9 @@ function AlojamientosPublicPage() {
             <Box position="fixed" width="100%" backgroundColor="#fff">
                 <NavBar />
             </Box>
-          <hr />
-            
-          
-
-            <Box p="400" bgImage="url('./images/imagen-home.jpg')"/> 
+          <hr/>
+        
+            <Box p="390" bgImage={imgHome} bgRepeat="no-repeat"/> 
             <Grid templateColumns="repeat(4, 1fr)" gap={4} marginTop="5%" marginLeft="10%" marginRight="8%" marginBlockEnd="5%">   
 
             {alojamientos.alojamientos.map((alojamiento) => (
@@ -74,6 +81,15 @@ function AlojamientosPublicPage() {
                 {alojamiento.name}
                 </Text>
                 <Text mb={1} mt={2}>€{alojamiento.precio} / noche</Text>
+                
+                { token ? (
+                <Button mt={2} colorScheme="green" size="sm" onClick={() => detalleAlojamiento(alojamiento._id)}>
+                    Detalle
+                </Button>
+                  ) : (
+                    ""
+                  )
+                }
                 </Box>
                 ))
           }

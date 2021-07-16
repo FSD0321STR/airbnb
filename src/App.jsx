@@ -25,7 +25,7 @@ import CrearServicioAlojamiento from './pages/crear-servicio-alojamiento-page';
 import EditTipoAlojamientoPage from './pages/edit-tipo-alojamiento-page';
 import ServiciosAlojamientoPage from './pages/servicios-alojamiento-page';
 import EditServicioAlojamientoPage from './pages/edit-servicio-alojamiento-page';
-import ReservaPage from './pages/reserva-detalles-page';
+import DetalleAlojamiento from './pages/reserva-detalles-page';
 import EditAlojamientoPage from './pages/editar-alojamiento';
 
 function App({ Component }) {
@@ -41,7 +41,7 @@ function App({ Component }) {
     <HashRouter>
       <AuthContext.Provider value={userMail}>
         <div>
-        <ChakraProvider>
+        <ChakraProvider >
         
           <Switch>
             <Route exact path="/user-register">
@@ -88,12 +88,13 @@ function App({ Component }) {
             <Route exact path="/recuperar-contrasena">
               <RecuperarContraseña value={getUserMail} />
             </Route>
+            <Route exact path="/detalle-alojamiento/:id" component={DetalleAlojamiento}>
+              
+            </Route>
             <Route exact path="/">
               <AlojamientosPublicPage />
             </Route>
-            <Route exact path="/contact-form">
-              <ReservaPage />
-            </Route>
+            
             
           </Switch>
           <FooterSimple/>

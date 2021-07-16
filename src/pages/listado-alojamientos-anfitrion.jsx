@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import { ChakraProvider, Grid, Box, Image, Flex, Badge, Text, Button, SkeletonCircle, SkeletonText } from "@chakra-ui/react";
 import NavBar from "../components/NavBar/NavBar";
 import { getAlojamientosUserApi, deleteAlojamientoApi } from "../utils/apiTest";
+import imgHome from "../../images/home/imagen-home-2.jpg";
 
 function AlojamientosAnfitrionPage(urlData) {
 
@@ -63,8 +64,8 @@ function AlojamientosAnfitrionPage(urlData) {
     return (
         <ChakraProvider>
             <NavBar />
-            
-            <Grid templateColumns="repeat(3, 1fr)" gap={1}>
+            <Grid marginTop="1%" position="center" bgRepeat="no-repeat" bgSize="100%" bgImage={imgHome}>
+            <Grid templateColumns="repeat(3, 1fr)" gap={1}    >
 
             {alojamientos.alojamientos.map((alojamiento) => (
                 
@@ -102,7 +103,7 @@ function AlojamientosAnfitrionPage(urlData) {
             )
             )}
 
-            </Grid>
+            </Grid></Grid>
         </ChakraProvider>
       );
 }

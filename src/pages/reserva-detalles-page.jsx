@@ -1,88 +1,124 @@
-import React from "react";
-import { ChakraProvider, Grid, Box, Image, Flex, Container, Text, Button, Center, Heading } from "@chakra-ui/react";
+import React, { useState, useEffect } from "react";
+import { Buffer } from "buffer";
+import { ChakraProvider, Grid, Box, Image, Flex, Container, Text, Button, Center, Heading, SkeletonCircle, SkeletonText, } from "@chakra-ui/react";
 import PopUp from "../components/Reservar-Habitación/Reserva-pagina";
 import NavBar from "../components/NavBar/NavBar";
+import { getAlojamientoApi } from "../utils/apiTest";
+import { MdAlarmAdd } from "react-icons/md";
+import imgHome from "../../images/home/imagen-home-2.jpg";
 
-function ReservaPage () {
+function DetalleAlojamiento (urlData) {
+
+  const alojamientoId = urlData.match.params.id;
+  //console.log(alojamientoId);
+
+  const [alojamiento,setAlojamientos] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect( async () => {
+    const alojamiento = await getAlojamientoApi(alojamientoId);
+    //console.log(alojamiento);
+    setAlojamientos(alojamiento);
+    //console.log(alojamientos);
+    setLoading(false);
+  }, []);
+
+  let alojamientoImageObject = "";
+  let alojamientoImageDataBuffer = "";
+  let imageDataConvertBase64 = "";
+  //let imagesArray = [];
+
+  if(loading) {
     return (
+        <ChakraProvider>
+            <Box position="fixed" width="100%" backgroundColor="#fff">
+            <NavBar />
+        </Box>
+      <hr />
+        <Box mt="60px" padding="6" boxShadow="lg" bg="white" bgImage={imgHome}>
+          <SkeletonCircle size="10" />
+          <SkeletonText mt="4" noOfLines={4} spacing="4" />
+        </Box>
+      </ChakraProvider>
+    )
+  }
+
+  //console.log(alojamiento.alojamiento.files);
+
+    return (
+      
 
 <Box>
     <NavBar />
-    <Grid templateColumns="repeat(5, 1fr)" gap={6} p="5" maxW="300em" borderWidth="1px">
-                <Box>
-                <Image borderRadius="md" src="https://bit.ly/2k1H1t6" />
-                <Flex align="baseline" mt={2}>
-                </Flex>
-                </Box>
-                <Box>
-                <Image borderRadius="md" src="https://bit.ly/2k1H1t6" />
-                <Flex align="baseline" mt={2}>
-                </Flex>
-                </Box>
-                <Box>
-                <Image borderRadius="md" src="https://bit.ly/2k1H1t6" />
-                <Flex align="baseline" mt={2}>
-                </Flex>
-                </Box>
-                <Box>
-                <Image borderRadius="md" src="https://bit.ly/2k1H1t6" />
-                <Flex align="baseline" mt={2}>
-                </Flex>
-                </Box>
-                <Box>
-                <Image borderRadius="md" src="https://bit.ly/2k1H1t6" />
-                <Flex align="baseline" mt={2}>
-                </Flex>
-                </Box>
+
+    
+
+    
+
+    <Grid id="aaa" templateColumns="repeat(5, 1fr)" gap={6} p="5" maxW="300em" borderWidth="1px">
+
+    {
+      alojamiento.alojamiento.files.map((alojamiento) => (
+        alojamientoImageObject = alojamiento.img,
+        alojamientoImageDataBuffer = Buffer.from(alojamientoImageObject.data).toString("base64"),
+        imageDataConvertBase64 = `data:${alojamientoImageObject.contentType};base64,` + alojamientoImageDataBuffer,
+        //imagesArray.push(imageDataConvertBase64),
+        //console.log(imagesArray);
+      
+        <Box key={alojamiento._id}>
+          <Image borderRadius="md" src={imageDataConvertBase64} />
+        </Box>
+      
+      
+      ))
+    }
+  
+    
+  
+{/* <Box>
+          <Image borderRadius="md" src={imageDataConvertBase64} />
+        </Box> */}
+
+                
+                
    </Grid>
    <br />
-   <Heading color="#FF385C">Descripción:</Heading>
-   <Text mt={2} fontSize="xl" fontWeight="semibold" lineHeight="short">
-                    Modern, Chic Penthouse with Mountain, City & Sea Views
+
+   
+   
+   <Text ml={2} mt={2} fontSize="xl" color="#ff1100" fontWeight="semibold" lineHeight="short">
+                    {alojamiento.alojamiento.name}
    </Text>
-   <br />
-   <Center w="500px" >
-     <Container>
-   PISO ALTO Y EXCLUSIVO EN PASEO TAULAT ILLA DEL LLAC
-   <br />
-   <br />
-En el prestigioso complejo ILLA DEL LLAC, uno de los emplazamientos arquitectónicos con mas servicios para los clientes más exigentes.
-<br />
-Disponemos de esta propiedad en una 19ª planta de altura, lo que le confiere gran entrada de sol y luz durante todas las horas del día y en todas sus estancias.
-<br />
-Desde su majestuosa terraza de 27,2 m2 dispondremos de unas espectaculares y privilegiadas vistas de casi 360º a la ciudad de Barcelona, divisando todo el frente marítimo, así como las montañas de Montjuic y Tibidabo.
-<br />
-La propiedad dispone de amplio y espacioso hall de entrada en forma circular el cual diferencia perfectamente la distribución de estancias. Amplio salón-comedor totalmente acristalado en el que inundan la luz y el sol y desde el cual accedemos a la terraza.
-<br />
-Cocina office totalmente equipada con elementos de calidad y grandes espacios de almacenamiento, muy luminosa y exterior debido a su gran ventanal. Suite principal, amplia, luminosa y exterior que dispone de baño con bañera y espacio distribuidor que actúa como vestidor, así como armarios empotrados de gran capacidad.
-<br />
-En el otro extremo de la propiedad encontramos 3 habitaciones (1 de ellas doble) y todas exteriores amplias y muy luminosas. Un segundo baño que actúa como anexo a la zona de noche
-<br />
-La propiedad dispone de 2 plazas de parking contiguas y un trastero de 7.5 m2, todo ello incluido en el precio de venta.
-<br />
-El complejo ILLA DEL LLAC dispone de todos los servicios que solo los productos de alta calidad y más exclusivos pueden ofrecer como:
-<br />
--Servicio de conserjería
-<br />
-- 3 ascensores
-<br />
-- 2 pistas de Pádel
-<br />
-- 2 piscinas
-<br />
-- Gimnasio
-<br />
-- Salón Social para actividades privadas
-<br />
-- Zonas ajardinadas
-<br />
-Zona Diagonal Mar, junto al CC Diagonal Mar, metro L4 Fòrum, líneas de buses, supermercados, farmacias, parques de ocio, colegios, institutos, a 5 min caminando de la Platja de Llevant, acceso salida Ronda Litoral.
-<br />
-¡El piso de tus sueños existe!
-     </Container>
-   </Center>
+   <Text ml={2}>
+     <strong>Tipo de alojamieno:</strong> {alojamiento.alojamiento.type}
+   </Text>
+   <Text ml={2}>
+     <strong>Número de huéspedes:</strong> {alojamiento.alojamiento.numberGuests}
+   </Text>
+   <Text ml={2}>
+     <strong>Población:</strong> {alojamiento.alojamiento.location}
+   </Text>
+   <Text ml={2}>
+     <strong>Provincia:</strong> {alojamiento.alojamiento.state}
+   </Text>
+   <Text ml={2}>
+     <strong>Servicios que incluye:</strong> {alojamiento.alojamiento.services}
+   </Text>
+   <Text ml={2}>
+     <strong>Precio por noche:</strong> € {alojamiento.alojamiento.precio}
+   </Text>
+   
+   <Text ml={2}>
+   <strong>Descripción:</strong> {alojamiento.alojamiento.description}
+   </Text>
+   
+   
+   <Box ml={2}>
+   
+</Box>  
+   
    <PopUp />
 </Box>
  );
 }
-export default ReservaPage;
+export default DetalleAlojamiento;
