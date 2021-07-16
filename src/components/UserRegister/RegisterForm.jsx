@@ -144,9 +144,9 @@ function RegisterForm({onSubmit, error}) {
         </Grid>
         <Grid templateColumns="repeat(3, 1fr)" gap={4}   marginLeft= "3rem" >
         
-        <Grid marginLeft= "15rem" marginRight="4rem"  marginTop="5rem">
-            <Box m={2} marginTop="1rem">
-                <input type="file" name="image" id="image" />
+        <Grid marginLeft= "5rem" marginRight="4rem"  marginTop="5rem">
+            <Box m={2} marginTop="1rem" >
+                <input type="file" name="image" id="image"  />
             </Box> 
         </Grid>
         <Grid  marginRight="12rem" marginTop="5rem">
