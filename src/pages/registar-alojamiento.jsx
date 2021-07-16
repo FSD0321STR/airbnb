@@ -30,7 +30,7 @@ function RegisterAlojamientoPage() {
     return (
       <div>
         <ChakraProvider>
-          <Box position="fixed" width="100%" backgroundColor="#fff" >
+          <Box  width="100%" backgroundColor="#fff" >
             <NavBar />
           </Box>
             <Grid  position="center" bgRepeat="no-repeat" bgSize="260%" bgImage={imgHome}>

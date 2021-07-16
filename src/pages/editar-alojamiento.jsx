@@ -36,7 +36,7 @@ function EditAlojamientoPage(urlData) {
         <ChakraProvider>
           <NavBar />
 
-            <Grid marginTop="3%" position="center" bgRepeat="no-repeat" bgSize="100%" bgImage={imgHome}>
+            <Grid marginTop="3%" position="center" bgRepeat="no-repeat" bgSize="260%" bgImage={imgHome}>
               <EditFormAlojamiento alojamientoId={alojamientoId} onSubmit={editAlojamientoUser}></EditFormAlojamiento>
             </Grid>
         </ChakraProvider>

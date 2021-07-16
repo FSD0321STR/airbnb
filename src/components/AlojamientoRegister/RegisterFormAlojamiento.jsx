@@ -204,11 +204,10 @@ function RegisterFormAlojamiento({onSubmit}) {
 
             const dataAlojamiento = new FormData();
             files.forEach(file => {
-                //console.log(file.file);
+               
                 dataAlojamiento.append("files",file.file);
             });
-            //dataAlojamiento.append("files",files[0].file);
-            //console.log(files);
+          
             dataAlojamiento.append("name",name);
             dataAlojamiento.append("email",email);
             dataAlojamiento.append("phone",phone);
@@ -223,7 +222,6 @@ function RegisterFormAlojamiento({onSubmit}) {
             dataAlojamiento.append("precio",precio);
             dataAlojamiento.append("userId",userId);
 
-            //onSubmit( dataAlojamiento sería para el form data
             onSubmit(dataAlojamiento
         );
       }
@@ -232,14 +230,12 @@ function RegisterFormAlojamiento({onSubmit}) {
 
     return (
     <form onSubmit={registerAlojamientoUser} method="POST" encType="multipart/form-data">
-        <Grid marginTop="6rem" marginLeft= "50rem">
+        <Grid marginTop="3rem" marginLeft= "53rem" marginBottom="5">
             <TitleRegisterAlojamiento></TitleRegisterAlojamiento>
         </Grid>
-        <Grid templateColumns="repeat(1, 1fr)" gap={10} marginTop="5rem" marginLeft= "5rem" >
-    
-        </Grid>
+        
         <Grid templateColumns="repeat(3, 1fr)" gap={4}  marginLeft= "3rem">
-        <Grid  marginLeft= "10rem" marginRight="4rem">
+        <Grid  marginLeft= "10rem" marginRight="6rem">
                 <Box name="files" id="files" value={files} onChange={getFiles}>
                     <FilePond  flex-direction="row" 
                     files={files}
@@ -251,7 +247,7 @@ function RegisterFormAlojamiento({onSubmit}) {
                     />
                 </Box>
             </Grid>
-            <Grid marginRight="12rem" marginTop="5rem">
+            <Grid marginRight="10rem" marginTop="5rem">
                 <NameAlojamientoInput pos="right" value={name} validation={nameErrorMessage}  onChange={getName}></NameAlojamientoInput>
                 <AddressAlojamientoInput pos="left" value={address} validation={addressErrorMessage} onChange={getAdress}></AddressAlojamientoInput>
                 <LocationAlojamientoInput value={location} validation={locationErrorMessage} onChange={getLocation}></LocationAlojamientoInput>
@@ -259,7 +255,7 @@ function RegisterFormAlojamiento({onSubmit}) {
                 <CountryAlojamientoInput pos="right" value={country} validation={countryErrorMessage} onChange={getCountry}></CountryAlojamientoInput>
                 <EmailAlojamientoInput value={email} validation={emailErrorMessage} onChange={getEmail}></EmailAlojamientoInput>
             </Grid>
-            <Grid marginLeft= "-8rem"   marginRight="15rem"  marginTop="5rem">
+            <Grid marginLeft= "-6rem"   marginRight="15rem"  marginTop="5rem">
                 <PhoneAlojamientoInput value={phone} validation={phoneErrorMessage} onChange={getPhone}></PhoneAlojamientoInput>
                 <TypeAlojamientoChecklist value={type} validation={typeErrorMessage} onChange={getType}></TypeAlojamientoChecklist>
                 <ServisesAlojamientoChecklist pos="left" value={services} validation={servicesErrorMessage} onChange={getServises}></ServisesAlojamientoChecklist>
@@ -269,8 +265,8 @@ function RegisterFormAlojamiento({onSubmit}) {
             </Grid>
 
         </Grid>
-        <Grid templateColumns="repeat(1, 1fr)" gap={5} marginTop="5rem" marginLeft= "52rem">
-        <Box m={3} gap={5} marginTop="5rem">
+        <Grid templateColumns="repeat(1, 1fr)" gap={5} marginTop="2rem" marginLeft= "55rem" marginBottom="2rem">
+        <Box m={3} gap={5} marginTop="2rem">
                 <RegisterAlojamientoButton></RegisterAlojamientoButton>
             </Box>
         </Grid>
