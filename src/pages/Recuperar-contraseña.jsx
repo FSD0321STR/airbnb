@@ -5,7 +5,7 @@ import register from "../utils/apiRegister";
 import NavBar from "../components/NavBar/NavBar";
 import PasswordRecover from "../components/Recuperar-Contraseña/Password-Recover";
 import { recoveryUserPassword } from "../utils/apiTest";
-
+import imgHome from "../../images/home/imagen-home-2.jpg";
 
 function RecuperarContraseña() {
   const history = useHistory();
@@ -32,8 +32,8 @@ function RecuperarContraseña() {
             <NavBar />
         </Box>
       <hr />
-      <Box p="55" bgImage="url('./images/imagen-home.jpg')"/> 
-        <Grid gap={4} marginTop="5%" marginBlockEnd="5%"> 
+      <Box p="15" /> 
+        <Grid gap={4} marginTop="5%" marginBlockEnd="5%" bgImage={imgHome}> 
         <PasswordRecover onSubmit={PasswordRecovering} />
       </Grid>
         

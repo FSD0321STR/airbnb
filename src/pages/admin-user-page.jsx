@@ -66,47 +66,48 @@ function DeleteUserPage() {
     return (
         <ChakraProvider>
           <NavBar />
-          
-          <Table size="sm">
-            <Thead>
-                <Tr>
-                <Th>Nombre y apellidos</Th>
-                <Th>Email</Th>
-                <Th>Rol</Th>
-                <Th>Editar</Th>
-                <Th>Eliminar</Th>
-                </Tr>
-            </Thead>
-            <Tbody>
+          <Box marginLeft= "8rem" marginRight= "50" marginTop= "5rem" marginBottom= "10">
+            <Table size="sm"  >
+              <Thead>
+                  <Tr>
+                  <Th>Nombre y apellidos</Th>
+                  <Th>Email</Th>
+                  <Th>Rol</Th>
+                  <Th>Editar</Th>
+                  <Th>Eliminar</Th>
+                  </Tr>
+              </Thead>
+              <Tbody>
 
-                
-                {users.users.map((user) => (
-                    <Tr key={user._id}>
-              <Td>{`${user.name} ${user.lastName}`}</Td>
-                <Td>{user.email}</Td>
-                <Td >{user.rol}</Td>
-                <Td >
-                <Button py={4} onClick={() => editUsers(user._id)} colorScheme="teal" size="xs">
-                  <Icon as={MdModeEdit} w={4} h={4} />
-                </Button>
-                </Td>
-                <Td >
-                {/* <Button onClick={() => deleteUser(user._id)} colorScheme="red" size="xs">
-                
-                </Button> */}
-                <Button py={4} onClick={() => { if (window.confirm('¿Estás seguro de eliminar el usuario?')) deleteUser(user._id) } } colorScheme="red" size="xs">
-                  <Icon as={MdDeleteForever} w={4} h={4} />
-                </Button>
-                
-                </Td>
-              </Tr>
-            ))}
-                    
-                
-                
-            </Tbody>
-            
+                  
+                  {users.users.map((user) => (
+                      <Tr key={user._id}>
+                <Td>{`${user.name} ${user.lastName}`}</Td>
+                  <Td>{user.email}</Td>
+                  <Td >{user.rol}</Td>
+                  <Td >
+                  <Button py={4} onClick={() => editUsers(user._id)} colorScheme="teal" size="xs">
+                    <Icon as={MdModeEdit} w={4} h={4} />
+                  </Button>
+                  </Td>
+                  <Td >
+                  {/* <Button onClick={() => deleteUser(user._id)} colorScheme="red" size="xs">
+                  
+                  </Button> */}
+                  <Button py={4} onClick={() => { if (window.confirm('¿Estás seguro de eliminar el usuario?')) deleteUser(user._id) } } colorScheme="red" size="xs">
+                    <Icon as={MdDeleteForever} w={4} h={4} />
+                  </Button>
+                  
+                  </Td>
+                </Tr>
+              ))}
+                      
+                  
+                  
+              </Tbody>
+              
             </Table>
+          </Box>
         </ChakraProvider>
     )
 }

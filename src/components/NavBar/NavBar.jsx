@@ -4,7 +4,8 @@ import { Flex, Box, Spacer, Menu, Image, MenuButton, MenuList, MenuItem, Button,
 import { ChevronDownIcon, SearchIcon, HamburgerIcon } from '@chakra-ui/icons';
 import useLocalStorageString from "../hooks/useLocalStorageString";
 import useLocalStorageArray from "../hooks/useLocalStorageArray";
-import logoApp from "../images/airbnb-logo.png";
+import logoApp from "../../../images/logo airbnb/airbnb-logo.png";
+
   
   function NavBar({onSubmit}) {
     const [token,setToken] = useLocalStorageString("token", "");
@@ -45,26 +46,20 @@ import logoApp from "../images/airbnb-logo.png";
         const token = localStorage.getItem("token");
         const rol = JSON.parse(localStorage.getItem("rol"));
         const urlId = localStorage.getItem("userId");
-        //aaa();
-        //console.log(urlId);
+      
         if(urlId===null || urlId==="") {
             
         } else {
             setUserIdAlojamientos(JSON.parse(urlId).id);
         }
-        //setToken(token);
-
-        //const userRol = JSON.parse(rol);
-        //setRol(rol.rol);
-        //console.log(rol.rol);
+    
     }, [token]);
 
-    //console.log(rol);
       
     return (
         <Flex paddingTop="1%" paddingLeft="1%" paddingRight="1%" paddingBottom="1%">
             <Box p={2}>
-                <Image w={40} h={12} src={logoApp}/> 
+                <Link to="/"><Image w={40} h={12} src={logoApp}/></Link>
             </Box>
             <Spacer />
             <Box p={2}>

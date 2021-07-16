@@ -6,10 +6,11 @@ function NumberGuestsAlojamientoInput({value,onChange,validation}) {
         
         <FormControl id="numberGuests" p={2}>
             <FormLabel fontSize="sm" m={1}>Número de Huéspedes</FormLabel>
-            <Input name="numberGuests" value={value} onChange={onChange} type="number" placeholder="Numero-huespedes" size="sm" colorScheme="blue"/>
+            <Input max={10} min={2} name="numberGuests" value={value} onChange={onChange} type="number" placeholder="Número de huéspedes" size="sm" colorScheme="blue" bg="Azure"/>
             { !validation ? "" : <FormHelperText fontSize="xs" color="red" mx={1}>Escriba el número de huéspedes</FormHelperText> }
         </FormControl>
     )
 }
 
 export default NumberGuestsAlojamientoInput;
+

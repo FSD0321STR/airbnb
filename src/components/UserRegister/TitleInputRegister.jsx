@@ -4,8 +4,8 @@ import { Box } from "@chakra-ui/react"
 
 function TitleInputRegister () {
     return (
-      <Box bg="royalblue" w="100%" p={4} color="white" borderRadius="lg" fontWeight="semibold" letterSpacing="wide" fontSize="lg">
-          Registrar Nuevo Usuario
+      <Box  w="100%" p={4} color="AliceBlue"  fontWeight="semibold" letterSpacing="wide" fontSize="xl">
+          <h1>Registrar Nuevo Usuario </h1>
         </Box>
     );
 }
