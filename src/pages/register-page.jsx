@@ -36,9 +36,8 @@ function RegisterPage() {
           <NavBar />
         </Box>
         <Grid  position="center" bgRepeat="no-repeat" bgSize="100%" bgImage={imgHome}>
-
-              <RegisterForm error={registerError} onSubmit={registerUser}></RegisterForm>
-            </Grid>
+          <RegisterForm error={registerError} onSubmit={registerUser}></RegisterForm>
+        </Grid>
         </ChakraProvider>
       </div>
     )

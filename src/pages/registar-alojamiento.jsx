@@ -31,7 +31,7 @@ function RegisterAlojamientoPage() {
       <div>
         <ChakraProvider>
           <NavBar />
-            <Grid marginTop="3%" position="center" bgRepeat="no-repeat" bgSize="200%" bgImage={imgHome}>
+            <Grid marginTop="3%" position="center" bgRepeat="no-repeat" bgSize="100%" bgImage={imgHome}>
               <RegisterFormAlojamiento error={registerError} onSubmit={registerAlojamientoUser}></RegisterFormAlojamiento>
             </Grid>
         </ChakraProvider>

@@ -167,9 +167,13 @@ function EditUserForm({onSubmit, error}) {
     <form onSubmit={editProfile}>
         
         <p>{error}</p>
-        <Grid templateColumns="repeat(3, 1fr)" gap={4}  marginTop="2rem" marginLeft= "3rem" >
-            <Grid marginLeft= "15rem" marginRight="4rem"  marginTop="5rem">   
-                <img src={image} width="200" />
+        <Grid marginTop="5rem" marginLeft= "8rem">
+            <TitleInputEditUser></TitleInputEditUser>
+        </Grid>
+        <Grid templateColumns="repeat(3, 1fr)" gap={4}  marginLeft= "3rem" >
+
+            <Grid marginLeft= "10rem" marginRight="4rem"  marginTop="5rem">   
+                <img src={image} width="150" />
                 <input type="file" name="image" id="image" />
             </Grid>
             <Grid  marginRight="12rem" marginTop="5rem">
@@ -183,10 +187,10 @@ function EditUserForm({onSubmit, error}) {
                 <RepeatPasswordInput value={repitePassword} validation={repitePasswordErrorMessage} onChange={getRepitePassword}></RepeatPasswordInput>
             </Grid> 
             
-            <Grid templateColumns="repeat(1, 1fr)" gap={5} marginTop="10rem" marginBottom="5rem"   marginLeft= "13rem">
-                <Center w="200px" textAlign='center'>
+            <Grid templateColumns="repeat(1, 1fr)" gap={5} marginTop="8rem" marginBottom="5rem"   marginLeft= "5rem">
+                <Box m={3} gap={5} marginTop="5rem">
                     <EditUserButton></EditUserButton>
-                </Center>
+                </Box>
             </Grid>
         </Grid>
     </form>
