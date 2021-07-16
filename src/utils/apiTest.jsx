@@ -1,6 +1,7 @@
 import React from "react"
 
 const API_URL = 'http://localhost:8000';
+//const API_URL = 'https://nuclio-backend.herokuapp.com';
 
 async function registerUserApi(dataUser) {
     //console.log(image);
@@ -35,6 +36,18 @@ async function editUserApi(dataEditUser,userId) {
         //     'Content-Type': 'application/json',
         // },
         body: dataEditUser,
+    }).then(res => res = res.json())
+    .catch(error => console.log('Error:', error));
+}
+async function recoveryUserPassword(email, password) {
+    //console.log(password);
+    return await fetch(`${API_URL}/recovery-password`, {
+        method: 'PATCH',
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body:JSON.stringify({email, password}),
     }).then(res => res = res.json())
     .catch(error => console.log('Error:', error));
 }
@@ -261,6 +274,18 @@ async function getAlojamientosUserApi(alojamientoId) {
     .catch(error => console.log('Error:', error));
 }
 
+async function getAllAlojamientos() {
+    return await fetch(`${API_URL}/alojamientos`, {
+        method: 'GET',
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        //body: dataAlojamiento,
+    }).then(res => res = res.json())
+    .catch(error => console.log('Error:', error));
+}
+
 async function editAlojamientoApi(dataEditAlojamiento, alojamientoId) {
     //console.log(image);
     return await fetch(`${API_URL}/alojamiento/${alojamientoId}`, {
@@ -320,6 +345,11 @@ export {
     editAlojamientoApi,
     getAlojamientoApi,
     getAlojamientosUserApi,
+    getAllAlojamientos,
     deleteAlojamientoApi,
+<<<<<<< HEAD
     getUserApiPassword,
+=======
+    recoveryUserPassword,
+>>>>>>> 00670237a5828fca5ca2c7a9efc9695a1edb08a5
 } 

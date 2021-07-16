@@ -4,7 +4,7 @@ import { Box } from "@chakra-ui/react"
 
 function TitleRegisterAlojamiento () {
     return (
-      <Box bg="royalblue" w="100%" p={4} color="white" borderRadius="lg" fontWeight="semibold" letterSpacing="wide" fontSize="lg">
+      <Box w="100%" p={4} color="AliceBlue" fontWeight="semibold" letterSpacing="wide" fontSize="xl">
           Registrar Nuevo Alojamiento
         </Box>
     );
