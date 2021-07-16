@@ -292,7 +292,7 @@ async function getUserApiPassword(email, password) {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(password),
+        body: JSON.stringify({email, password}),
     }).then(res => res = res.json())
     .catch(error => console.log('Error:', error));}
 

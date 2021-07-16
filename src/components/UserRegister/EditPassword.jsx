@@ -43,7 +43,7 @@ function EditPassword({onSubmit}) {
 
     async function editPassword(event) {
         event.preventDefault();
-        const AAA = JSON.stringify(password);
+        console.log(email, password);
         const user = await getUserApiPassword(email, password);
             //onSubmit( {password: password}
         
