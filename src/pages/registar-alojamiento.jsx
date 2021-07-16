@@ -4,6 +4,7 @@ import { ChakraProvider, Grid} from "@chakra-ui/react";
 import RegisterFormAlojamiento from '../components/AlojamientoRegister/RegisterFormAlojamiento';
 import NavBar from "../components/NavBar/NavBar";
 import {registerAlojamientoApi} from "../utils/apiTest";
+import imgHome from "../../images/home/imagen-home-2.jpg";
 
 function RegisterAlojamientoPage() {
 
@@ -30,7 +31,7 @@ function RegisterAlojamientoPage() {
       <div>
         <ChakraProvider>
           <NavBar />
-            <Grid marginTop="3%" position="center" bgRepeat="no-repeat" bgSize="200%" bgImage="url('./images/imagen-home.jpg')">
+            <Grid marginTop="3%" position="center" bgRepeat="no-repeat" bgSize="200%" bgImage={imgHome}>
               <RegisterFormAlojamiento error={registerError} onSubmit={registerAlojamientoUser}></RegisterFormAlojamiento>
             </Grid>
         </ChakraProvider>

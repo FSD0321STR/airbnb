@@ -4,6 +4,7 @@ import { ChakraProvider, Grid} from "@chakra-ui/react";
 import EditFormAlojamiento from '../components/AlojamientoRegister/EditFormAlojamiento';
 import NavBar from "../components/NavBar/NavBar";
 import {editAlojamientoApi} from "../utils/apiTest";
+import imgHome from "../../images/home/imagen-home-2.jpg";
 
 function EditAlojamientoPage(urlData) {
 
@@ -34,7 +35,8 @@ function EditAlojamientoPage(urlData) {
       <div>
         <ChakraProvider>
           <NavBar />
-            <Grid marginTop="3%" position="center" bgRepeat="no-repeat" bgSize="200%" bgImage="url('./images/imagen-home.jpg')">
+
+            <Grid marginTop="3%" position="center" bgRepeat="no-repeat" bgSize="100%" bgImage={imgHome}>
               <EditFormAlojamiento alojamientoId={alojamientoId} onSubmit={editAlojamientoUser}></EditFormAlojamiento>
             </Grid>
         </ChakraProvider>

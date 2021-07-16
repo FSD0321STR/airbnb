@@ -5,6 +5,7 @@ import register from "../utils/apiRegister";
 import NavBar from "../components/NavBar/NavBar";
 import LogInForm from "../components/Log-In/Log-InForm";
 import { loginUserApi } from "../utils/apiTest";
+import imgHome from "../../images/home/imagen-home-2.jpg";
 
 function LogInPage({ email, password }) {
   const history = useHistory();
@@ -34,7 +35,7 @@ function LogInPage({ email, password }) {
                 <NavBar />
             </Box>
           <hr />
-          <Box p="55" bgImage="url('./images/imagen-home.jpg')"/> 
+          <Box p="55" bgImage={imgHome}> 
             <Grid gap={4} marginTop="5%" marginBlockEnd="5%"> 
             <LogInForm error={loginError} onSubmit={LogInUser} ></LogInForm>
           </Grid>
