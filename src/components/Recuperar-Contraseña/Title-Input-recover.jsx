@@ -3,8 +3,8 @@ import { Box } from "@chakra-ui/react"
   
 function TitleInputPasswordRecover () {
     return (
-        <Box borderRadius="lg" fontWeight="semibold" letterSpacing="wide" fontSize="lg">
-          Recuperar Contraseña
+      <Box  w="100%" p={4} color="AliceBlue"  fontWeight="semibold" letterSpacing="wide" fontSize="xl">
+      <h1>Recuperar Contraseña</h1>
         </Box>
     );
 }

@@ -36,8 +36,8 @@ function LogInPage({ email, password }) {
                 <NavBar />
             </Box>
           <hr />
-          <Box p="55" bgImage={imgHome}/> 
-            <Grid gap={4} marginTop="5%" marginBlockEnd="5%"> 
+          <Box p="15" /> 
+            <Grid gap={4}  marginBlockEnd="5%" bgImage={imgHome}> 
             <LogInForm error={loginError} onSubmit={LogInUser} ></LogInForm>
           </Grid>
               

@@ -52,10 +52,8 @@ function AlojamientosPublicPage() {
             <Box position="fixed" width="100%" backgroundColor="#fff">
                 <NavBar />
             </Box>
-          <hr />
-            
-          
-
+          <hr/>
+        
             <Box p="390" bgImage={imgHome} bgRepeat="no-repeat"/> 
             <Grid templateColumns="repeat(4, 1fr)" gap={4} marginTop="5%" marginLeft="10%" marginRight="8%" marginBlockEnd="5%">   
 
