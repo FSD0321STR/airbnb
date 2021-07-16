@@ -1,7 +1,7 @@
 import React from "react"
 
-const API_URL = 'http://localhost:8000';
-//const API_URL = 'https://nuclio-backend.herokuapp.com';
+//const API_URL = 'http://localhost:8000';
+const API_URL = 'https://nuclio-backend.herokuapp.com';
 
 async function registerUserApi(dataUser) {
     //console.log(image);
