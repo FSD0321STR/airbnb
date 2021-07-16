@@ -4,7 +4,7 @@ import { Flex, Box, Spacer, Menu, Image, MenuButton, MenuList, MenuItem, Button,
 import { ChevronDownIcon, SearchIcon, HamburgerIcon } from '@chakra-ui/icons';
 import useLocalStorageString from "../hooks/useLocalStorageString";
 import useLocalStorageArray from "../hooks/useLocalStorageArray";
-import logoApp from "../images/airbnb-logo.png";
+import logoApp from "../../../images/logo airbnb/airbnb-logo.png";
 
   
   function NavBar() {

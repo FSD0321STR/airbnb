@@ -238,7 +238,7 @@ function RegisterFormAlojamiento({onSubmit}) {
                 <TitleRegisterAlojamiento />
             </Center>
         </Grid>
-        <Grid templateColumns="repeat(2, 1fr)" gap={4} marginTop="5rem" marginLeft= "3rem" marginRight="3rem">
+        <Grid templateColumns="repeat(2, 100fr)" gap={10} marginTop="5rem" marginLeft= "25rem" marginRight="25rem">
             <NameAlojamientoInput pos="right" value={name} validation={nameErrorMessage}  onChange={getName}></NameAlojamientoInput>
             <EmailAlojamientoInput value={email} validation={emailErrorMessage} onChange={getEmail}></EmailAlojamientoInput>
             <PhoneAlojamientoInput value={phone} validation={phoneErrorMessage} onChange={getPhone}></PhoneAlojamientoInput>

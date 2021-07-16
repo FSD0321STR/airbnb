@@ -126,22 +126,29 @@ function RegisterForm({onSubmit, error}) {
     <form onSubmit={registerUser} method="POST" encType="multipart/form-data">
         
         <p>{error}</p>
-        <Grid m={1} templateColumns="repeat(2, 1fr)" gap={2}>
-            <NameInput pos="right" value={name} validation={nameErrorMessage} onChange={getName}></NameInput>
-            <LastNameInput pos="left" value={lastName} validation={lastNameErrorMessage} onChange={getLastName}></LastNameInput>
+        <Grid templateColumns="repeat(3, 1fr)" gap={4}  marginTop="2rem" marginLeft= "3rem" >
+        <Grid marginLeft= "15rem" marginRight="4rem"  marginTop="5rem">
+            <Box m={2} marginTop="1rem">
+                <input type="file" name="image" id="image" />
+            </Box> 
+        </Grid>
+        <Grid  marginRight="12rem" marginTop="5rem">
+            <NameInput value={name} validation={nameErrorMessage} onChange={getName}></NameInput>
+            <LastNameInput value={lastName} validation={lastNameErrorMessage} onChange={getLastName}></LastNameInput>
             <EmailInput value={email} validation={emailErrorMessage} onChange={getEmail}></EmailInput>
+        </Grid>   
+        <Grid marginLeft= "-8rem"   marginRight="20rem"  marginTop="5rem"> 
             <PhoneInput value={phone} validation={phoneErrorMessage} onChange={getPhone}></PhoneInput>
             <PasswordInput value={password} validation={passwordErrorMessage} onChange={getPassword}></PasswordInput>
             <RepeatPasswordInput value={repitePassword} validation={repitePasswordErrorMessage} onChange={getRepitePassword}></RepeatPasswordInput>
-            <Box m={2} marginTop="1rem">
-            <input type="file" name="image" id="image" />
+        </Grid>    
+            
+        </Grid>
+        <Grid templateColumns="repeat(1, 1fr)" gap={5} marginTop="10rem" marginBottom="5rem"   marginLeft= "13rem">
+            <Box m={3} gap={5} marginTop="5rem">
+                <RegisterUserButton></RegisterUserButton>
             </Box>
         </Grid>
-        <Box m={3} gap={5} marginTop="5rem">
-            
-                <RegisterUserButton></RegisterUserButton>
-            
-        </Box>
     </form>
     )
 }

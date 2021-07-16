@@ -41,7 +41,7 @@ function App({ Component }) {
     <HashRouter>
       <AuthContext.Provider value={userMail}>
         <div>
-        <ChakraProvider>
+        <ChakraProvider >
         
           <Switch>
             <Route exact path="/user-register">
