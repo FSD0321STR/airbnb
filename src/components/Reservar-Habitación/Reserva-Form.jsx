@@ -7,6 +7,10 @@ import { Flex, Center, Grid, Input, Textarea, Text, Modal,
     ModalFooter,
     ModalBody,
     ModalCloseButton, } from "@chakra-ui/react";
+    import {
+        RangeDatePicker,
+      } from "react-google-flight-datepicker";
+      import "react-google-flight-datepicker/dist/main.css";
 
 export default function ContactUs() {
 
@@ -36,7 +40,10 @@ export default function ContactUs() {
                             <Input type="text" className="form-control" border="solid" placeholder="Subject" name="subject"/>
                         </Center>
                         <Center w="500px" textAlign='center'>
-                            <Input className="form-control" id="" cols="30" rows="8" border="solid" placeholder="¿Qué días viajarás?" name="date"></Input>
+                        <RangeDatePicker name="date" />
+                        </Center>
+                        <Center w="500px" textAlign='center'>
+                        <Input type="text" className="form-control" border="solid" placeholder="¿Qué días viajaras?" name="date"/>
                         </Center>
                         <Center w="500px" textAlign='center'>
                             <Textarea className="form-control" id="" cols="30" rows="8" border="solid" placeholder="Your message" name="message"></Textarea>
@@ -49,30 +56,3 @@ export default function ContactUs() {
         </Flex>
     )
 }
-
-function BasicUsage() {
-    const { isOpen, onOpen, onClose } = useDisclosure()
-    return (
-      <>
-        <Button onClick={onOpen}>Open Modal</Button>
-  
-        <Modal isOpen={isOpen} onClose={onClose}>
-          <ModalOverlay />
-          <ModalContent>
-            <ModalHeader>Modal Title</ModalHeader>
-            <ModalCloseButton />
-            <ModalBody>
-              <Lorem count={2} />
-            </ModalBody>
-  
-            <ModalFooter>
-              <Button colorScheme="blue" mr={3} onClick={onClose}>
-                Close
-              </Button>
-              <Button variant="ghost">Secondary Action</Button>
-            </ModalFooter>
-          </ModalContent>
-        </Modal>
-      </>
-    )
-  }
