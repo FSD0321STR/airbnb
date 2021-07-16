@@ -33,13 +33,13 @@ function FooterSimple() {
                   <Text>© 2021 Airbnb</Text><Spacer/> <Text>·Privacidad</Text><Text>·Condiciones</Text><Text>·Mapa del sitio</Text><Text>·Datos de la empresa</Text>
                   <Spacer/>
                   <Stack direction={'row'} spacing={6}>
-                    <SocialButton label={'Twitter'} href={'#'}>
+                    <SocialButton label={'Twitter'} href={'https://twitter.com/airbnb_es'} >
                       <FaTwitter />
                     </SocialButton>
-                    <SocialButton label={'YouTube'} href={'#'}>
+                    <SocialButton label={'YouTube'} href={'https://www.youtube.com/channel/UCCww-R0oM_CQWXerBcNyKKw'}>
                       <FaYoutube />
                     </SocialButton>
-                    <SocialButton label={'Instagram'} href={'#'}>
+                    <SocialButton label={'Instagram'} href={'https://www.instagram.com/airbnb/'}>
                       <FaInstagram />
                     </SocialButton>
                   </Stack>
