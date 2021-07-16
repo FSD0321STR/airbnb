@@ -347,9 +347,5 @@ export {
     getAlojamientosUserApi,
     getAllAlojamientos,
     deleteAlojamientoApi,
-<<<<<<< HEAD
     getUserApiPassword,
-=======
-    recoveryUserPassword,
->>>>>>> 00670237a5828fca5ca2c7a9efc9695a1edb08a5
 } 
