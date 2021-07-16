@@ -1,27 +1,43 @@
 import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { Flex, Box, Spacer, Menu, Image, MenuButton, MenuList, MenuItem, Button, InputGroup, InputLeftElement, Input } from "@chakra-ui/react";
+import { Flex, Box, Spacer, Menu, Image, MenuButton, MenuList, MenuItem, Button, InputGroup, InputLeftElement, InputRightElement, Input } from "@chakra-ui/react";
 import { ChevronDownIcon, SearchIcon, HamburgerIcon } from '@chakra-ui/icons';
 import useLocalStorageString from "../hooks/useLocalStorageString";
 import useLocalStorageArray from "../hooks/useLocalStorageArray";
+import logoApp from "../../../images/logo airbnb/airbnb-logo.png";
+
   
-  function NavBar() {
+  function NavBar({onSubmit}) {
     const [token,setToken] = useLocalStorageString("token", "");
     const [userId,setUserId] = useLocalStorageString("userId", "aa");
     const [rol,setRol] = useLocalStorageArray("rol", "");
-    const [userIdAlojamientos,setUserIdAlojamientos] = useState("")
+    const [userIdAlojamientos,setUserIdAlojamientos] = useState("");
+    const [searchText,setSearchText] = useState("");
     const history = useHistory();
 
-   
+   function search(event) {
+        event.preventDefault();
+        console.log('aaa');
+   }
+
+   function getSearchText(e) {
+    const actualSearchText = e.target.value;
+    setSearchText(actualSearchText);
+}
+
+   function aaa(event) {
+    event.preventDefault();
+    onSubmit( { text: searchText }
+    );
+    setSearchText("");
+   }
     
     function cerrarSession() {
         localStorage.removeItem("token");
         localStorage.removeItem("userId");
         localStorage.removeItem("rol");
         setToken("");
-        //setUserId("");
-        //setRol("");
-        history.push("/");
+        history.push("/")
     }
 
     //console.log(token);
@@ -30,36 +46,35 @@ import useLocalStorageArray from "../hooks/useLocalStorageArray";
         const token = localStorage.getItem("token");
         const rol = JSON.parse(localStorage.getItem("rol"));
         const urlId = localStorage.getItem("userId");
-        
-        //console.log(urlId);
+      
         if(urlId===null || urlId==="") {
             
         } else {
             setUserIdAlojamientos(JSON.parse(urlId).id);
         }
-        //setToken(token);
-
-        //const userRol = JSON.parse(rol);
-        //setRol(rol.rol);
-        //console.log(rol.rol);
+    
     }, [token]);
 
-    //console.log(rol);
       
     return (
         <Flex paddingTop="1%" paddingLeft="1%" paddingRight="1%" paddingBottom="1%">
             <Box p={2}>
-                <Image w={40} h={12} src="./images/airbnb-logo.png"/> 
+                <Link to="/"><Image w={40} h={12} src={logoApp}/></Link>
             </Box>
             <Spacer />
             <Box p={2}>
+            <form onSubmit={aaa}>
             <InputGroup>
+            
                 <InputLeftElement
-                pointerEvents="none"
-                children={<SearchIcon color="gray.500" />}
+                
+                children={<Button type="submit"><SearchIcon color="gray.500" /></Button>}
                 />
-                <Input type="text" placeholder="busca un alojamiento" />
+                <Input type="text" name="search" value={searchText} onChange={getSearchText} placeholder="busca un alojamiento" />
+                
+               
             </InputGroup>
+            </form>
             </Box>
             <Box p={2}>
                 { token ? <Button onClick={cerrarSession} mr={2} colorScheme="blue">Cerrar Sesión</Button> : "" }

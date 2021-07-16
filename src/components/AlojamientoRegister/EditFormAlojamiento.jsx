@@ -7,7 +7,7 @@ import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
 import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css';
 import {getAlojamientoApi} from "../../utils/apiTest";
 
-import TitleRegisterAlojamiento from "./TitleRegisterAlojamiento"
+import TitleEditAlojamiento from "./TitleEditAlojamiento"
 import NameAlojamientoInput from "./NameAlojamientoInput";
 import EmailAlojamientoInput from "./EmailAlojamientoInput"; 
 import PhoneAlojamientoInput from "./PhoneAlojamientoInput";
@@ -19,7 +19,7 @@ import TypeAlojamientoChecklist from "./TypeAlojamientoChecklist";
 import NumberGuestsAlojamientoInput from "./NumberGuestsAlojamientoInput";
 import ServisesAlojamientoChecklist from "./ServisesAlojamientoChecklist";
 import DescriptionAlojamientoInput from "./DescriptionAlojamientoInput";
-import RegisterAlojamientoButton from "./RegisterAlojamientoButton";
+import EditAlojamientoButton from "./EditAlojamientoButton";
 import PrecioAlojamientoInput from "./PrecioAlojamientoInput";
 
 import { emailValidation, precioValidation, phoneValidation, textValidation } from "../../utils/formValidation";
@@ -283,24 +283,12 @@ function EditFormAlojamiento({onSubmit, alojamientoId}) {
 
     return (
     <form onSubmit={editAlojamientoUser}>
-        <Grid templateColumns="repeat(1, 1fr)" gap={10} marginTop="5rem" marginLeft= "5rem" >
-            <Center w="50%" textAlign='center'>
-                <TitleRegisterAlojamiento />
-            </Center>
+        <Grid marginTop="5rem" marginLeft= "53rem">
+            <TitleEditAlojamiento></TitleEditAlojamiento>
         </Grid>
-        <Grid templateColumns="repeat(2, 1fr)" gap={4} marginTop="5rem" marginLeft= "3rem" marginRight="3rem">
-        <NameAlojamientoInput pos="right" value={name} validation={nameErrorMessage}  onChange={getName}></NameAlojamientoInput>
-            <EmailAlojamientoInput value={email} validation={emailErrorMessage} onChange={getEmail}></EmailAlojamientoInput>
-            <PhoneAlojamientoInput value={phone} validation={phoneErrorMessage} onChange={getPhone}></PhoneAlojamientoInput>
-            <AddressAlojamientoInput pos="left" value={address} validation={addressErrorMessage} onChange={getAdress}></AddressAlojamientoInput>
-            <LocationAlojamientoInput value={location} validation={locationErrorMessage} onChange={getLocation}></LocationAlojamientoInput>
-            <StateAlojamientoInput value={state} validation={stateErrorMessage} onChange={getState}></StateAlojamientoInput>
-            <CountryAlojamientoInput pos="right" value={country} validation={countryErrorMessage} onChange={getCountry}></CountryAlojamientoInput>
-            <TypeAlojamientoChecklist value={type} validation={typeErrorMessage} onChange={getType}></TypeAlojamientoChecklist>
-            <NumberGuestsAlojamientoInput value={numberGuests} validation={numberGuestsErrorMessage} onChange={getNumberGuests}></NumberGuestsAlojamientoInput>
-            <ServisesAlojamientoChecklist pos="left" value={services} validation={servicesErrorMessage} onChange={getServises}></ServisesAlojamientoChecklist>
-            <DescriptionAlojamientoInput value={description} validation={descripcionErrorMessage} onChange={getDescription}></DescriptionAlojamientoInput>
-            <PrecioAlojamientoInput value={precio} validation={precioErrorMessage} onChange={getPrecio}></PrecioAlojamientoInput>
+    
+        <Grid templateColumns="repeat(3, 1fr)" gap={4}  marginLeft= "3rem">
+        <Grid  marginLeft= "10rem" marginRight="6rem">
             <img src={files} width="200" />
             <input type="file" name="files" id="files" />
 
@@ -315,11 +303,29 @@ function EditFormAlojamiento({onSubmit, alojamientoId}) {
                 />
             </Box> */}
         </Grid>
-        <Grid templateColumns="repeat(1, 1fr)" gap={5} marginTop="5rem" marginLeft= "42.5rem">
-            <Center w="500px" textAlign='center' marginBottom="5rem">
-                <RegisterAlojamientoButton></RegisterAlojamientoButton>
-            </Center>
+        <Grid marginRight="10rem" marginTop="5rem">
+            <NameAlojamientoInput pos="right" value={name} validation={nameErrorMessage}  onChange={getName}></NameAlojamientoInput>
+            <EmailAlojamientoInput value={email} validation={emailErrorMessage} onChange={getEmail}></EmailAlojamientoInput>
+            <PhoneAlojamientoInput value={phone} validation={phoneErrorMessage} onChange={getPhone}></PhoneAlojamientoInput>
+            <AddressAlojamientoInput pos="left" value={address} validation={addressErrorMessage} onChange={getAdress}></AddressAlojamientoInput>
+            <LocationAlojamientoInput value={location} validation={locationErrorMessage} onChange={getLocation}></LocationAlojamientoInput>
+            <StateAlojamientoInput value={state} validation={stateErrorMessage} onChange={getState}></StateAlojamientoInput>
         </Grid>
+        <Grid marginLeft= "-6rem"   marginRight="15rem"  marginTop="5rem">
+            <CountryAlojamientoInput pos="right" value={country} validation={countryErrorMessage} onChange={getCountry}></CountryAlojamientoInput>
+            <TypeAlojamientoChecklist value={type} validation={typeErrorMessage} onChange={getType}></TypeAlojamientoChecklist>
+            <NumberGuestsAlojamientoInput value={numberGuests} validation={numberGuestsErrorMessage} onChange={getNumberGuests}></NumberGuestsAlojamientoInput>
+            <ServisesAlojamientoChecklist pos="left" value={services} validation={servicesErrorMessage} onChange={getServises}></ServisesAlojamientoChecklist>
+            <DescriptionAlojamientoInput value={description} validation={descripcionErrorMessage} onChange={getDescription}></DescriptionAlojamientoInput>
+            <PrecioAlojamientoInput value={precio} validation={precioErrorMessage} onChange={getPrecio}></PrecioAlojamientoInput>
+        </Grid>
+
+    </Grid>
+    <Grid templateColumns="repeat(1, 1fr)" gap={5} marginTop="2rem" marginLeft= "55rem" marginBottom="2rem">
+        <Box m={3} gap={5} marginTop="2rem">
+            <EditAlojamientoButton></EditAlojamientoButton>
+        </Box>
+    </Grid>
     </form>
     )
 }

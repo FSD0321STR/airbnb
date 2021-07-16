@@ -1,6 +1,6 @@
 import emailjs from "emailjs-com";
 import React from 'react';
-import { Flex, Center, Grid, Input, Textarea, Text, Modal,
+import { Flex, Center, Grid, Input, Textarea, Box, Modal,
     ModalOverlay,
     ModalContent,
     ModalHeader,

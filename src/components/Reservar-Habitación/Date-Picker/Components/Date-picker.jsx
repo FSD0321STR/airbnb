@@ -8,11 +8,15 @@ import "./styles.css";
 
 export default function App() {
   return (
-    <div className="App">
+    <div className="App" >
       <RangeDatePicker
         startDate={new Date(2020, 0, 15)}
         endDate={new Date(2020, 1, 1)}
       />
       </div>
   );
+<<<<<<< HEAD
 }
+=======
+  }
+>>>>>>> develop
