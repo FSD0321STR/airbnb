@@ -61,46 +61,51 @@ function AlojamientosAnfitrionPage(urlData) {
     
     return (
         <ChakraProvider>
-            <NavBar />
+            <Box position="fixed" width="100%" backgroundColor="#fff">
+                <NavBar />
+            </Box>
+            <hr/>
             <Grid marginTop="1%" position="center" bgRepeat="no-repeat" bgSize="100%" bgImage={imgHome}>
-            <Grid templateColumns="repeat(3, 1fr)" gap={1}    >
+              <Grid templateColumns="repeat(4, 1fr)" gap={4} marginTop="5%" marginLeft="10%" marginRight="8%" marginBlockEnd="5%">
 
-            {alojamientos.alojamientos.map((alojamiento) => (
+              {alojamientos.alojamientos.map((alojamiento) => (
+                  
+                  alojamientoImageObject = alojamiento.files[0].img,
+                  alojamientoImageDataBuffer = Buffer.from(alojamientoImageObject.data).toString("base64"),
+                  imageDataConvertBase64 = `data:${alojamientoImageObject.contentType};base64,` + alojamientoImageDataBuffer,
+                  
                 
-                alojamientoImageObject = alojamiento.files[0].img,
-                alojamientoImageDataBuffer = Buffer.from(alojamientoImageObject.data).toString("base64"),
-                imageDataConvertBase64 = `data:${alojamientoImageObject.contentType};base64,` + alojamientoImageDataBuffer,
-                
-                
-                <Box key={alojamiento._id} p="5" maxW="320px" borderWidth="1px">
-                <Image borderRadius="md" src={imageDataConvertBase64} />
-                <Flex align="baseline" mt={2}>
-                    <Text
+                  <Box key={alojamiento._id} p="5" maxW="320px" borderWidth="1px" bg="Azure" >
+                  <Image borderRadius="md" src={imageDataConvertBase64} bg="Snow" />
+                  <Flex align="baseline" mt={2} >
+                      <Text
+                      ml={2}
+                      textTransform="uppercase"
+                      fontSize="sm"
+                      fontWeight="bold"
+                      color="pink.800"
+                      >
+                      {alojamiento.location} &bull; {alojamiento.state}
+                      </Text>
+                  </Flex>
+                  <Text mt={2} fontSize="xl" fontWeight="semibold" lineHeight="short">
+                      {alojamiento.name}
+                  </Text>
+                  <Text mb={1} mt={2} >€{alojamiento.precio} / noche</Text>
+                  <hr />
+                  <Button mt={2} colorScheme="green" size="sm" onClick={() => editAlojamiento(alojamiento._id)}>
+                      Editar
+                  </Button>
+                  <Button ml={2} mt={2} colorScheme="red" size="sm" onClick={() => { if (window.confirm('¿Estás seguro de eliminar el alojamiento?')) deleteAlojamiento(alojamiento._id) } }>
+                      Eliminar
+                  </Button>
                     
-                    textTransform="uppercase"
-                    fontSize="sm"
-                    fontWeight="bold"
-                    color="pink.800"
-                    >
-                    {alojamiento.location} &bull; {alojamiento.state}
-                    </Text>
-                </Flex>
-                <Text mt={2} fontSize="xl" fontWeight="semibold" lineHeight="short">
-                    {alojamiento.name}
-                </Text>
-                <Text mb={1} mt={2}>€{alojamiento.precio} / noche</Text>
-                <hr />
-                <Button mt={2} colorScheme="green" size="sm" onClick={() => editAlojamiento(alojamiento._id)}>
-                    Editar
-                </Button>
-                <Button ml={2} mt={2} colorScheme="red" size="sm" onClick={() => { if (window.confirm('¿Estás seguro de eliminar el alojamiento?')) deleteAlojamiento(alojamiento._id) } }>
-                    Eliminar
-                </Button>
-                </Box>
-            )
-            )}
-
-            </Grid></Grid>
+                  </Box>
+                  ))
+            }
+                  
+              </Grid>
+              </Grid>  
         </ChakraProvider>
       );
 }
