@@ -67,10 +67,10 @@ import { emailValidation, passwordValidation } from "../../utils/formValidation"
       return (
       <Flex>
         <form onSubmit={PasswordRecovering}>
-          <Grid templateColumns="repeat(1, 1fr)" gap={10} marginTop="5rem" marginLeft= "2rem" marginBottom="15rem">
-            
+          <Grid templateColumns="repeat(1, 1fr)" gap={5} marginTop="5rem" marginLeft= "40rem" marginBottom="15rem">
+            <Center w="500px" textAlign='center'>
               <TitleInputPasswordRecover />
-            
+            </Center>
             <Center w="500px">
               <EmailPasswordRecover value={email} validation={emailErrorMessage} onChange={getEmail} />
             </Center>

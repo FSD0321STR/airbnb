@@ -32,7 +32,7 @@ function RecuperarContraseña() {
             <NavBar />
         </Box>
       <hr />
-      <Box p="55" /> 
+      <Box p="15" /> 
         <Grid gap={4} marginTop="5%" marginBlockEnd="5%" bgImage={imgHome}> 
         <PasswordRecover onSubmit={PasswordRecovering} />
       </Grid>
