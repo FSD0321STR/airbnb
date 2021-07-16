@@ -29,11 +29,9 @@ function EditUserPage() {
     return (
         <ChakraProvider>
           <NavBar />
- 
           <Grid marginTop="1%" position="center" bgRepeat="no-repeat" bgSize="100%" bgImage={imgHome}>
-             <EditUserForm error={registerError} onSubmit={editUser} marginBlockEnd="1%"></EditUserForm>
+             <EditUserForm error={registerError} onSubmit={editUser}></EditUserForm>
           </Grid>
-     
         </ChakraProvider>
     )
 }

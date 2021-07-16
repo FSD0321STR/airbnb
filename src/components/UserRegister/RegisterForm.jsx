@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Grid, Center, Box } from "@chakra-ui/react";
+import { Grid, Center, Text, Box, extendTheme } from "@chakra-ui/react";
 
 import NameInput from "./NameInput";
 import LastNameInput from "./LastNameInput";
@@ -12,6 +12,23 @@ import RegisterUserButton from "./RegisterUserButton"
 
 
 import { emailValidation, passwordValidation, phoneValidation, textValidation } from "../../utils/formValidation";
+
+const theme = extendTheme({
+    textStyles: {
+      h1: {
+        fontSize: ["48px", "72px"],
+        fontWeight: "bold",
+        lineHeight: "110%",
+        letterSpacing: "-2%",
+      },
+      h2: {
+        fontSize: ["36px", "48px"],
+        fontWeight: "semibold",
+        lineHeight: "110%",
+        letterSpacing: "-1%",
+      },
+    },
+  })
 
 function RegisterForm({onSubmit, error}) {
 
@@ -68,9 +85,6 @@ function RegisterForm({onSubmit, error}) {
     function registerUser(event) {
         event.preventDefault();
 
-        
-
-        //console.log(data.get("image"));
 
         const nameValidate = textValidation(name);
         const lastNameValidate = textValidation(lastName);
@@ -106,7 +120,6 @@ function RegisterForm({onSubmit, error}) {
 
             const input = document.getElementById('image');
             const image = input.files[0];
-            //console.log(image.file);
             const dataUser = new FormData();
             dataUser.append("image", image);
             dataUser.append("name",name);
@@ -126,7 +139,9 @@ function RegisterForm({onSubmit, error}) {
     <form onSubmit={registerUser} method="POST" encType="multipart/form-data">
         
         <p>{error}</p>
-        <Grid templateColumns="repeat(3, 1fr)" gap={4}  marginTop="2rem" marginLeft= "3rem" >
+        <Box textStyle="h1">Registro de nuevo usuario</Box> 
+        <Grid templateColumns="repeat(3, 1fr)" gap={4}  marginTop="5rem" marginLeft= "3rem" >
+        
         <Grid marginLeft= "15rem" marginRight="4rem"  marginTop="5rem">
             <Box m={2} marginTop="1rem">
                 <input type="file" name="image" id="image" />
@@ -144,7 +159,7 @@ function RegisterForm({onSubmit, error}) {
         </Grid>    
             
         </Grid>
-        <Grid templateColumns="repeat(1, 1fr)" gap={5} marginTop="10rem" marginBottom="5rem"   marginLeft= "13rem">
+        <Grid templateColumns="repeat(1, 1fr)" gap={5} marginTop="5rem" marginBottom="5rem"   marginLeft= "18rem">
             <Box m={3} gap={5} marginTop="5rem">
                 <RegisterUserButton></RegisterUserButton>
             </Box>

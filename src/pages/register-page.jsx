@@ -5,6 +5,7 @@ import RegisterForm from '../components/UserRegister/RegisterForm';
 import NavBar from "../components/NavBar/NavBar";
 import {registerUserApi} from "../utils/apiTest";
 import useLocalStorageString from "../components/hooks/useLocalStorageString";
+import imgHome from "../../images/home/imagen-home-2.jpg";
 
 function RegisterPage() {
   const history = useHistory();
@@ -32,11 +33,10 @@ function RegisterPage() {
       <div>
         <ChakraProvider>
         <Box position="fixed" width="100%" backgroundColor="#fff">
-                <NavBar />
-            </Box>
-          <hr />
-        <Box p="55" bgImage="url('./images/imagen-home.jpg')"/>
-        <Grid gap={4} marginTop="5%" marginBlockEnd="5%">
+          <NavBar />
+        </Box>
+        <Grid marginTop="1%" position="center" bgRepeat="no-repeat" bgSize="100%" bgImage={imgHome}>
+
               <RegisterForm error={registerError} onSubmit={registerUser}></RegisterForm>
             </Grid>
         </ChakraProvider>
